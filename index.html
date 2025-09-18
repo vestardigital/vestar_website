@@ -270,6 +270,38 @@
             margin-bottom: 1rem;
         }
         
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0077b5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+        
+        .linkedin-btn img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .linkedin-btn:hover {
+            background: #005885;
+            color: white;
+        }
+        
+        .section-separator {
+            width: 60%;
+            height: 1px;
+            background: #2a3441;
+            margin: 2rem auto;
+            border: none;
+        }
+        
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -410,7 +442,7 @@
                     </div>
                     
                     <div class="game-card">
-                        <div class="game-placeholder">🏰</div>
+                        <div class="game-placeholder"></div>
                         <h3>Castle Quest</h3>
                         <p>Build a kingdom, train armies, and win strategic battles in this upcoming 4X game.</p>
                         <p class="coming-soon">Coming Soon</p>
@@ -449,7 +481,7 @@
                     </div>
                     
                     <div class="game-card">
-                        <div class="game-placeholder">👗</div>
+                        <div class="game-placeholder"></div>
                         <h3>OOTD AI</h3>
                         <p>Smart outfit recommendations every morning.</p>
                         <p class="coming-soon">Coming Soon</p>
@@ -482,7 +514,16 @@
             
             <section id="contact">
                 <h2>Contact Us</h2>
-                <p style="text-align: center;">Ready to start your next gaming project? Get in touch with us and let's create something amazing together.</p>
+                <p style="text-align: center;">Ready to start your next project? Get in touch with us and let's create something amazing together.</p>
+                
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" class="linkedin-btn">
+                        <img src="images/linkedin.webp" alt="LinkedIn Logo">
+                        Connect with us on LinkedIn
+                    </a>
+                </div>
+                
+                <hr class="section-separator">
                 
                 <form class="contact-form" action="https://formspree.io/f/myzdqbpn" method="POST">
                     <!-- Honeypot field to reduce spam -->
