@@ -1,6 +1,6 @@
+google.com, pub-1892062074996626, DIRECT, f08c47fec0942fa0
 facebook.com, 1365247768057463, DIRECT, c3e20eee3f780d68
 google.com, pub-1892062074996626, DIRECT, f08c47fec0942fa0
-
 
 
 risecodes.com, 66bca72035bff70001caa46f, RESELLER
@@ -303,3 +303,5 @@ openx.com, 540393169, RESELLER, 6a698e2ec38604c6
 openx.com, 541017750, RESELLER, 6a698e2ec38604c6
 rhebus.works, 5000863388, RESELLER
 zetaglobal.net, 815, RESELLER
+
+google.com, pub-1892062074996626, DIRECT, f08c47fec0942fa0
