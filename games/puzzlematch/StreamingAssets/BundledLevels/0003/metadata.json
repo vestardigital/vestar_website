@@ -1,0 +1,173 @@
+{
+    "levelId": "0003",
+    "levelIndex": 2,
+    "version": "1.0",
+    "timestamp": 1759997638,
+    "mainImageAsset": {
+        "assetName": "0003.jpg",
+        "assetType": "image",
+        "firebaseStoragePath": "levels/0003/0003.jpg",
+        "localCachePath": "LevelCache/0003.jpg",
+        "fileSize": 205892,
+        "checksum": "",
+        "isRequired": true
+    },
+    "puzzleDataAsset": {
+        "assetName": "PuzzleData_0003.json",
+        "assetType": "data",
+        "firebaseStoragePath": "levels/0003/PuzzleData_0003.json",
+        "localCachePath": "LevelCache/PuzzleData_0003.json",
+        "fileSize": 1032,
+        "checksum": "",
+        "isRequired": true
+    },
+    "puzzlePieceAssets": [
+        {
+            "assetName": "puzzle_0_0.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_0_0.png",
+            "localCachePath": "LevelCache/puzzle_0_0.png",
+            "fileSize": 47341,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_0_1.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_0_1.png",
+            "localCachePath": "LevelCache/puzzle_0_1.png",
+            "fileSize": 65537,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_0_2.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_0_2.png",
+            "localCachePath": "LevelCache/puzzle_0_2.png",
+            "fileSize": 53076,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_0_3.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_0_3.png",
+            "localCachePath": "LevelCache/puzzle_0_3.png",
+            "fileSize": 23042,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_1_0.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_1_0.png",
+            "localCachePath": "LevelCache/puzzle_1_0.png",
+            "fileSize": 53740,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_1_1.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_1_1.png",
+            "localCachePath": "LevelCache/puzzle_1_1.png",
+            "fileSize": 67977,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_1_2.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_1_2.png",
+            "localCachePath": "LevelCache/puzzle_1_2.png",
+            "fileSize": 83712,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_1_3.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_1_3.png",
+            "localCachePath": "LevelCache/puzzle_1_3.png",
+            "fileSize": 42437,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_2_0.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_2_0.png",
+            "localCachePath": "LevelCache/puzzle_2_0.png",
+            "fileSize": 51209,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_2_1.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_2_1.png",
+            "localCachePath": "LevelCache/puzzle_2_1.png",
+            "fileSize": 46905,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_2_2.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_2_2.png",
+            "localCachePath": "LevelCache/puzzle_2_2.png",
+            "fileSize": 65188,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_2_3.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_2_3.png",
+            "localCachePath": "LevelCache/puzzle_2_3.png",
+            "fileSize": 45306,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_3_0.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_3_0.png",
+            "localCachePath": "LevelCache/puzzle_3_0.png",
+            "fileSize": 32068,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_3_1.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_3_1.png",
+            "localCachePath": "LevelCache/puzzle_3_1.png",
+            "fileSize": 18138,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_3_2.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_3_2.png",
+            "localCachePath": "LevelCache/puzzle_3_2.png",
+            "fileSize": 30329,
+            "checksum": "",
+            "isRequired": true
+        },
+        {
+            "assetName": "puzzle_3_3.png",
+            "assetType": "texture",
+            "firebaseStoragePath": "levels/0003/puzzle_3_3.png",
+            "localCachePath": "LevelCache/puzzle_3_3.png",
+            "fileSize": 37901,
+            "checksum": "",
+            "isRequired": true
+        }
+    ],
+    "puzzleDataJson": "{\"id\":\"0003\",\"horizontalCount\":3,\"verticalCount\":3,\"RNGSeed\":229,\"autoRevealedPieceCount\":1,\"difficulty\":0,\"pieces\":[{\"x\":0,\"y\":0,\"status\":0,\"statusValue\":0,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_8_5\"},{\"x\":1,\"y\":0,\"status\":0,\"statusValue\":0,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_5_0\"},{\"x\":2,\"y\":0,\"status\":0,\"statusValue\":0,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_1_3\"},{\"x\":0,\"y\":1,\"status\":0,\"statusValue\":0,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_4_8\"},{\"x\":1,\"y\":1,\"status\":4,\"statusValue\":1,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_0_6\"},{\"x\":2,\"y\":1,\"status\":0,\"statusValue\":0,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_3_3\"},{\"x\":0,\"y\":2,\"status\":1,\"statusValue\":1,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_5_2\"},{\"x\":1,\"y\":2,\"status\":0,\"statusValue\":0,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_3_8\"},{\"x\":2,\"y\":2,\"status\":1,\"statusValue\":1,\"bonus\":0,\"sourceTextureID\":0,\"spriteName\":\"mask_2_7\"}],\"truckInfos\":[],\"reward\":{\"items\":[{\"type\":2,\"amount\":7}]}}",
+    "horizontalCount": 3,
+    "verticalCount": 3
+}

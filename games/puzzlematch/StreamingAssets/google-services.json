@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "557064130737",
+    "project_id": "puzzle-match-f95e5",
+    "storage_bucket": "puzzle-match-f95e5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557064130737:android:ea2ccbd1a86c2f9f189290",
+        "android_client_info": {
+          "package_name": "com.Vestar.PuzzleMatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcfSa_ZzKWP3_vBxDIgiRyqmoATx43_3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
