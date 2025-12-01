@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legends of Atlantis - Free Web3 Game Design Doc | Vestar Games</title>
+    <meta name="description" content="Download the free Legends of Atlantis Web3 Game Design Document by Karoly Molnar.">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e1e5f0;
+            background-color: #0f1419;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.65) 0%, rgba(118, 75, 162, 0.75) 100%), url('header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 1.6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .company-logo {
+            width: 260px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            color: #e1e5f0;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0.75rem auto 0;
+            opacity: 0.95;
+        }
+
+        main {
+            padding: 3rem 0 4rem;
+        }
+
+        .card {
+            background: #1a1f2e;
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 1.5rem 0 0.75rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.5);
+        }
+
+        .download-note {
+            font-size: 0.95rem;
+            color: #c8ccdd;
+            margin-bottom: 1.5rem;
+        }
+
+        .pitch {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #e1e5f0;
+        }
+
+        .pitch strong {
+            color: #e4a22e;
+        }
+
+        .license {
+            margin-top: 0rem;
+            padding-top: 1.5rem;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #c8ccdd;
+            background: rgba(8, 12, 20, 0.7);
+            border-radius: 8px;
+            padding: 1.5rem 1.5rem 1.3rem;
+        }
+
+        .license h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #e1e5f0;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .license a {
+            color: #8fa4ff;
+        }
+
+        .license ul {
+            padding-left: 1.3rem;
+            margin: 0.75rem 0 0.75rem;
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0077b5;
+            color: white;
+            padding: 0.75rem 1.7rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .linkedin-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .linkedin-btn:hover {
+            background: #005885;
+            color: white;
+        }
+
+        .screenshots {
+            margin-top: 2.5rem;
+        }
+
+        .screenshots-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .screenshot-item {
+            background: #10151f;
+            border-radius: 10px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .screenshot-caption {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #c8ccdd;
+        }
+
+        footer {
+            background: #1a1f2e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.3rem 0;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            .download-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>LEGENDS OF ATLANTIS</h1>
+                <p class="subtitle">Free Web3 game design document by Karoly Molnar.<br>A full GDD you can study, reference, and use for inspiration.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">                
+
+                <div class="license">
+                    <h3>License</h3>
+                    <p><strong>Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)</strong></p>
+                    <p>This document and all game design ideas, systems, mechanics, text, and concepts contained within are licensed under the Creative Commons Attribution–NonCommercial 4.0 International license.</p>
+                    <p>You are free to read, share, and adapt the material, as long as:</p>
+                    <ul>
+                        <li>Attribution is given to the original author.</li>
+                        <li>The material is not used for commercial purposes.</li>
+                        <li>The material is not presented as your own original work.</li>
+                    </ul>
+                    <p>Full license: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">https://creativecommons.org/licenses/by-nc/4.0/</a></p>
+                    <p>Author: Karoly Molnar<br>Date: 2025-12-01</p>
+                </div>
+
+
+                <a class="download-btn" href="Legends Of Atlantis - GDD.pdf" target="_blank" rel="noopener">
+                    ⬇ Download the PDF
+                </a>
+
+                <div class="screenshots">
+                    <div class="screenshots-grid">
+                        <div class="screenshot-item">
+                            <img src="screenshot-1.png" alt="GDD overview page">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="screenshot-2.png" alt="Economy and progression page">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="screenshot-3.png" alt="Gameplay loop page">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <hr>
+
+                <p class="pitch"><strong>I'm open to partnerships and collaborations</strong><br>around mobile game design, product ideation, and game development. If you like this document and want to work together, let's connect.</p>
+
+                <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" class="linkedin-btn" rel="noopener">
+                    <img src="../images/linkedin.webp" alt="LinkedIn Logo">
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vestar Games. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
