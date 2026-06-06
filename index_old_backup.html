@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VESTAR DIGITAL</title>
+    <meta name="description" content="Vestar Digital - Game Development Studio. Creating innovative games and digital experiences.">
+    <meta name="keywords" content="game development, digital games, vestar digital, gaming studio">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e1e5f0;
+            background-color: #0f1419;
+            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/header.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            z-index: 2;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+        
+        .company-logo {
+            width: 400px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            color: #e1e5f0;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9);
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+            color: #e1e5f0;
+        }
+        
+        nav {
+            background: #1a1f2e;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #e1e5f0;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        main {
+            padding: 4rem 0;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            background: #1a1f2e;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        h3 {
+            color: #e4a22e;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e1e5f0;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-items: center;
+        }
+        
+        .game-card {
+            background: #1a1f2e;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+        
+        .game-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .game-video {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .game-video iframe {
+            border-radius: 10px;
+        }
+        
+        .store-badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .store-badge {
+            height: 40px;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        
+        .store-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .expert-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 1rem 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .expert-badge img {
+            height: 24px;
+            width: auto;
+        }
+        
+        .discontinued-notice {
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        .coming-soon {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0077b5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: background 0.3s ease;
+        }
+        
+        .linkedin-btn img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .linkedin-btn:hover {
+            background: #005885;
+            color: white;
+        }
+        
+        .section-separator {
+            width: 60%;
+            height: 1px;
+            background: #2a3441;
+            margin: 2rem auto;
+            border: none;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #e1e5f0;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #2a3441;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: #1a1f2e;
+            color: #e1e5f0;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: #1a1f2e;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a1f2e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="header-content">
+                <img src="images/vestar.png" alt="Vestar Digital Logo" class="company-logo">
+                <h1>PLAY, CREATE, INNOVATE</h1>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#games">Our Games</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <section id="about">
+                <h2>About Us</h2>
+                <p>VESTAR Games is an independent game development studio dedicated to designing high-quality, engaging mobile games. Our team thrives on creativity, technical expertise, and a passion for gaming. Whether you're a casual player or a competitive strategist, our games are built to challenge and entertain.</p>
+            </section>
+            
+            <section id="games">
+                <h2>Our Games</h2>
+                <p style="text-align: center;">Discover our collection of engaging games designed to provide unique and memorable experiences for players of all ages.</p>
+                
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="game-video">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/UJDI1oosgDE" title="Puzzle Match Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h3>Puzzle Match</h3>
+                        <p>A puzzle game that 'gamifies' jigsaw puzzles with modern twists, like level progression and treasure hunting.<br>40% D1 retention.</p>
+                        <div class="expert-badge">
+                            <img src="images/expertapproved.png" alt="Teacher Approved">
+                            <span>Teacher Approved</span>
+                        </div>
+                        <div class="store-badges">
+                            <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank">
+                                <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-badge">
+                            </a>
+                            <a href="https://apps.apple.com/us/app/puzzle-match/id123456789" target="_blank">
+                                <img src="images/app-store-badge.png" alt="Get it on the App Store" class="store-badge">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-placeholder"></div>
+                        <h3>Castle Quest</h3>
+                        <p>Build a kingdom, train armies, and win strategic battles in this upcoming 4X game.</p>
+                        <p class="coming-soon">Coming Soon</p>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-video">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/1Mhc0Mg1_kk" title="Cantina Royale Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h3>Cantina Royale</h3>
+                        <p style="color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; margin-top: -0.5rem;">contract work</p>
+                        <p>Web3 battle royale game on mobile with 3v3 battles, deep progression, multiple game modes, live events, various NFTs, and game token.<br>VESTAR team was responsible for the whole creative vision and game design.</p>
+                        <p class="discontinued-notice">Discontinued after 3 years live ops</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="apps">
+                <h2>Our Apps</h2>
+                <p style="text-align: center;">Innovative mobile applications designed to enhance your daily life with cutting-edge technology.</p>
+                
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="game-video">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/8M_W9_cAo78" title="FridgeScanner AI Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h3>FridgeScanner AI</h3>
+                        <p>Gives smart recipe recommendations based on the ingredients you have at home by snapping a photo of your fridge.</p>
+                        <div class="store-badges">
+                            <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank">
+                                <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-badge">
+                            </a>
+                            <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank">
+                                <img src="images/app-store-badge.png" alt="Get it on the App Store" class="store-badge">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-placeholder"></div>
+                        <h3>OOTD AI</h3>
+                        <p>Smart outfit recommendations every morning.</p>
+                        <p class="coming-soon">Coming Soon</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="services">
+                <h2>Our Services</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <img src="images/service_games.png" alt="Game Development" class="service-image">
+                        <h3>Game Development</h3>
+                        <p>Full-cycle mobile game development from concept to launch, including design, programming, and testing.</p>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="images/service_apps.png" alt="App Development" class="service-image">
+                        <h3>App Development</h3>
+                        <p>Custom mobile app development for end users, creating intuitive and engaging mobile experiences.</p>
+                    </div>
+                    
+                    <div class="game-card">
+                        <img src="images/service_consulting.png" alt="Consulting" class="service-image">
+                        <h3>Consulting</h3>
+                        <p>Expert guidance on game design, development strategies, and AI integration.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p style="text-align: center;">Ready to start your next project? Get in touch with us and let's create something amazing together.</p>
+                
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" class="linkedin-btn">
+                        <img src="images/linkedin.webp" alt="LinkedIn Logo">
+                        Connect with us on LinkedIn
+                    </a>
+                </div>
+                
+                <hr class="section-separator">
+                
+                <form class="contact-form" action="https://formspree.io/f/myzdqbpn" method="POST">
+                    <!-- Honeypot field to reduce spam -->
+                    <input type="text" name="_gotcha" style="display:none" />
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </section>
+            
+            <section id="gdpr-deletion">
+                <h2>Request Game Data Deletion</h2>
+                <p style="text-align: center;">Send us a message with the game's name and your Player ID.</p>
+                
+                <form class="contact-form" action="https://formspree.io/f/meolbpzv" method="POST">
+                    <!-- Honeypot field to reduce spam -->
+                    <input type="text" name="_gotcha" style="display:none" />
+                    
+                    <div class="form-group">
+                        <label for="game-name">Game Name</label>
+                        <input type="text" id="game-name" name="game_name" placeholder="Enter the name of the game" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="player-id">Player ID</label>
+                        <input type="text" id="player-id" name="player_id" placeholder="Enter your Player ID from game settings" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deletion-email">Email Address</label>
+                        <input type="email" id="deletion-email" name="email" placeholder="Your email where we can send a verification" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Request Data Deletion</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vestar Digital. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                <a href="privacy-policy.html" style="color: #667eea; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
+                <a href="terms-of-service.html" style="color: #667eea; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

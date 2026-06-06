@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestar Digital — Mobile Games & Apps</title>
+    <meta name="description" content="Vestar Digital is an experienced mobile game and app development studio with 18+ years crafting games and apps that players love.">
+    <meta name="keywords" content="mobile game development, mobile app development, indie game studio, Vestar Digital, Jigsaw Journey, Fridge Scanner">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ─── Variables ─── */
+        :root {
+            --bg:          #070709;
+            --bg-surface:  #0F0F15;
+            --bg-elevated: #16161F;
+            --border:      #1E1E2E;
+            --border-sub:  #131320;
+            --accent:      #F5A623;
+            --accent-h:    #FFB740;
+            --accent-dim:  rgba(245,166,35,0.10);
+            --accent-glow: rgba(245,166,35,0.22);
+            --text:        #EEEEF5;
+            --text-2:      #8888A8;
+            --text-m:      #4A4A65;
+            --r:           12px;
+            --r-sm:        8px;
+            --ease:        0.22s ease;
+            --w:           1100px;
+        }
+
+        /* ─── Reset ─── */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1,h2,h3,h4 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+        }
+        a { color: inherit; }
+        img { display:block; }
+
+        /* ─── Layout ─── */
+        .container { max-width:var(--w); margin:0 auto; padding:0 24px; }
+
+        /* ─── Nav ─── */
+        .nav {
+            position: sticky; top:0; z-index:200;
+            background: rgba(7,7,9,0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border-sub);
+        }
+        .nav-inner {
+            display:flex; align-items:center; justify-content:space-between;
+            height:62px;
+        }
+        .nav-logo { height:26px; width:auto; opacity:.92; }
+        .nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
+        .nav-links a {
+            color:var(--text-2); text-decoration:none; font-size:.875rem;
+            font-weight:500; padding:6px 14px; border-radius:var(--r-sm);
+            transition: color var(--ease), background var(--ease);
+        }
+        .nav-links a:hover { color:var(--text); background:var(--bg-elevated); }
+        .nav-links a.cta {
+            color:var(--accent); border:1px solid rgba(245,166,35,.28);
+        }
+        .nav-links a.cta:hover { background:var(--accent-dim); color:var(--accent-h); }
+
+        .nav-toggle {
+            display:none; background:none; border:none; cursor:pointer;
+            padding:8px; flex-direction:column; gap:5px;
+        }
+        .nav-toggle span {
+            display:block; width:22px; height:2px;
+            background:var(--text-2); border-radius:2px;
+            transition:all var(--ease);
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            min-height:88vh; display:flex; align-items:center;
+            position:relative; overflow:hidden; padding:80px 0 64px;
+        }
+        .hero::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background:
+                radial-gradient(ellipse 70% 55% at 50% -5%, rgba(245,166,35,.07) 0%, transparent 65%),
+                radial-gradient(ellipse 35% 25% at 85% 55%, rgba(245,166,35,.035) 0%, transparent 60%);
+        }
+        /* subtle grid */
+        .hero::after {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background-image:
+                linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+        }
+        .hero-content {
+            position:relative; z-index:1; text-align:center;
+            max-width:780px; margin:0 auto;
+        }
+        .hero-logo { height:50px; width:auto; margin:0 auto 36px; }
+        .hero-pill {
+            display:inline-flex; align-items:center; gap:8px;
+            font-size:.75rem; font-weight:700; letter-spacing:.12em;
+            text-transform:uppercase; color:var(--accent);
+            background:var(--accent-dim); border:1px solid rgba(245,166,35,.22);
+            padding:5px 14px; border-radius:100px; margin-bottom:22px;
+        }
+        .hero-pill::before {
+            content:''; width:6px; height:6px; background:var(--accent);
+            border-radius:50%; box-shadow:0 0 7px var(--accent);
+        }
+        .hero h1 {
+            font-size: clamp(2.6rem, 5.5vw, 5rem);
+            font-weight:700; color:var(--text); margin-bottom:20px;
+        }
+        .hero h1 em { font-style:normal; color:var(--accent); }
+        .hero-sub {
+            font-size:1.05rem; color:var(--text-2); max-width:520px;
+            margin:0 auto 36px; line-height:1.78;
+        }
+        .hero-btns {
+            display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+        }
+
+        /* ─── Buttons ─── */
+        .btn {
+            display:inline-flex; align-items:center; gap:8px;
+            font-family:'Space Grotesk',sans-serif; font-weight:700;
+            font-size:.92rem; padding:12px 26px; border-radius:var(--r-sm);
+            text-decoration:none; border:none; cursor:pointer;
+            transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
+        }
+        .btn-gold {
+            background:var(--accent); color:#070709;
+        }
+        .btn-gold:hover {
+            background:var(--accent-h); transform:translateY(-2px);
+            box-shadow:0 8px 26px var(--accent-glow);
+        }
+        .btn-ghost {
+            background:transparent; color:var(--text);
+            border:1px solid var(--border);
+        }
+        .btn-ghost:hover { border-color:var(--accent); background:var(--accent-dim); }
+
+        /* ─── Stats bar ─── */
+        .stats {
+            border-top:1px solid var(--border-sub);
+            border-bottom:1px solid var(--border-sub);
+            background:var(--bg-surface); padding:18px 0;
+        }
+        .stats-row {
+            display:flex; align-items:stretch; justify-content:center;
+            flex-wrap:wrap;
+        }
+        .stat {
+            display:flex; flex-direction:column; align-items:center;
+            padding:10px 44px; border-right:1px solid var(--border-sub);
+        }
+        .stat:last-child { border-right:none; }
+        .stat-n {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.65rem; font-weight:700; color:var(--accent); line-height:1;
+            margin-bottom:4px;
+        }
+        .stat-l {
+            font-size:.72rem; color:var(--text-m); letter-spacing:.07em;
+            text-transform:uppercase; font-weight:500;
+        }
+
+        /* ─── Section base ─── */
+        .sec { padding:80px 0; }
+        .sec-tag {
+            display:inline-block; font-size:.72rem; font-weight:700;
+            letter-spacing:.13em; text-transform:uppercase;
+            color:var(--accent); margin-bottom:10px;
+        }
+        .sec-title {
+            font-size:clamp(1.7rem,3.8vw,2.6rem); font-weight:700;
+            color:var(--text); margin-bottom:12px;
+        }
+        .sec-desc {
+            font-size:.96rem; color:var(--text-2);
+            max-width:500px; line-height:1.75;
+        }
+        .sec-head { margin-bottom:44px; }
+
+        /* ─── Badges ─── */
+        .badge {
+            display:inline-flex; align-items:center; gap:5px;
+            font-size:.68rem; font-weight:700; letter-spacing:.08em;
+            text-transform:uppercase; padding:4px 10px; border-radius:100px;
+        }
+        .b-live {
+            background:rgba(34,197,94,.10); color:#22C55E;
+            border:1px solid rgba(34,197,94,.24);
+        }
+        .b-live::before {
+            content:''; width:5px; height:5px; background:#22C55E;
+            border-radius:50%; box-shadow:0 0 5px #22C55E;
+        }
+        .b-soon {
+            background:rgba(139,92,246,.10); color:#A78BFA;
+            border:1px solid rgba(139,92,246,.24);
+        }
+        .b-kpi {
+            background:var(--accent-dim); color:var(--accent);
+            border:1px solid rgba(245,166,35,.24);
+        }
+        .b-plat {
+            background:rgba(255,255,255,.05); color:var(--text-2);
+            border:1px solid var(--border);
+        }
+        .badge-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px; }
+
+        /* ─── Featured card (split) ─── */
+        .feat {
+            display:grid; grid-template-columns:1fr 1fr;
+            background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--r); overflow:hidden;
+            transition:border-color var(--ease), box-shadow var(--ease);
+            margin-bottom:20px;
+        }
+        .feat:hover {
+            border-color:rgba(245,166,35,.28);
+            box-shadow:0 0 48px rgba(245,166,35,.06);
+        }
+        .feat-media {
+            position:relative; background:#000; min-height:300px;
+        }
+        .feat-media iframe {
+            position:absolute; inset:0; width:100%; height:100%;
+        }
+        .feat-info {
+            padding:36px 32px; display:flex; flex-direction:column;
+            justify-content:center; gap:0;
+        }
+        .feat-title {
+            font-size:1.75rem; font-weight:700; color:var(--text);
+            margin-bottom:10px;
+        }
+        .feat-desc {
+            font-size:.93rem; color:var(--text-2); line-height:1.72;
+            margin-bottom:22px;
+        }
+        .store-row { display:flex; gap:10px; flex-wrap:wrap; }
+        .store-img {
+            height:38px; object-fit:contain; opacity:.9;
+            transition:transform var(--ease), opacity var(--ease);
+        }
+        .store-img:hover { transform:scale(1.05); opacity:1; }
+
+        /* ─── Card grid ─── */
+        .card-row {
+            display:grid; grid-template-columns:1fr 1fr; gap:20px;
+        }
+        .card-row.three { grid-template-columns:repeat(3,1fr); }
+        .card-single { grid-template-columns:1fr; max-width:540px; }
+
+        .card {
+            background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--r); padding:28px;
+            display:flex; flex-direction:column; gap:10px;
+            transition:border-color var(--ease), box-shadow var(--ease);
+        }
+        .card:hover {
+            border-color:rgba(245,166,35,.18);
+            box-shadow:0 0 32px rgba(245,166,35,.045);
+        }
+        .card-art {
+            width:100%; aspect-ratio:16/7; border-radius:var(--r-sm);
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden; margin-bottom:2px;
+        }
+        .art-lootara  { background:linear-gradient(135deg,#0D1B2A,#2D1B4E 60%,#1A0E2E); }
+        .art-prime    { background:linear-gradient(135deg,#0A1628,#16213E 50%,#0F3460); }
+        .art-kvikdrop { background:linear-gradient(135deg,#0D2818,#0A4029 60%,#082A1A); }
+        .card-art-label {
+            font-family:'Space Grotesk',sans-serif; font-size:.65rem;
+            font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+            color:rgba(255,255,255,.13); text-align:center;
+        }
+        .card h3 {
+            font-size:1.2rem; font-weight:700; color:var(--text); margin:0;
+        }
+        .card p { font-size:.9rem; color:var(--text-2); line-height:1.68; }
+
+        /* ─── Services ─── */
+        .svc-icon {
+            width:46px; height:46px; background:var(--accent-dim);
+            border-radius:var(--r-sm); display:flex; align-items:center;
+            justify-content:center; font-size:1.3rem; margin-bottom:18px;
+        }
+
+        /* ─── About ─── */
+        .about-grid {
+            display:grid; grid-template-columns:3fr 2fr; gap:40px;
+            align-items:center;
+        }
+        .about-text p { font-size:.97rem; color:var(--text-2); line-height:1.8; margin-bottom:14px; }
+        .about-text p:last-child { margin-bottom:0; }
+        .about-highlights { display:flex; flex-direction:column; gap:14px; }
+        .highlight-item {
+            background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--r); padding:20px 22px;
+        }
+        .highlight-item .h-n {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.5rem; font-weight:700; color:var(--accent); line-height:1;
+            margin-bottom:4px;
+        }
+        .highlight-item .h-l { font-size:.82rem; color:var(--text-2); }
+
+        /* ─── Contact ─── */
+        .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+        .contact-side h3 {
+            font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:12px;
+        }
+        .contact-side p { font-size:.93rem; color:var(--text-2); line-height:1.75; margin-bottom:22px; }
+        .li-btn {
+            display:inline-flex; align-items:center; gap:9px;
+            background:#0A66C2; color:#fff; font-weight:600; font-size:.875rem;
+            padding:10px 20px; border-radius:var(--r-sm); text-decoration:none;
+            font-family:'Space Grotesk',sans-serif;
+            transition:background var(--ease), transform var(--ease);
+        }
+        .li-btn:hover { background:#0856A8; transform:translateY(-1px); }
+        .li-btn img { width:17px; height:17px; }
+
+        /* ─── Form ─── */
+        .form-box {
+            background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--r); padding:28px;
+        }
+        .fg { margin-bottom:14px; }
+        .fg label {
+            display:block; font-size:.82rem; font-weight:500;
+            color:var(--text-2); margin-bottom:7px;
+        }
+        .fg input, .fg textarea {
+            width:100%; background:var(--bg-elevated);
+            border:1px solid var(--border); border-radius:var(--r-sm);
+            color:var(--text); font-family:'Inter',sans-serif;
+            font-size:.93rem; padding:10px 13px; outline:none;
+            transition:border-color var(--ease);
+        }
+        .fg input:focus, .fg textarea:focus {
+            border-color:rgba(245,166,35,.4);
+        }
+        .fg textarea { resize:vertical; min-height:96px; }
+        .btn-submit {
+            width:100%; background:var(--accent); color:#070709;
+            font-weight:700; font-size:.92rem; padding:12px;
+            border:none; border-radius:var(--r-sm); cursor:pointer;
+            font-family:'Space Grotesk',sans-serif;
+            transition:background var(--ease), transform var(--ease);
+        }
+        .btn-submit:hover { background:var(--accent-h); transform:translateY(-1px); }
+
+        /* ─── GDPR ─── */
+        .gdpr { padding:60px 0; border-top:1px solid var(--border-sub); }
+        .gdpr-wrap { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+        .gdpr-text p { font-size:.9rem; color:var(--text-2); line-height:1.78; }
+
+        /* ─── Footer ─── */
+        footer {
+            background:var(--bg-surface);
+            border-top:1px solid var(--border-sub); padding:28px 0;
+        }
+        .foot-inner {
+            display:flex; align-items:center; justify-content:space-between;
+            flex-wrap:wrap; gap:16px;
+        }
+        .foot-logo { height:22px; opacity:.6; }
+        .foot-copy { font-size:.8rem; color:var(--text-m); }
+        .foot-links { display:flex; gap:22px; }
+        .foot-links a {
+            font-size:.82rem; color:var(--text-m); text-decoration:none;
+            transition:color var(--ease);
+        }
+        .foot-links a:hover { color:var(--accent); }
+
+        /* ─── Divider ─── */
+        .divider {
+            height:1px; background:var(--border-sub);
+            margin:0; border:none;
+        }
+
+        /* ─── Responsive ─── */
+        @media(max-width:900px) {
+            .feat { grid-template-columns:1fr; }
+            .feat-media { min-height:220px; }
+            .card-row { grid-template-columns:1fr; }
+            .card-row.three { grid-template-columns:1fr; }
+            .about-grid { grid-template-columns:1fr; }
+            .contact-wrap { grid-template-columns:1fr; }
+            .gdpr-wrap { grid-template-columns:1fr; }
+            .stat { padding:10px 22px; }
+        }
+        @media(max-width:620px) {
+            .nav-links {
+                display:none; position:fixed; top:62px; left:0; right:0; bottom:0;
+                background:rgba(7,7,9,.97); flex-direction:column;
+                align-items:flex-start; padding:20px 24px; gap:4px;
+                border-top:1px solid var(--border);
+            }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            .nav-links a { font-size:1rem; padding:10px 12px; width:100%; }
+            .stats-row { flex-wrap:wrap; }
+            .stat { flex:1 1 45%; border-right:none; padding:12px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="/"><img src="images/vestar.png" alt="Vestar Digital" class="nav-logo"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="portfolio/">Portfolio</a></li>
+                <li><a href="#contact" class="cta">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <img src="images/vestar.png" alt="Vestar Digital" class="hero-logo">
+            <div class="hero-pill">Mobile Game &amp; App Studio</div>
+            <h1>Built for players.<br><em>Designed to last.</em></h1>
+            <p class="hero-sub">We craft mobile games and apps with 18+ years of industry experience — from concept to live ops, from a single prototype to millions of players.</p>
+            <div class="hero-btns">
+                <a href="portfolio/" class="btn btn-gold">View Our Work →</a>
+                <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Stats ── -->
+<div class="stats">
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat">
+                <span class="stat-n">18+</span>
+                <span class="stat-l">Years Experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-n">25M+</span>
+                <span class="stat-l">Players Reached</span>
+            </div>
+            <div class="stat">
+                <span class="stat-n">10+</span>
+                <span class="stat-l">Titles Shipped</span>
+            </div>
+            <div class="stat">
+                <span class="stat-n">40%</span>
+                <span class="stat-l">D1 Retention</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── About ── -->
+<section class="sec" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <span class="sec-tag">About Us</span>
+                <h2 class="sec-title" style="margin-bottom:20px;">We build games<br>players keep coming back to.</h2>
+                <p>Vestar Digital is an independent mobile studio with deep expertise across every layer of game and app development — design, engineering, economy, monetization, and live ops.</p>
+                <p>We've built titles that reached the App Store top charts, earned Apple's "App of the Week," raised $6M in funding, and hit 25M+ players across platforms. Every project we touch is driven by one goal: make something players genuinely love.</p>
+                <p>From a jigsaw puzzle game achieving 40% Day-1 retention as a solo build, to a full-scale web3 battle royale with a team of 12 — we scale our expertise to fit the challenge.</p>
+            </div>
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <div class="h-n">2008</div>
+                    <div class="h-l">Started in mobile game development</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="h-n">3×</div>
+                    <div class="h-l">Apple App Store featured titles</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="h-n">$6M</div>
+                    <div class="h-l">Raised for a single game project</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="h-n">Full-cycle</div>
+                    <div class="h-l">Concept → shipping → live ops</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── Games ── -->
+<section class="sec" id="games">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Our Games</span>
+            <h2 class="sec-title">Games we're shipping.</h2>
+            <p class="sec-desc">From innovative puzzle mechanics to deep RPG worlds — each title is designed with retention, engagement, and fun at its core.</p>
+        </div>
+
+        <!-- Jigsaw Journey — Featured -->
+        <div class="feat">
+            <div class="feat-media">
+                <iframe src="https://www.youtube.com/embed/-63wTrtvEPg"
+                    title="Jigsaw Journey Gameplay"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="feat-info">
+                <div class="badge-row">
+                    <span class="badge b-live">Live</span>
+                    <span class="badge b-kpi">40% D1 Retention</span>
+                    <span class="badge b-plat">Android</span>
+                </div>
+                <h2 class="feat-title">Jigsaw Journey</h2>
+                <p class="feat-desc">Jigsaw puzzles reimagined as a modern mobile game — with level progression, treasure hunting, and rewarding gameplay loops that keep players coming back daily. Teacher-approved for all ages.</p>
+                <div class="store-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
+                        <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lootara + Prime Suspect -->
+        <div class="card-row">
+            <div class="card">
+                <div class="card-art art-lootara">
+                    <span class="card-art-label">Coming Soon</span>
+                </div>
+                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                <h3>Lootara</h3>
+                <p>A midcore RPG built for mobile — deep progression systems, engaging combat, and a world worth getting lost in. Built for the player who wants more than a casual tap.</p>
+            </div>
+            <div class="card">
+                <div class="card-art art-prime">
+                    <span class="card-art-label">Coming Soon</span>
+                </div>
+                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                <h3>Prime Suspect</h3>
+                <p>A narrative detective game where every clue matters. Immersive storytelling meets mobile-first design — uncover the truth at your own pace.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── Apps ── -->
+<section class="sec" id="apps">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Our Apps</span>
+            <h2 class="sec-title">Apps people actually use.</h2>
+            <p class="sec-desc">We bring the same game design thinking to apps — building for retention, delight, and daily habits.</p>
+        </div>
+
+        <!-- Fridge Scanner — Featured -->
+        <div class="feat">
+            <div class="feat-media">
+                <iframe src="https://www.youtube.com/embed/8M_W9_cAo78"
+                    title="Fridge Scanner AI Demo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="feat-info">
+                <div class="badge-row">
+                    <span class="badge b-live">Live</span>
+                    <span class="badge b-plat">Android</span>
+                    <span class="badge b-plat">iOS</span>
+                </div>
+                <h2 class="feat-title">Fridge Scanner</h2>
+                <p class="feat-desc">Snap a photo of your fridge, get smart AI-powered recipe recommendations based on exactly what you have. No shopping list needed — just open, scan, and cook.</p>
+                <div class="store-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
+                        <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
+                        <img src="images/app-store-badge.png" alt="Download on the App Store" class="store-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- KvikDrop -->
+        <div class="card-row card-single">
+            <div class="card">
+                <div class="card-art art-kvikdrop">
+                    <span class="card-art-label">Coming Soon</span>
+                </div>
+                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                <h3>KvikDrop</h3>
+                <p>Fast, zero-friction file and photo sharing between devices. No accounts, no cables, no cloud sign-ups — just drop and go.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── Services ── -->
+<section class="sec" id="services">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Services</span>
+            <h2 class="sec-title">End-to-end mobile expertise.</h2>
+            <p class="sec-desc">Whether you need a complete product built from scratch or expert guidance on a specific challenge, we cover the full stack.</p>
+        </div>
+        <div class="card-row three">
+            <div class="card">
+                <div class="svc-icon">🎮</div>
+                <h3>Game Development</h3>
+                <p>Full-cycle mobile game development: concept, game design, economy, programming, testing, launch, and live ops. Expertise in Unity, monetization strategy, and retention mechanics.</p>
+            </div>
+            <div class="card">
+                <div class="svc-icon">📱</div>
+                <h3>App Development</h3>
+                <p>Mobile app development for iOS and Android, built with engagement principles borrowed from top-performing games. Clean UX, solid engineering, fast iteration.</p>
+            </div>
+            <div class="card">
+                <div class="svc-icon">🧭</div>
+                <h3>Consulting</h3>
+                <p>Expert guidance on game design, product strategy, live ops, economy balancing, AI integration, and team scaling. 18+ years of proven, hands-on mobile experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── Contact ── -->
+<section class="sec" id="contact">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Contact</span>
+            <h2 class="sec-title">Let's build something great.</h2>
+        </div>
+        <div class="contact-wrap">
+            <div class="contact-side">
+                <h3>Ready to start?</h3>
+                <p>Whether you have a game idea to bring to life, an app you need built, or just want to explore what's possible — we'd love to hear from you.</p>
+                <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" rel="noopener" class="li-btn">
+                    <img src="images/linkedin.webp" alt="LinkedIn">
+                    Connect on LinkedIn
+                </a>
+            </div>
+            <div class="form-box">
+                <form action="https://formspree.io/f/myzdqbpn" method="POST">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <div class="fg">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="fg">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="fg">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="fg">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── GDPR ── -->
+<div class="gdpr" id="data-deletion">
+    <div class="container">
+        <div class="sec-head" style="margin-bottom:32px;">
+            <span class="sec-tag">Data Privacy</span>
+            <h2 class="sec-title">Request Game Data Deletion</h2>
+            <p class="sec-desc">Under GDPR and applicable laws you have the right to request deletion of your in-game data.</p>
+        </div>
+        <div class="gdpr-wrap">
+            <div class="gdpr-text">
+                <p>Submit a request with your game name and Player ID (found in the game's Settings screen). We'll verify your identity and process the deletion promptly. You'll receive a confirmation at the email address you provide.</p>
+            </div>
+            <div class="form-box">
+                <form action="https://formspree.io/f/meolbpzv" method="POST">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <div class="fg">
+                        <label for="game-name">Game Name</label>
+                        <input type="text" id="game-name" name="game_name" placeholder="Enter the game name" required>
+                    </div>
+                    <div class="fg">
+                        <label for="player-id">Player ID</label>
+                        <input type="text" id="player-id" name="player_id" placeholder="Your Player ID from game settings" required>
+                    </div>
+                    <div class="fg">
+                        <label for="del-email">Email Address</label>
+                        <input type="email" id="del-email" name="email" placeholder="Your email for verification" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Request Data Deletion</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="container">
+        <div class="foot-inner">
+            <img src="images/vestar.png" alt="Vestar Digital" class="foot-logo">
+            <span class="foot-copy">© 2025 Vestar Digital. All rights reserved.</span>
+            <div class="foot-links">
+                <a href="portfolio/">Portfolio</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => links.classList.remove('open'))
+    );
+</script>
+</body>
+</html>

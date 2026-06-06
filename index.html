@@ -3,594 +3,1003 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VESTAR DIGITAL</title>
-    <meta name="description" content="Vestar Digital - Game Development Studio. Creating innovative games and digital experiences.">
-    <meta name="keywords" content="game development, digital games, vestar digital, gaming studio">
+    <title>Vestar Digital | Mobile Games & Apps</title>
+    <meta name="description" content="Vestar Digital is an experienced mobile game and app development studio with 18+ years crafting games and apps that players love.">
+    <meta name="keywords" content="mobile game development, mobile app development, indie game studio, Vestar Digital, Jigsaw Journey, Fridge Scanner">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ─── Variables ─── */
+        :root {
+            --bg:          #06060C;
+            --bg-surface:  #0F0F1C;
+            --bg-elevated: #1A1A2E;
+            --bg-card:     #1F1F35;
+            --border:      #32324E;
+            --border-sub:  #26263C;
+            --accent:      #F5A623;
+            --accent-h:    #FFB740;
+            --accent-dim:  rgba(245,166,35,0.10);
+            --accent-glow: rgba(245,166,35,0.22);
+            --text:        #EEEEF5;
+            --text-2:      #9E9EBF;
+            --text-m:      #4A4A65;
+            --r:           12px;
+            --r-sm:        8px;
+            --ease:        0.22s ease;
+            --w:           1100px;
         }
-        
+
+        /* ─── Reset ─── */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            color: #e1e5f0;
-            background-color: #0f1419;
-            background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+            overflow-x: hidden;
+            cursor: default;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        p, h1, h2, h3, h4, span, div, li { cursor: default; }
+        a, button { cursor: pointer; }
+        h1,h2,h3,h4 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
         }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
+        a { color: inherit; }
+        img { display:block; }
+
+        /* ─── Layout ─── */
+        .container { max-width:var(--w); margin:0 auto; padding:0 24px; }
+
+        /* ─── Nav ─── */
+        .nav {
+            position: sticky; top:0; z-index:200;
+            background: rgba(7,7,9,0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border-sub);
         }
-        
-        .header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/header.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.8;
-            z-index: 1;
+        .nav-inner {
+            display:flex; align-items:center; justify-content:space-between;
+            height:62px;
         }
-        
-        .header-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-            z-index: 2;
+        .nav-logo { height:26px; width:auto; opacity:.92; }
+        .nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
+        .nav-links a {
+            color:var(--text-2); text-decoration:none; font-size:.875rem;
+            font-weight:500; padding:6px 14px; border-radius:var(--r-sm);
+            transition: color var(--ease), background var(--ease);
         }
-        
-        .header-content {
-            position: relative;
-            z-index: 3;
-            width: 100%;
+        .nav-links a:hover { color:var(--text); background:var(--bg-elevated); }
+        .nav-links a.cta {
+            color:var(--accent); border:1px solid rgba(245,166,35,.28);
         }
-        
-        .company-logo {
-            width: 400px;
-            height: auto;
-            margin-bottom: 2rem;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        .nav-links a.cta:hover { background:var(--accent-dim); color:var(--accent-h); }
+
+        .nav-toggle {
+            display:none; background:none; border:none; cursor:pointer;
+            padding:8px; flex-direction:column; gap:5px;
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 3px;
-            line-height: 1.1;
-            color: #e1e5f0;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9);
+        .nav-toggle span {
+            display:block; width:22px; height:2px;
+            background:var(--text-2); border-radius:2px;
+            transition:all var(--ease);
         }
-        
-        .tagline {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-            font-weight: 500;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.4;
-            color: #e1e5f0;
+
+        /* ─── Hero ─── */
+        .hero {
+            min-height:88vh; display:flex; align-items:center;
+            position:relative; overflow:hidden; padding:80px 0 64px;
         }
-        
-        nav {
-            background: #1a1f2e;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .hero::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background:
+                radial-gradient(ellipse 70% 55% at 50% -5%, rgba(245,166,35,.07) 0%, transparent 65%),
+                radial-gradient(ellipse 35% 25% at 85% 55%, rgba(245,166,35,.035) 0%, transparent 60%);
         }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        /* subtle grid */
+        .hero::after {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background-image:
+                linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
         }
-        
-        nav li {
-            margin: 0 2rem;
+        .hero-content {
+            position:relative; z-index:1; text-align:center;
+            max-width:780px; margin:0 auto;
         }
-        
-        nav a {
-            text-decoration: none;
-            color: #e1e5f0;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+        .hero-logo { height:76px; width:auto; margin:0 auto 36px; }
+        .hero-pill {
+            display:inline-flex; align-items:center; gap:8px;
+            font-size:.75rem; font-weight:700; letter-spacing:.12em;
+            text-transform:uppercase; color:var(--accent);
+            background:var(--accent-dim); border:1px solid rgba(245,166,35,.22);
+            padding:5px 14px; border-radius:100px; margin-bottom:22px;
         }
-        
-        nav a:hover {
-            background: #667eea;
-            color: white;
+        .hero-pill::before { display:none; }
+        .hero h1 {
+            font-size: clamp(2.6rem, 5.5vw, 5rem);
+            font-weight:700; color:var(--text); margin-bottom:20px;
         }
-        
-        main {
-            padding: 4rem 0;
+        .hero h1 em { font-style:normal; color:var(--accent); }
+        .hero-sub {
+            font-size:1.05rem; color:var(--text-2); max-width:520px;
+            margin:0 auto 36px; line-height:1.78;
         }
-        
-        section {
-            margin-bottom: 4rem;
-            background: #1a1f2e;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .hero-btns {
+            display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
         }
-        
-        h2 {
-            color: #667eea;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
-            text-align: center;
-        }
-        
-        h3 {
-            color: #e4a22e;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #e1e5f0;
-        }
-        
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            justify-items: center;
-        }
-        
-        .game-card {
-            background: #1a1f2e;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 2px solid transparent;
-            max-width: 500px;
-            width: 100%;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            border-color: #667eea;
-        }
-        
-        .game-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        
-        .game-video {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-        
-        .game-video iframe {
-            border-radius: 10px;
-        }
-        
-        .store-badges {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .store-badge {
-            height: 40px;
-            object-fit: contain;
-            object-position: center;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-        
-        .store-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        .expert-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin: 1rem 0;
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        .expert-badge img {
-            height: 24px;
-            width: auto;
-        }
-        
-        .discontinued-notice {
-            color: #666;
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-        
-        .coming-soon {
-            color: #888;
-            font-size: 0.85rem;
-            margin-top: 1rem;
-        }
-        
-        .service-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-        
-        .linkedin-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #0077b5;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            transition: background 0.3s ease;
-        }
-        
-        .linkedin-btn img {
-            width: 20px;
-            height: 20px;
-        }
-        
-        .linkedin-btn:hover {
-            background: #005885;
-            color: white;
-        }
-        
-        .section-separator {
-            width: 60%;
-            height: 1px;
-            background: #2a3441;
-            margin: 2rem auto;
-            border: none;
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #e1e5f0;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #2a3441;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            background-color: #1a1f2e;
-            color: #e1e5f0;
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            background-color: #1a1f2e;
-        }
-        
-        textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        
+
+        /* ─── Buttons ─── */
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 100%;
+            display:inline-flex; align-items:center; gap:8px;
+            font-family:'Space Grotesk',sans-serif; font-weight:700;
+            font-size:.92rem; padding:12px 26px; border-radius:var(--r-sm);
+            text-decoration:none; border:none; cursor:pointer;
+            transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
+        .btn-gold {
+            background:var(--accent); color:#070709;
         }
-        
+        .btn-gold:hover {
+            background:var(--accent-h); transform:translateY(-2px);
+            box-shadow:0 8px 26px var(--accent-glow);
+        }
+        .btn-ghost {
+            background:transparent; color:var(--text);
+            border:1px solid var(--border);
+        }
+        .btn-ghost:hover { border-color:var(--accent); background:var(--accent-dim); }
+
+        /* ─── Stats bar ─── */
+        .stats {
+            background:var(--bg-surface);
+            border:1px solid var(--border);
+            border-radius:16px;
+            padding:4px 0;
+            margin:20px 0;
+        }
+        .stats-row {
+            display:flex; align-items:stretch; justify-content:center;
+            flex-wrap:wrap;
+        }
+        .stat {
+            display:flex; flex-direction:column; align-items:center;
+            padding:10px 44px; border-right:1px solid var(--border-sub);
+        }
+        .stat:last-child { border-right:none; }
+        .stat-n {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.65rem; font-weight:700; color:var(--accent); line-height:1;
+            margin-bottom:4px;
+        }
+        .stat-l {
+            font-size:.72rem; color:var(--text-m); letter-spacing:.07em;
+            text-transform:uppercase; font-weight:500;
+        }
+
+        /* ─── Section base ─── */
+        .sec { padding:20px 0; }
+        .sec-panel {
+            background:var(--bg-surface);
+            border:1px solid var(--border);
+            border-radius:20px;
+            padding:64px 56px;
+        }
+        @media(max-width:700px) { .sec-panel { padding:40px 24px; border-radius:14px; } }
+        .sec-tag {
+            display:inline-block; font-size:.72rem; font-weight:700;
+            letter-spacing:.13em; text-transform:uppercase;
+            color:var(--accent); margin-bottom:10px;
+        }
+        .sec-title {
+            font-size:clamp(1.7rem,3.8vw,2.6rem); font-weight:700;
+            color:var(--text); margin-bottom:12px;
+        }
+        .sec-desc {
+            font-size:.96rem; color:var(--text-2);
+            max-width:500px; line-height:1.75;
+        }
+        .sec-head { margin-bottom:44px; }
+
+        /* ─── Badges ─── */
+        .badge {
+            display:inline-flex; align-items:center; gap:5px;
+            font-size:.68rem; font-weight:700; letter-spacing:.08em;
+            text-transform:uppercase; padding:4px 10px; border-radius:100px;
+        }
+        .b-live {
+            background:rgba(34,197,94,.10); color:#22C55E;
+            border:1px solid rgba(34,197,94,.24);
+        }
+        .b-live::before {
+            content:''; width:5px; height:5px; background:#22C55E;
+            border-radius:50%; box-shadow:0 0 5px #22C55E;
+        }
+        .b-soon {
+            background:rgba(139,92,246,.10); color:#A78BFA;
+            border:1px solid rgba(139,92,246,.24);
+        }
+        .b-kpi {
+            background:var(--accent-dim); color:var(--accent);
+            border:1px solid rgba(245,166,35,.24);
+        }
+        .b-plat {
+            background:rgba(255,255,255,.05); color:var(--text-2);
+            border:1px solid var(--border);
+        }
+        .badge-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px; }
+
+        /* ─── Featured card (split) ─── */
+        .feat {
+            display:grid; grid-template-columns:1fr 1fr;
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r); overflow:hidden;
+            transition:border-color var(--ease), box-shadow var(--ease);
+            margin-bottom:20px;
+        }
+        .feat:hover {
+            border-color:rgba(245,166,35,.28);
+            box-shadow:0 0 48px rgba(245,166,35,.06);
+        }
+        .feat-media {
+            position:relative; background:#000; min-height:300px;
+        }
+        .feat-media iframe {
+            position:absolute; inset:0; width:100%; height:100%;
+        }
+        .feat-info {
+            padding:36px 32px; display:flex; flex-direction:column;
+            justify-content:center; gap:0;
+        }
+        .feat-title {
+            font-size:1.75rem; font-weight:700; color:var(--text);
+            margin-bottom:10px;
+        }
+        .feat-desc {
+            font-size:.93rem; color:var(--text-2); line-height:1.72;
+            margin-bottom:22px;
+        }
+        .store-row { display:flex; gap:10px; flex-wrap:wrap; }
+        .store-img {
+            height:38px; object-fit:contain; opacity:.9;
+            transition:transform var(--ease), opacity var(--ease);
+        }
+        .store-img:hover { transform:scale(1.05); opacity:1; }
+
+        /* ─── Card grid ─── */
+        .card-row {
+            display:grid; grid-template-columns:1fr 1fr; gap:20px;
+        }
+        .card-row.three { grid-template-columns:repeat(3,1fr); }
+        .card-single { grid-template-columns:1fr; max-width:540px; }
+
+        .card {
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r); padding:28px;
+            display:flex; flex-direction:column; gap:10px;
+            transition:border-color var(--ease), box-shadow var(--ease);
+        }
+        .card:hover {
+            border-color:rgba(245,166,35,.18);
+            box-shadow:0 0 32px rgba(245,166,35,.045);
+        }
+        .card-art {
+            width:100%; aspect-ratio:16/7; border-radius:var(--r-sm);
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden; margin-bottom:2px;
+        }
+        .art-lootara  { background:linear-gradient(135deg,#0D1B2A,#2D1B4E 60%,#1A0E2E); }
+        .art-prime    { background:linear-gradient(135deg,#0A1628,#16213E 50%,#0F3460); }
+        .art-kvikdrop { background:linear-gradient(135deg,#0D2818,#0A4029 60%,#082A1A); }
+        .card-art-label {
+            font-family:'Space Grotesk',sans-serif; font-size:.65rem;
+            font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+            color:rgba(255,255,255,.13); text-align:center;
+        }
+        .card h3 {
+            font-size:1.2rem; font-weight:700; color:var(--text); margin:0;
+        }
+        .card p { font-size:.9rem; color:var(--text-2); line-height:1.68; }
+
+        /* ─── Services ─── */
+        .svc-list { display:flex; flex-direction:column; gap:2px; }
+        .svc-item {
+            display:grid; grid-template-columns:280px 1fr;
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r); overflow:hidden;
+            transition:border-color var(--ease), box-shadow var(--ease);
+            min-height:160px;
+        }
+        .svc-item:hover {
+            border-color:rgba(245,166,35,.25);
+            box-shadow:0 0 40px rgba(245,166,35,.06);
+        }
+        .svc-left {
+            position:relative; overflow:hidden;
+            display:flex; flex-direction:column;
+            justify-content:flex-end;
+            padding:28px 32px;
+            background:var(--svc-bg);
+        }
+        .svc-left::after {
+            content:''; position:absolute; inset:0;
+            background:var(--svc-bg); opacity:.18;
+        }
+        .svc-num {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:7rem; font-weight:700; line-height:.85;
+            color:var(--svc-color); opacity:.18;
+            position:absolute; bottom:-10px; right:16px;
+            letter-spacing:-.04em; pointer-events:none;
+            user-select:none;
+        }
+        .svc-label {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.35rem; font-weight:700;
+            color:var(--svc-color); position:relative; z-index:1;
+            letter-spacing:-.01em;
+        }
+        .svc-sub {
+            font-size:.75rem; font-weight:600; letter-spacing:.1em;
+            text-transform:uppercase; color:var(--svc-color);
+            opacity:.5; margin-bottom:8px; position:relative; z-index:1;
+        }
+        .svc-right {
+            padding:28px 32px; display:flex; flex-direction:column;
+            justify-content:center; gap:14px;
+            border-left:1px solid var(--border);
+        }
+        .svc-right p { font-size:.93rem; color:var(--text-2); line-height:1.75; }
+        .svc-tags { display:flex; gap:7px; flex-wrap:wrap; }
+        .svc-tag-item {
+            font-size:.7rem; font-weight:600; letter-spacing:.06em;
+            text-transform:uppercase; padding:4px 10px; border-radius:100px;
+            border:1px solid var(--border); color:var(--text-m);
+        }
+        @media(max-width:700px) {
+            .svc-item { grid-template-columns:1fr; }
+            .svc-left { min-height:100px; padding:22px 24px; }
+            .svc-right { border-left:none; border-top:1px solid var(--border); }
+            .svc-num { font-size:5rem; }
+        }
+
+        /* ─── About ─── */
+        .about-grid {
+            display:grid; grid-template-columns:3fr 2fr; gap:40px;
+            align-items:center;
+        }
+        .about-text p { font-size:.97rem; color:var(--text-2); line-height:1.8; margin-bottom:14px; }
+        .about-text p:last-child { margin-bottom:0; }
+        .about-highlights { display:flex; flex-direction:column; gap:14px; }
+        .highlight-item {
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r); padding:20px 22px;
+        }
+        .highlight-item .h-n {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.5rem; font-weight:700; color:var(--accent); line-height:1;
+            margin-bottom:4px;
+        }
+        .highlight-item .h-l { font-size:.82rem; color:var(--text-2); }
+
+        /* ─── Contact ─── */
+        .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+        .contact-side h3 {
+            font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:12px;
+        }
+        .contact-side p { font-size:.93rem; color:var(--text-2); line-height:1.75; margin-bottom:22px; }
+        .li-btn {
+            display:inline-flex; align-items:center; gap:9px;
+            background:#0A66C2; color:#fff; font-weight:600; font-size:.875rem;
+            padding:10px 20px; border-radius:var(--r-sm); text-decoration:none;
+            font-family:'Space Grotesk',sans-serif;
+            transition:background var(--ease), transform var(--ease);
+        }
+        .li-btn:hover { background:#0856A8; transform:translateY(-1px); }
+        .li-btn img { width:17px; height:17px; }
+
+        /* ─── Form ─── */
+        .form-box {
+            background:var(--bg-card); border:1px solid var(--border);
+            border-radius:var(--r); padding:28px;
+        }
+        .fg { margin-bottom:14px; }
+        .fg label {
+            display:block; font-size:.82rem; font-weight:500;
+            color:var(--text-2); margin-bottom:7px;
+        }
+        .fg input, .fg textarea {
+            width:100%; background:var(--bg-elevated); border-color:var(--border-sub);
+            border:1px solid var(--border); border-radius:var(--r-sm);
+            color:var(--text); font-family:'Inter',sans-serif;
+            font-size:.93rem; padding:10px 13px; outline:none;
+            transition:border-color var(--ease);
+        }
+        .fg input:focus, .fg textarea:focus {
+            border-color:rgba(245,166,35,.4);
+        }
+        .fg textarea { resize:vertical; min-height:96px; }
+        .btn-submit {
+            width:100%; background:var(--accent); color:#070709;
+            font-weight:700; font-size:.92rem; padding:12px;
+            border:none; border-radius:var(--r-sm); cursor:pointer;
+            font-family:'Space Grotesk',sans-serif;
+            transition:background var(--ease), transform var(--ease);
+        }
+        .btn-submit:hover { background:var(--accent-h); transform:translateY(-1px); }
+
+        /* ─── GDPR ─── */
+        .gdpr { padding:60px 0; border-top:1px solid var(--border-sub); }
+        .gdpr-wrap { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+        .gdpr-text p { font-size:.9rem; color:var(--text-2); line-height:1.78; }
+
+        /* ─── Footer ─── */
         footer {
-            background: #1a1f2e;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
+            background:var(--bg-surface);
+            border-top:1px solid var(--border-sub); padding:28px 0;
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+        .foot-inner {
+            display:flex; align-items:center; justify-content:space-between;
+            flex-wrap:wrap; gap:16px;
+        }
+        .foot-logo { height:22px; opacity:.6; }
+        .foot-copy { font-size:.8rem; color:var(--text-m); }
+        .foot-links { display:flex; gap:22px; }
+        .foot-links a {
+            font-size:.82rem; color:var(--text-m); text-decoration:none;
+            transition:color var(--ease);
+        }
+        .foot-links a:hover { color:var(--accent); }
+
+
+        /* ─── Animations ─── */
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(28px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to   { opacity:1; }
+        }
+
+        /* Hero sequence */
+        .hero-logo, .hero-pill, .hero h1, .hero-sub, .hero-btns {
+            opacity:0;
+            animation: fadeUp .7s cubic-bezier(.22,1,.36,1) forwards;
+        }
+        .hero-logo  { animation-delay:.05s; }
+        .hero-pill  { animation-delay:.18s; }
+        .hero h1    { animation-delay:.32s; }
+        .hero-sub   { animation-delay:.46s; }
+        .hero-btns  { animation-delay:.60s; }
+
+        /* Scroll-reveal base */
+        .reveal {
+            opacity:0; transform:translateY(32px);
+            transition: opacity 1s cubic-bezier(.22,1,.36,1),
+                        transform 1s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.visible { opacity:1; transform:none; }
+
+        /* Hover lift for cards */
+        .card:hover {
+            transform:translateY(-3px);
+            border-color:rgba(245,166,35,.45);
+            box-shadow: 0 0 0 1px rgba(245,166,35,.15),
+                        0 8px 40px rgba(245,166,35,.18),
+                        0 0 80px rgba(245,166,35,.08);
+        }
+        .feat:hover {
+            transform:translateY(-3px);
+            border-color:rgba(245,166,35,.45);
+            box-shadow: 0 0 0 1px rgba(245,166,35,.15),
+                        0 8px 40px rgba(245,166,35,.18),
+                        0 0 80px rgba(245,166,35,.08);
+        }
+        .highlight-item:hover {
+            transform:translateY(-3px);
+            border-color:rgba(245,166,35,.4);
+            box-shadow: 0 4px 28px rgba(245,166,35,.15),
+                        0 0 60px rgba(245,166,35,.07);
+        }
+        .svc-item:hover {
+            transform:translateY(-3px);
+            border-color:rgba(245,166,35,.4);
+            box-shadow: 0 8px 40px rgba(245,166,35,.16),
+                        0 0 80px rgba(245,166,35,.07);
+        }
+        .card, .feat, .highlight-item, .svc-item {
+            transition: border-color var(--ease), box-shadow var(--ease),
+                        transform var(--ease);
+        }
+
+        /* ─── Responsive ─── */
+        @media(max-width:900px) {
+            .feat { grid-template-columns:1fr; }
+            .feat-media { min-height:220px; }
+            .card-row { grid-template-columns:1fr; }
+            .card-row.three { grid-template-columns:1fr; }
+            .about-grid { grid-template-columns:1fr; }
+            .contact-wrap { grid-template-columns:1fr; }
+            .gdpr-wrap { grid-template-columns:1fr; }
+            .stat { padding:10px 22px; }
+        }
+        @media(max-width:620px) {
+            .nav-links {
+                display:none; position:fixed; top:62px; left:0; right:0; bottom:0;
+                background:rgba(7,7,9,.97); flex-direction:column;
+                align-items:flex-start; padding:20px 24px; gap:4px;
+                border-top:1px solid var(--border);
             }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            section {
-                padding: 2rem 1rem;
-            }
-            
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            .nav-links a { font-size:1rem; padding:10px 12px; width:100%; }
+            .stats-row { flex-wrap:wrap; }
+            .stat { flex:1 1 45%; border-right:none; padding:12px 10px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-bg"></div>
-        <div class="container">
-            <div class="header-content">
-                <img src="images/vestar.png" alt="Vestar Digital Logo" class="company-logo">
-                <h1>PLAY, CREATE, INNOVATE</h1>
-            </div>
-        </div>
-    </header>
-    
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#games">Our Games</a></li>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="/"><img src="images/vestar.png" alt="Vestar Digital" class="nav-logo"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#apps">Apps</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="portfolio/">Portfolio</a></li>
+                <li><a href="#contact" class="cta">Contact</a></li>
             </ul>
         </div>
-    </nav>
-    
-    <main>
-        <div class="container">
-            <section id="about">
-                <h2>About Us</h2>
-                <p>VESTAR Games is an independent game development studio dedicated to designing high-quality, engaging mobile games. Our team thrives on creativity, technical expertise, and a passion for gaming. Whether you're a casual player or a competitive strategist, our games are built to challenge and entertain.</p>
-            </section>
-            
-            <section id="games">
-                <h2>Our Games</h2>
-                <p style="text-align: center;">Discover our collection of engaging games designed to provide unique and memorable experiences for players of all ages.</p>
-                
-                <div class="games-grid">
-                    <div class="game-card">
-                        <div class="game-video">
-                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/UJDI1oosgDE" title="Puzzle Match Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <h3>Puzzle Match</h3>
-                        <p>A puzzle game that 'gamifies' jigsaw puzzles with modern twists, like level progression and treasure hunting.<br>40% D1 retention.</p>
-                        <div class="expert-badge">
-                            <img src="images/expertapproved.png" alt="Teacher Approved">
-                            <span>Teacher Approved</span>
-                        </div>
-                        <div class="store-badges">
-                            <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank">
-                                <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-badge">
-                            </a>
-                            <a href="https://apps.apple.com/us/app/puzzle-match/id123456789" target="_blank">
-                                <img src="images/app-store-badge.png" alt="Get it on the App Store" class="store-badge">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="game-card">
-                        <div class="game-placeholder"></div>
-                        <h3>Castle Quest</h3>
-                        <p>Build a kingdom, train armies, and win strategic battles in this upcoming 4X game.</p>
-                        <p class="coming-soon">Coming Soon</p>
-                    </div>
-                    
-                    <div class="game-card">
-                        <div class="game-video">
-                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/1Mhc0Mg1_kk" title="Cantina Royale Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <h3>Cantina Royale</h3>
-                        <p style="color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; margin-top: -0.5rem;">contract work</p>
-                        <p>Web3 battle royale game on mobile with 3v3 battles, deep progression, multiple game modes, live events, various NFTs, and game token.<br>VESTAR team was responsible for the whole creative vision and game design.</p>
-                        <p class="discontinued-notice">Discontinued after 3 years live ops</p>
-                    </div>
+    </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <img src="images/vestar.png" alt="Vestar Digital" class="hero-logo">
+            <div class="hero-pill">Mobile Game &amp; App Studio</div>
+            <h1>Built for players.<br><em>Designed to last.</em></h1>
+            <p class="hero-sub">We craft mobile games and apps with 18+ years of industry experience, from concept to live ops, from a single prototype to millions of players.</p>
+            <div class="hero-btns">
+                <a href="portfolio/" class="btn btn-gold">View Our Work →</a>
+                <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Stats ── -->
+<div class="container">
+<div class="stats">
+        <div class="stats-row">
+            <div class="stat">
+                <span class="stat-n">18+</span>
+                <span class="stat-l">Years Experience</span>
+            </div>
+            <div class="stat">
+                <span class="stat-n">25M+</span>
+                <span class="stat-l">Players Reached</span>
+            </div>
+            <div class="stat">
+                <span class="stat-n">10+</span>
+                <span class="stat-l">Titles Shipped</span>
+            </div>
+            <div class="stat">
+                <span class="stat-n">40%</span>
+                <span class="stat-l">D1 Retention</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- ── About ── -->
+<section class="sec" id="about">
+    <div class="container">
+    <div class="sec-panel">
+        <div class="about-grid">
+            <div class="about-text">
+                <span class="sec-tag">About Us</span>
+                <h2 class="sec-title" style="margin-bottom:20px;">We build games<br>players keep coming back to.</h2>
+                <p>Vestar Digital is an independent mobile studio with deep expertise across every layer of game and app development: design, engineering, economy, monetization, and live ops.</p>
+                <p>We've built titles that reached the App Store top charts, earned Apple's "App of the Week," raised $6M in funding, and hit 25M+ players across platforms. Every project we touch is driven by one goal: make something players genuinely love.</p>
+                <p>From a jigsaw puzzle game achieving 40% Day-1 retention as a solo build, to a full-scale web3 battle royale with a team of 12. We scale our expertise to fit the challenge.</p>
+            </div>
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <div class="h-n">Prototyping</div>
+                    <div class="h-l">From raw idea to playable in days</div>
                 </div>
-            </section>
-            
-            <section id="apps">
-                <h2>Our Apps</h2>
-                <p style="text-align: center;">Innovative mobile applications designed to enhance your daily life with cutting-edge technology.</p>
-                
-                <div class="games-grid">
-                    <div class="game-card">
-                        <div class="game-video">
-                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/8M_W9_cAo78" title="FridgeScanner AI Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <h3>FridgeScanner AI</h3>
-                        <p>Gives smart recipe recommendations based on the ingredients you have at home by snapping a photo of your fridge.</p>
-                        <div class="store-badges">
-                            <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank">
-                                <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-badge">
-                            </a>
-                            <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank">
-                                <img src="images/app-store-badge.png" alt="Get it on the App Store" class="store-badge">
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="game-card">
-                        <div class="game-placeholder"></div>
-                        <h3>OOTD AI</h3>
-                        <p>Smart outfit recommendations every morning.</p>
-                        <p class="coming-soon">Coming Soon</p>
-                    </div>
+                <div class="highlight-item">
+                    <div class="h-n">Economy</div>
+                    <div class="h-l">Deep mid-core systems, balancing &amp; IAPs</div>
                 </div>
-            </section>
-            
-            <section id="services">
-                <h2>Our Services</h2>
-                <div class="games-grid">
-                    <div class="game-card">
-                        <img src="images/service_games.png" alt="Game Development" class="service-image">
-                        <h3>Game Development</h3>
-                        <p>Full-cycle mobile game development from concept to launch, including design, programming, and testing.</p>
-                    </div>
-                    
-                    <div class="game-card">
-                        <img src="images/service_apps.png" alt="App Development" class="service-image">
-                        <h3>App Development</h3>
-                        <p>Custom mobile app development for end users, creating intuitive and engaging mobile experiences.</p>
-                    </div>
-                    
-                    <div class="game-card">
-                        <img src="images/service_consulting.png" alt="Consulting" class="service-image">
-                        <h3>Consulting</h3>
-                        <p>Expert guidance on game design, development strategies, and AI integration.</p>
-                    </div>
+                <div class="highlight-item">
+                    <div class="h-n">Live Ops</div>
+                    <div class="h-l">Complex events, battle pass &amp; progression</div>
                 </div>
-            </section>
-            
-            <section id="contact">
-                <h2>Contact Us</h2>
-                <p style="text-align: center;">Ready to start your next project? Get in touch with us and let's create something amazing together.</p>
-                
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" class="linkedin-btn">
-                        <img src="images/linkedin.webp" alt="LinkedIn Logo">
-                        Connect with us on LinkedIn
+                <div class="highlight-item">
+                    <div class="h-n">Full-cycle</div>
+                    <div class="h-l">Concept → shipping → live ops</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- ── Games ── -->
+<section class="sec" id="games">
+    <div class="container">
+    <div class="sec-panel">
+        <div class="sec-head">
+            <span class="sec-tag">Our Games</span>
+            <h2 class="sec-title">Games we're shipping.</h2>
+            <p class="sec-desc">From innovative puzzle mechanics to deep RPG worlds, each title is designed with retention, engagement, and fun at its core.</p>
+        </div>
+
+        <!-- Jigsaw Journey - Featured -->
+        <div class="feat">
+            <div class="feat-media">
+                <iframe src="https://www.youtube.com/embed/-63wTrtvEPg"
+                    title="Jigsaw Journey Gameplay"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="feat-info">
+                <div class="badge-row">
+                    <span class="badge b-live">Live</span>
+                    <span class="badge b-kpi">40% D1 Retention</span>
+                    <span class="badge b-plat">Android</span>
+                </div>
+                <h2 class="feat-title">Jigsaw Journey</h2>
+                <p class="feat-desc">Jigsaw puzzles reimagined as a modern mobile game, with level progression, treasure hunting, and rewarding gameplay loops that keep players coming back daily. Teacher-approved for all ages.</p>
+                <div class="store-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
+                        <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
                     </a>
                 </div>
-                
-                <hr class="section-separator">
-                
-                <form class="contact-form" action="https://formspree.io/f/myzdqbpn" method="POST">
-                    <!-- Honeypot field to reduce spam -->
-                    <input type="text" name="_gotcha" style="display:none" />
-                    
-                    <div class="form-group">
+            </div>
+        </div>
+
+        <!-- Lootara + Prime Suspect -->
+        <div class="card-row">
+            <div class="card">
+                <div class="card-art art-lootara">
+                    <span class="card-art-label">Coming Soon</span>
+                </div>
+                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                <h3>Lootara</h3>
+                <p>A midcore RPG built for mobile: deep progression systems, engaging combat, and a world worth getting lost in. Built for the player who wants more than a casual tap.</p>
+            </div>
+            <div class="card">
+                <div class="card-art art-prime">
+                    <span class="card-art-label">Coming Soon</span>
+                </div>
+                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                <h3>Prime Suspect</h3>
+                <p>A narrative detective game where every clue matters. Immersive storytelling meets mobile-first design. Uncover the truth at your own pace.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- ── Apps ── -->
+<section class="sec" id="apps">
+    <div class="container">
+    <div class="sec-panel">
+        <div class="sec-head">
+            <span class="sec-tag">Our Apps</span>
+            <h2 class="sec-title">Apps people actually use.</h2>
+            <p class="sec-desc">We bring the same game design thinking to apps, building for retention, delight, and daily habits.</p>
+        </div>
+
+        <!-- Fridge Scanner - Featured -->
+        <div class="feat">
+            <div class="feat-media">
+                <iframe src="https://www.youtube.com/embed/8M_W9_cAo78"
+                    title="Fridge Scanner AI Demo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="feat-info">
+                <div class="badge-row">
+                    <span class="badge b-live">Live</span>
+                    <span class="badge b-plat">Android</span>
+                    <span class="badge b-plat">iOS</span>
+                </div>
+                <h2 class="feat-title">Fridge Scanner</h2>
+                <p class="feat-desc">Snap a photo of your fridge, get smart AI-powered recipe recommendations based on exactly what you have. No shopping list needed. Just open, scan, and cook.</p>
+                <div class="store-row">
+                    <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
+                        <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                    </a>
+                    <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
+                        <img src="images/app-store-badge.png" alt="Download on the App Store" class="store-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- KvikDrop -->
+        <div class="card-row card-single">
+            <div class="card">
+                <div class="card-art art-kvikdrop">
+                    <span class="card-art-label">Coming Soon</span>
+                </div>
+                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                <h3>KvikDrop</h3>
+                <p>Fast, zero-friction file and photo sharing between devices. No accounts, no cables, no cloud sign-ups. Just drop and go.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- ── Services ── -->
+<section class="sec" id="services">
+    <div class="container">
+    <div class="sec-panel">
+        <div class="sec-head">
+            <span class="sec-tag">Services</span>
+            <h2 class="sec-title">End-to-end mobile expertise.</h2>
+            <p class="sec-desc">Whether you need a complete product built from scratch or expert guidance on a specific challenge, we cover the full stack.</p>
+        </div>
+        <div class="svc-list">
+
+            <div class="svc-item" style="--svc-bg:rgba(245,166,35,.13);--svc-color:#F5A623;">
+                <div class="svc-left">
+                    <span class="svc-num">01</span>
+                    <div class="svc-sub">Full-cycle</div>
+                    <div class="svc-label">Game Development</div>
+                </div>
+                <div class="svc-right">
+                    <p>From raw concept to launch and live ops. We handle game design, economy, programming, testing, and monetization strategy. Built for retention from day one.</p>
+                    <div class="svc-tags">
+                        <span class="svc-tag-item">Unity</span>
+                        <span class="svc-tag-item">Game Design</span>
+                        <span class="svc-tag-item">Economy</span>
+                        <span class="svc-tag-item">Live Ops</span>
+                        <span class="svc-tag-item">Monetization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-item" style="--svc-bg:rgba(167,139,250,.13);--svc-color:#A78BFA;">
+                <div class="svc-left">
+                    <span class="svc-num">02</span>
+                    <div class="svc-sub">iOS & Android</div>
+                    <div class="svc-label">App Development</div>
+                </div>
+                <div class="svc-right">
+                    <p>Mobile apps built with the engagement principles of top-performing games. Clean UX, solid engineering, fast iteration cycles, and real retention thinking baked in.</p>
+                    <div class="svc-tags">
+                        <span class="svc-tag-item">Flutter</span>
+                        <span class="svc-tag-item">UX Design</span>
+                        <span class="svc-tag-item">AI Integration</span>
+                        <span class="svc-tag-item">App Store</span>
+                        <span class="svc-tag-item">Google Play</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-item" style="--svc-bg:rgba(52,211,153,.13);--svc-color:#34D399;">
+                <div class="svc-left">
+                    <span class="svc-num">03</span>
+                    <div class="svc-sub">18+ Years</div>
+                    <div class="svc-label">Consulting</div>
+                </div>
+                <div class="svc-right">
+                    <p>Expert guidance on game design, product strategy, live ops, economy balancing, AI integration, and team scaling. Hands-on experience across indie and funded studios.</p>
+                    <div class="svc-tags">
+                        <span class="svc-tag-item">Game Design</span>
+                        <span class="svc-tag-item">Product Strategy</span>
+                        <span class="svc-tag-item">Team Scaling</span>
+                        <span class="svc-tag-item">Web3</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- ── Contact ── -->
+<section class="sec" id="contact">
+    <div class="container">
+    <div class="sec-panel">
+        <div class="sec-head">
+            <span class="sec-tag">Contact</span>
+            <h2 class="sec-title">Let's build something great.</h2>
+        </div>
+        <div class="contact-wrap">
+            <div class="contact-side">
+                <h3>Ready to start?</h3>
+                <p>Whether you have a game idea to bring to life, an app you need built, or just want to explore what's possible. We'd love to hear from you.</p>
+                <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" rel="noopener" class="li-btn">
+                    <img src="images/linkedin.webp" alt="LinkedIn">
+                    Connect on LinkedIn
+                </a>
+            </div>
+            <div class="form-box">
+                <form action="https://formspree.io/f/myzdqbpn" method="POST">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <div class="fg">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    
-                    <div class="form-group">
+                    <div class="fg">
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    
-                    <div class="form-group">
+                    <div class="fg">
                         <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" required>
                     </div>
-                    
-                    <div class="form-group">
+                    <div class="fg">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
                     </div>
-                    
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn-submit">Send Message</button>
                 </form>
-            </section>
-            
-            <section id="gdpr-deletion">
-                <h2>Request Game Data Deletion</h2>
-                <p style="text-align: center;">Send us a message with the game's name and your Player ID.</p>
-                
-                <form class="contact-form" action="https://formspree.io/f/meolbpzv" method="POST">
-                    <!-- Honeypot field to reduce spam -->
-                    <input type="text" name="_gotcha" style="display:none" />
-                    
-                    <div class="form-group">
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- ── GDPR ── -->
+<div class="gdpr sec" id="data-deletion">
+    <div class="container">
+    <div class="sec-panel">
+        <div class="sec-head" style="margin-bottom:32px;">
+            <span class="sec-tag">Data Privacy</span>
+            <h2 class="sec-title">Request Game Data Deletion</h2>
+            <p class="sec-desc">Under GDPR and applicable laws you have the right to request deletion of your in-game data.</p>
+        </div>
+        <div class="gdpr-wrap">
+            <div class="gdpr-text">
+                <p>Submit a request with your game name and Player ID (found in the game's Settings screen). We'll verify your identity and process the deletion promptly. You'll receive a confirmation at the email address you provide.</p>
+            </div>
+            <div class="form-box">
+                <form action="https://formspree.io/f/meolbpzv" method="POST">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <div class="fg">
                         <label for="game-name">Game Name</label>
-                        <input type="text" id="game-name" name="game_name" placeholder="Enter the name of the game" required>
+                        <input type="text" id="game-name" name="game_name" placeholder="Enter the game name" required>
                     </div>
-                    
-                    <div class="form-group">
+                    <div class="fg">
                         <label for="player-id">Player ID</label>
-                        <input type="text" id="player-id" name="player_id" placeholder="Enter your Player ID from game settings" required>
+                        <input type="text" id="player-id" name="player_id" placeholder="Your Player ID from game settings" required>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="deletion-email">Email Address</label>
-                        <input type="email" id="deletion-email" name="email" placeholder="Your email where we can send a verification" required>
+                    <div class="fg">
+                        <label for="del-email">Email Address</label>
+                        <input type="email" id="del-email" name="email" placeholder="Your email for verification" required>
                     </div>
-                    
-                    <button type="submit" class="btn">Request Data Deletion</button>
+                    <button type="submit" class="btn-submit">Request Data Deletion</button>
                 </form>
-            </section>
+            </div>
         </div>
-    </main>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Vestar Digital. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
-                <a href="privacy-policy.html" style="color: #667eea; text-decoration: none; margin: 0 0.5rem;">Privacy Policy</a> |
-                <a href="terms-of-service.html" style="color: #667eea; text-decoration: none; margin: 0 0.5rem;">Terms of Service</a>
-            </p>
+    </div>
+    </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="container">
+        <div class="foot-inner">
+            <img src="images/vestar.png" alt="Vestar Digital" class="foot-logo">
+            <span class="foot-copy">© 2026 Vestar Digital. All rights reserved.</span>
+            <div class="foot-links">
+                <a href="portfolio/">Portfolio</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+<script>
+    /* ── Nav toggle ── */
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => links.classList.remove('open'))
+    );
+
+    /* ── Scroll reveal + stagger ── */
+    const revealTargets = [
+        '.stats',
+        '.sec-panel',
+        '.feat',
+        '.card',
+        '.highlight-item',
+        '.svc-item',
+        '.form-box',
+        '.contact-side',
+        '.gdpr-text'
+    ];
+
+    revealTargets.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'));
+    });
+
+    /* Stagger children within card rows */
+    document.querySelectorAll('.card-row, .svc-list, .about-highlights').forEach(parent => {
+        parent.querySelectorAll('.reveal').forEach((child, i) => {
+            child.style.transitionDelay = (i * 0.08) + 's';
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Stat counters ── */
+    function parseStatValue(text) {
+        const clean = text.replace(/[^0-9.]/g, '');
+        return parseFloat(clean) || 0;
+    }
+
+    const statEls = document.querySelectorAll('.stat-n');
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const original = el.textContent;
+            const suffix = original.replace(/[0-9.]/g, '');
+            const target = parseStatValue(original);
+            if (target === 0) return;
+            statObserver.unobserve(el);
+
+            const duration = 1400;
+            const start = performance.now();
+            const isInt = !original.includes('.');
+
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = target * eased;
+                el.textContent = (isInt ? Math.round(current) : current.toFixed(1)) + suffix;
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = original;
+            }
+            requestAnimationFrame(tick);
+        });
+    }, { threshold: 0.5 });
+
+    statEls.forEach(el => statObserver.observe(el));
+</script>
 </body>
 </html>

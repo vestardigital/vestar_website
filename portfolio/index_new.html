@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — Vestar Digital</title>
+    <meta name="description" content="Vestar Digital portfolio: mobile games and apps we've built, plus a track record of 25M+ players, App Store features, and $6M raised across titles.">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ─── Variables ─── */
+        :root {
+            --bg:          #070709;
+            --bg-surface:  #0F0F15;
+            --bg-elevated: #16161F;
+            --border:      #1E1E2E;
+            --border-sub:  #131320;
+            --accent:      #F5A623;
+            --accent-h:    #FFB740;
+            --accent-dim:  rgba(245,166,35,0.10);
+            --accent-glow: rgba(245,166,35,0.22);
+            --text:        #EEEEF5;
+            --text-2:      #8888A8;
+            --text-m:      #4A4A65;
+            --r:           12px;
+            --r-sm:        8px;
+            --ease:        0.22s ease;
+            --w:           1100px;
+        }
+
+        /* ─── Reset ─── */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family:'Inter',system-ui,sans-serif;
+            background:var(--bg); color:var(--text);
+            line-height:1.6; overflow-x:hidden;
+        }
+        h1,h2,h3,h4 {
+            font-family:'Space Grotesk',system-ui,sans-serif;
+            line-height:1.12; letter-spacing:-0.02em;
+        }
+        a { color:inherit; }
+        img { display:block; }
+
+        .container { max-width:var(--w); margin:0 auto; padding:0 24px; }
+
+        /* ─── Nav ─── */
+        .nav {
+            position:sticky; top:0; z-index:200;
+            background:rgba(7,7,9,.82);
+            backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+            border-bottom:1px solid var(--border-sub);
+        }
+        .nav-inner { display:flex; align-items:center; justify-content:space-between; height:62px; }
+        .nav-logo { height:26px; width:auto; opacity:.92; }
+        .nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
+        .nav-links a {
+            color:var(--text-2); text-decoration:none; font-size:.875rem;
+            font-weight:500; padding:6px 14px; border-radius:var(--r-sm);
+            transition:color var(--ease), background var(--ease);
+        }
+        .nav-links a:hover, .nav-links a.active { color:var(--text); background:var(--bg-elevated); }
+        .nav-links a.cta { color:var(--accent); border:1px solid rgba(245,166,35,.28); }
+        .nav-links a.cta:hover { background:var(--accent-dim); color:var(--accent-h); }
+        .nav-toggle {
+            display:none; background:none; border:none; cursor:pointer;
+            padding:8px; flex-direction:column; gap:5px;
+        }
+        .nav-toggle span { display:block; width:22px; height:2px; background:var(--text-2); border-radius:2px; }
+
+        /* ─── Page header ─── */
+        .page-hero {
+            padding:80px 0 60px; position:relative; overflow:hidden;
+        }
+        .page-hero::before {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background:radial-gradient(ellipse 60% 50% at 50% -5%, rgba(245,166,35,.07) 0%, transparent 65%);
+        }
+        .page-hero::after {
+            content:''; position:absolute; inset:0; pointer-events:none;
+            background-image:
+                linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+                linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+            background-size:60px 60px;
+            mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 30%,transparent 80%);
+        }
+        .page-hero-content { position:relative; z-index:1; }
+        .back-link {
+            display:inline-flex; align-items:center; gap:7px;
+            font-size:.82rem; color:var(--text-2); text-decoration:none;
+            margin-bottom:24px; transition:color var(--ease);
+        }
+        .back-link:hover { color:var(--accent); }
+        .page-tag {
+            font-size:.72rem; font-weight:700; letter-spacing:.13em;
+            text-transform:uppercase; color:var(--accent); margin-bottom:10px;
+            display:block;
+        }
+        .page-title {
+            font-size:clamp(2rem,4vw,3.2rem); font-weight:700;
+            color:var(--text); margin-bottom:16px;
+        }
+        .page-desc {
+            font-size:1rem; color:var(--text-2); max-width:560px; line-height:1.75;
+        }
+
+        /* ─── Section ─── */
+        .sec { padding:64px 0; }
+        .sec-head { margin-bottom:40px; }
+        .sec-tag {
+            display:inline-block; font-size:.72rem; font-weight:700;
+            letter-spacing:.13em; text-transform:uppercase;
+            color:var(--accent); margin-bottom:10px;
+        }
+        .sec-title { font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--text); margin-bottom:10px; }
+        .sec-desc { font-size:.93rem; color:var(--text-2); max-width:520px; line-height:1.75; }
+
+        /* ─── Badges ─── */
+        .badge {
+            display:inline-flex; align-items:center; gap:5px;
+            font-size:.68rem; font-weight:700; letter-spacing:.08em;
+            text-transform:uppercase; padding:4px 10px; border-radius:100px;
+        }
+        .b-live { background:rgba(34,197,94,.10); color:#22C55E; border:1px solid rgba(34,197,94,.24); }
+        .b-live::before { content:''; width:5px; height:5px; background:#22C55E; border-radius:50%; box-shadow:0 0 5px #22C55E; }
+        .b-soon { background:rgba(139,92,246,.10); color:#A78BFA; border:1px solid rgba(139,92,246,.24); }
+        .b-kpi  { background:var(--accent-dim); color:var(--accent); border:1px solid rgba(245,166,35,.24); }
+        .b-plat { background:rgba(255,255,255,.05); color:var(--text-2); border:1px solid var(--border); }
+        .b-prev { background:rgba(99,102,241,.10); color:#818CF8; border:1px solid rgba(99,102,241,.24); }
+        .badge-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:12px; }
+
+        /* ─── Project card (vertical) ─── */
+        .proj-grid {
+            display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+            gap:24px;
+        }
+        .proj-card {
+            background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--r); overflow:hidden;
+            transition:border-color var(--ease), box-shadow var(--ease);
+            display:flex; flex-direction:column;
+        }
+        .proj-card:hover {
+            border-color:rgba(245,166,35,.25);
+            box-shadow:0 0 40px rgba(245,166,35,.055);
+        }
+        .proj-video {
+            position:relative; background:#000;
+            aspect-ratio:16/9; flex-shrink:0;
+        }
+        .proj-video iframe { position:absolute; inset:0; width:100%; height:100%; }
+        /* placeholder art for coming soon */
+        .proj-art {
+            aspect-ratio:16/9; flex-shrink:0;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .art-lootara  { background:linear-gradient(135deg,#0D1B2A,#2D1B4E 60%,#1A0E2E); }
+        .art-prime    { background:linear-gradient(135deg,#0A1628,#16213E 50%,#0F3460); }
+        .art-kvikdrop { background:linear-gradient(135deg,#0D2818,#0A4029 60%,#082A1A); }
+        .art-label {
+            font-family:'Space Grotesk',sans-serif; font-size:.65rem;
+            font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+            color:rgba(255,255,255,.13);
+        }
+        .proj-body { padding:22px 22px 26px; display:flex; flex-direction:column; gap:8px; flex:1; }
+        .proj-title { font-size:1.18rem; font-weight:700; color:var(--text); }
+        .proj-desc { font-size:.88rem; color:var(--text-2); line-height:1.7; }
+        .proj-kpis {
+            display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;
+        }
+        .kpi {
+            background:var(--bg-elevated); border:1px solid var(--border);
+            border-radius:var(--r-sm); padding:8px 12px;
+            display:flex; flex-direction:column; gap:2px; min-width:90px;
+        }
+        .kpi-v {
+            font-family:'Space Grotesk',sans-serif; font-size:1.05rem;
+            font-weight:700; color:var(--accent); line-height:1;
+        }
+        .kpi-l { font-size:.7rem; color:var(--text-m); letter-spacing:.04em; }
+        .proj-role {
+            margin-top:8px; padding-top:12px;
+            border-top:1px solid var(--border-sub);
+        }
+        .proj-role-label {
+            font-size:.68rem; font-weight:700; letter-spacing:.1em;
+            text-transform:uppercase; color:var(--text-m); margin-bottom:6px;
+        }
+        .proj-role ul {
+            list-style:none; display:flex; flex-direction:column; gap:4px;
+        }
+        .proj-role li {
+            font-size:.83rem; color:var(--text-2); padding-left:12px;
+            position:relative;
+        }
+        .proj-role li::before {
+            content:'→'; position:absolute; left:0; color:var(--accent);
+            font-size:.72rem; top:.05em;
+        }
+        .proj-stores { display:flex; gap:9px; flex-wrap:wrap; margin-top:auto; padding-top:14px; }
+        .store-img { height:34px; object-fit:contain; opacity:.88; transition:transform var(--ease),opacity var(--ease); }
+        .store-img:hover { transform:scale(1.05); opacity:1; }
+
+        /* ─── Honorable mentions ─── */
+        .mentions-grid {
+            display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+            gap:16px;
+        }
+        .mention-card {
+            background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--r); overflow:hidden;
+            transition:border-color var(--ease);
+        }
+        .mention-card:hover { border-color:rgba(245,166,35,.2); }
+        .mention-thumb {
+            position:relative; background:#000; aspect-ratio:16/9;
+        }
+        .mention-thumb iframe { position:absolute; inset:0; width:100%; height:100%; }
+        .mention-body { padding:14px 16px; }
+        .mention-title { font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:4px; }
+        .mention-stat { font-size:.8rem; color:var(--accent); font-weight:600; }
+
+        /* ─── Divider ─── */
+        .divider { height:1px; background:var(--border-sub); border:none; }
+
+        /* ─── Footer ─── */
+        footer { background:var(--bg-surface); border-top:1px solid var(--border-sub); padding:28px 0; }
+        .foot-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+        .foot-logo { height:22px; opacity:.6; }
+        .foot-copy { font-size:.8rem; color:var(--text-m); }
+        .foot-links { display:flex; gap:22px; }
+        .foot-links a { font-size:.82rem; color:var(--text-m); text-decoration:none; transition:color var(--ease); }
+        .foot-links a:hover { color:var(--accent); }
+
+        /* ─── Responsive ─── */
+        @media(max-width:620px) {
+            .nav-links {
+                display:none; position:fixed; top:62px; left:0; right:0; bottom:0;
+                background:rgba(7,7,9,.97); flex-direction:column;
+                align-items:flex-start; padding:20px 24px; gap:4px;
+                border-top:1px solid var(--border);
+            }
+            .nav-links.open { display:flex; }
+            .nav-toggle { display:flex; }
+            .nav-links a { font-size:1rem; padding:10px 12px; width:100%; }
+            .proj-grid { grid-template-columns:1fr; }
+            .mentions-grid { grid-template-columns:1fr 1fr; }
+        }
+        @media(max-width:440px) {
+            .mentions-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="/"><img src="../images/vestar.png" alt="Vestar Digital" class="nav-logo"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#games">Games</a></li>
+                <li><a href="/#apps">Apps</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/portfolio/" class="active">Portfolio</a></li>
+                <li><a href="/#contact" class="cta">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ── Page header ── -->
+<div class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <a href="/" class="back-link">← Back to Home</a>
+            <span class="page-tag">Portfolio</span>
+            <h1 class="page-title">Our Work</h1>
+            <p class="page-desc">Games and apps built by Vestar Digital, plus a track record of titles our team has shipped across 18+ years in the mobile industry.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ── Vestar Projects ── -->
+<section class="sec" id="vestar-projects">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Vestar Digital</span>
+            <h2 class="sec-title">Our Projects</h2>
+            <p class="sec-desc">Games and apps developed and published by Vestar Digital.</p>
+        </div>
+
+        <div class="proj-grid">
+
+            <!-- Jigsaw Journey -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/-63wTrtvEPg"
+                        title="Jigsaw Journey Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-live">Live</span>
+                        <span class="badge b-plat">Android</span>
+                    </div>
+                    <div class="proj-title">Jigsaw Journey</div>
+                    <div class="proj-desc">Jigsaw puzzles reimagined as a modern mobile game — level progression, treasure hunting, and rewarding loops that keep players engaged daily. Teacher-approved.</div>
+                    <div class="proj-kpis">
+                        <div class="kpi"><span class="kpi-v">40%</span><span class="kpi-l">D1 Retention</span></div>
+                        <div class="kpi"><span class="kpi-v">Solo</span><span class="kpi-l">Developer</span></div>
+                    </div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Vestar's Role</div>
+                        <ul>
+                            <li>Sole developer — concept, design, and engineering</li>
+                            <li>Game economy & monetization design</li>
+                            <li>Live ops & player retention systems</li>
+                        </ul>
+                    </div>
+                    <div class="proj-stores">
+                        <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
+                            <img src="../images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fridge Scanner -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/8M_W9_cAo78"
+                        title="Fridge Scanner AI Demo" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-live">Live</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">Fridge Scanner</div>
+                    <div class="proj-desc">AI-powered app that scans your fridge and generates personalized recipe recommendations from what you already have. No shopping list needed.</div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Vestar's Role</div>
+                        <ul>
+                            <li>Full-stack development — iOS & Android</li>
+                            <li>AI integration and prompt engineering</li>
+                            <li>UX design and onboarding flow</li>
+                        </ul>
+                    </div>
+                    <div class="proj-stores">
+                        <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
+                            <img src="../images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                        </a>
+                        <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
+                            <img src="../images/app-store-badge.png" alt="Download on the App Store" class="store-img">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lootara -->
+            <div class="proj-card">
+                <div class="proj-art art-lootara">
+                    <span class="art-label">Coming Soon</span>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                    <div class="proj-title">Lootara</div>
+                    <div class="proj-desc">A midcore RPG built for mobile — deep progression, engaging combat, and a world worth getting lost in. Designed for the player who wants more than a casual tap.</div>
+                </div>
+            </div>
+
+            <!-- Prime Suspect -->
+            <div class="proj-card">
+                <div class="proj-art art-prime">
+                    <span class="art-label">Coming Soon</span>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                    <div class="proj-title">Prime Suspect</div>
+                    <div class="proj-desc">A narrative detective game where every clue matters. Immersive storytelling meets mobile-first design — uncover the truth at your own pace.</div>
+                </div>
+            </div>
+
+            <!-- KvikDrop -->
+            <div class="proj-card">
+                <div class="proj-art art-kvikdrop">
+                    <span class="art-label">Coming Soon</span>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
+                    <div class="proj-title">KvikDrop</div>
+                    <div class="proj-desc">Fast, zero-friction file and photo sharing between devices. No accounts, no cables — just drop and go.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── Team's Previous Work ── -->
+<section class="sec" id="previous-work">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Track Record</span>
+            <h2 class="sec-title">Our Team's Previous Work</h2>
+            <p class="sec-desc">Games designed, directed, and shipped by our team before Vestar Digital — spanning 18+ years in the mobile game industry.</p>
+        </div>
+
+        <div class="proj-grid">
+
+            <!-- Cantina Royale -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/1Mhc0Mg1_kk"
+                        title="Cantina Royale Trailer" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Contract</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">Cantina Royale</div>
+                    <div class="proj-desc">Top-down battle royale for mobile, inspired by Brawl Stars and Zooba. Web3 game economy with NFTs and a game token, with fair matchmaking between free-to-play and NFT-holding players. 3 years of live ops.</div>
+                    <div class="proj-kpis">
+                        <div class="kpi"><span class="kpi-v">$6M</span><span class="kpi-l">Raised</span></div>
+                        <div class="kpi"><span class="kpi-v">12</span><span class="kpi-l">Team Size</span></div>
+                        <div class="kpi"><span class="kpi-v">3 yrs</span><span class="kpi-l">Live Ops</span></div>
+                    </div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>Full creative direction — product vision to GDDs</li>
+                            <li>20 heroes, 5 game modes, 10 live events, battle pass, crafting</li>
+                            <li>Web3 economy design: NFTs and sustainable game token</li>
+                            <li>Matchmaking system balancing NFT and F2P players fairly</li>
+                            <li>All game design, economy, and monetization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Space Quest -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/gsx0gOr46SM"
+                        title="Space Quest Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Previous Work</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">Space Quest</div>
+                    <div class="proj-desc">Top-down roguelite shooter inspired by Archero — with deep hero progression, city building, clans, and extensive live events. Running live since 2019 with steady monthly active users.</div>
+                    <div class="proj-kpis">
+                        <div class="kpi"><span class="kpi-v">$2.5</span><span class="kpi-l">RPD</span></div>
+                        <div class="kpi"><span class="kpi-v">47 min</span><span class="kpi-l">Daily Playtime</span></div>
+                        <div class="kpi"><span class="kpi-v">48</span><span class="kpi-l">Heroes</span></div>
+                    </div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>All creative work: progression, heroes, metagame, live-ops</li>
+                            <li>Monetization design and clan systems</li>
+                            <li>Full UI design and implementation</li>
+                            <li>ASO strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Racing Clash -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/xao1_6x1g_k"
+                        title="Racing Clash Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Previous Work</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">Racing Clash</div>
+                    <div class="proj-desc">4-player multiplayer racing game with a betting arena meta. Built by a team of 4 in just 3 months — shipped fast, scaled impressively.</div>
+                    <div class="proj-kpis">
+                        <div class="kpi"><span class="kpi-v">1M+</span><span class="kpi-l">Organic Installs</span></div>
+                        <div class="kpi"><span class="kpi-v">3 mo</span><span class="kpi-l">Dev Time</span></div>
+                    </div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>Progression, metagame, and economy design</li>
+                            <li>Monetization and clan systems</li>
+                            <li>Full UI design and implementation</li>
+                            <li>ASO strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guns Cars Zombies -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/D0G6rbnKK_c"
+                        title="Guns Cars Zombies Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Previous Work</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">Guns, Cars, Zombies!</div>
+                    <div class="proj-desc">A one-of-a-kind gory post-apocalyptic racing game. One of the more unique game concepts in the portfolio — high production for a small team.</div>
+                    <div class="proj-kpis">
+                        <div class="kpi"><span class="kpi-v">$1</span><span class="kpi-l">RPD</span></div>
+                        <div class="kpi"><span class="kpi-v">2M+</span><span class="kpi-l">Downloads</span></div>
+                    </div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>All creative work: game modes, progression, cars</li>
+                            <li>Metagame, live-ops, monetization, clan wars</li>
+                            <li>Full UI design and implementation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spies In Disguise -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/jQxxAYU5qg8"
+                        title="Spies In Disguise Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Previous Work</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">Spies In Disguise</div>
+                    <div class="proj-desc">Mobile endless runner promoting the 20th Century Fox / Disney / Blue Sky Studios animated feature film. Coordinated between US publisher, Hungarian dev studio, and Hollywood IP owners.</div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>Studio leadership — scaled team from 5 to 35</li>
+                            <li>Liaison between dev studio, US publisher, and IP holders</li>
+                            <li>20th Century Fox · Disney · Blue Sky Studios</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAC-MAN Friends -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/gKa2mhfrT8s"
+                        title="PAC-MAN Friends Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Previous Work</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="proj-title">PAC-MAN™ Friends</div>
+                    <div class="proj-desc">A level-based puzzle game set in the iconic PAC-MAN universe, published by Namco Bandai. Featured by Apple as "App of the Week."</div>
+                    <div class="proj-kpis">
+                        <div class="kpi"><span class="kpi-v">10M+</span><span class="kpi-l">Installs</span></div>
+                        <div class="kpi"><span class="kpi-v">⭐ AOTW</span><span class="kpi-l">Apple App of Week</span></div>
+                    </div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>Created the prototype that onboarded Namco Bandai</li>
+                            <li>Led the full development team</li>
+                            <li>Designed characters, levels, and UI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEAT Online -->
+            <div class="proj-card">
+                <div class="proj-video">
+                    <iframe src="https://www.youtube.com/embed/5qkRrGwNcCY"
+                        title="HEAT Online Gameplay" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="proj-body">
+                    <div class="badge-row">
+                        <span class="badge b-prev">Previous Work</span>
+                        <span class="badge b-plat">PC</span>
+                    </div>
+                    <div class="proj-title">HEAT Online / Project Torque</div>
+                    <div class="proj-desc">A multiplayer racing MMO for PC. One of the early career foundations — engineering competitive game modes and deepening expertise in client-server gameplay architecture.</div>
+                    <div class="proj-role">
+                        <div class="proj-role-label">Our Team's Role</div>
+                        <ul>
+                            <li>Designed and coded Catch The Flag, King of the Hill, Sumo, NASCAR game modes</li>
+                            <li>Client (Java) and server (C++) engineering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── Honorable Mentions ── -->
+<section class="sec" id="honorable-mentions">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-tag">Honorable Mentions</span>
+            <h2 class="sec-title">More titles from the team</h2>
+            <p class="sec-desc">Additional games our team contributed to — each with significant scale and reach.</p>
+        </div>
+
+        <div class="mentions-grid">
+            <div class="mention-card">
+                <div class="mention-thumb">
+                    <iframe src="https://www.youtube.com/embed/4xit5nGZWRs"
+                        title="Dustoff Heli Rescue" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="mention-body">
+                    <div class="mention-title">Dustoff: Heli Rescue</div>
+                    <div class="mention-stat">20M Downloads</div>
+                </div>
+            </div>
+
+            <div class="mention-card">
+                <div class="mention-thumb">
+                    <iframe src="https://www.youtube.com/embed/ELowjdyogLg"
+                        title="Highway Traffic Rider" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="mention-body">
+                    <div class="mention-title">Highway Traffic Rider 1 &amp; 2</div>
+                    <div class="mention-stat">25M Downloads</div>
+                </div>
+            </div>
+
+            <div class="mention-card">
+                <div class="mention-thumb">
+                    <iframe src="https://www.youtube.com/embed/UDzsbz8SVP0"
+                        title="Give It Up!" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="mention-body">
+                    <div class="mention-title">Give It Up!</div>
+                    <div class="mention-stat">10M Downloads</div>
+                </div>
+            </div>
+
+            <div class="mention-card">
+                <div class="mention-thumb">
+                    <iframe src="https://www.youtube.com/embed/xDxQMwCtHBM"
+                        title="Jewel Fight" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="mention-body">
+                    <div class="mention-title">Jewel Fight</div>
+                    <div class="mention-stat">10M Downloads</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="container">
+        <div class="foot-inner">
+            <img src="../images/vestar.png" alt="Vestar Digital" class="foot-logo">
+            <span class="foot-copy">© 2025 Vestar Digital. All rights reserved.</span>
+            <div class="foot-links">
+                <a href="/">Home</a>
+                <a href="../privacy-policy.html">Privacy Policy</a>
+                <a href="../terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => links.classList.remove('open'))
+    );
+</script>
+</body>
+</html>
