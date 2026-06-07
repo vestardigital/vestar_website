@@ -236,44 +236,74 @@
             background:rgba(255,255,255,.05); color:var(--text-2);
             border:1px solid var(--border);
         }
+        .b-dev {
+            background:rgba(59,130,246,.1); color:#60a5fa;
+            border:1px solid rgba(59,130,246,.25);
+        }
         .badge-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px; }
 
-        /* ─── Featured card (split) ─── */
+        /* ─── App Store card ─── */
         .feat {
-            display:grid; grid-template-columns:1fr 1fr;
             background:var(--bg-card); border:1px solid var(--border);
             border-radius:var(--r); overflow:hidden;
             transition:border-color var(--ease), box-shadow var(--ease);
-            margin-bottom:20px;
+            margin-bottom:20px; padding:28px 32px;
         }
         .feat:hover {
             border-color:rgba(245,166,35,.28);
             box-shadow:0 0 48px rgba(245,166,35,.06);
         }
-        .feat-media {
-            position:relative; background:#000; min-height:300px;
+        /* Header: icon top-left + text */
+        .feat-header {
+            display:flex; align-items:flex-start; gap:16px;
+            margin-bottom:24px;
         }
-        .feat-media iframe {
-            position:absolute; inset:0; width:100%; height:100%;
+        .feat-icon {
+            width:64px; height:64px; border-radius:14px; flex-shrink:0;
+            box-shadow:0 4px 16px rgba(0,0,0,.4);
         }
-        .feat-info {
-            padding:36px 32px; display:flex; flex-direction:column;
-            justify-content:center; gap:0;
-        }
+        .feat-meta { display:flex; flex-direction:column; gap:2px; flex:1; }
         .feat-title {
             font-size:1.75rem; font-weight:700; color:var(--text);
-            margin-bottom:10px;
+            line-height:1.15;
         }
         .feat-desc {
-            font-size:.93rem; color:var(--text-2); line-height:1.72;
-            margin-bottom:22px;
+            font-size:.9rem; color:var(--text-2); line-height:1.65;
+            margin-top:6px;
         }
-        .store-row { display:flex; gap:10px; flex-wrap:wrap; }
+        .feat-chips {
+            display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;
+        }
+        .store-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
         .store-img {
-            height:38px; object-fit:contain; opacity:.9;
+            height:36px; object-fit:contain; opacity:.9;
             transition:transform var(--ease), opacity var(--ease);
         }
         .store-img:hover { transform:scale(1.05); opacity:1; }
+        /* Screenshot scroll */
+        .feat-screenshots {
+            display:flex; gap:10px; overflow-x:auto;
+            padding:0 0 6px;
+            margin-left:80px;
+            scrollbar-width:thin;
+            scrollbar-color:var(--border) transparent;
+        }
+        .feat-screenshots::-webkit-scrollbar { height:5px; }
+        .feat-screenshots::-webkit-scrollbar-track { background:transparent; }
+        .feat-screenshots::-webkit-scrollbar-thumb { background:var(--border); border-radius:3px; }
+        .feat-screenshots img {
+            height:300px; width:auto; flex-shrink:0;
+            border-radius:14px;
+            box-shadow:0 6px 24px rgba(0,0,0,.5);
+            transition:transform .3s cubic-bezier(.22,1,.36,1);
+        }
+        .feat-screenshots img:hover { transform:translateY(-4px); }
+        @media(max-width:700px) {
+            .feat { padding:18px; }
+            .feat-icon { width:48px; height:48px; border-radius:12px; }
+            .feat-title { font-size:1.35rem; }
+            .feat-screenshots img { height:200px; border-radius:10px; }
+        }
 
         /* ─── Card grid ─── */
         .card-row {
@@ -292,18 +322,31 @@
             border-color:rgba(245,166,35,.18);
             box-shadow:0 0 32px rgba(245,166,35,.045);
         }
-        .card-art {
-            width:100%; aspect-ratio:16/7; border-radius:var(--r-sm);
+        /* Coming soon placeholder icon */
+        .feat-icon-soon {
+            width:64px; height:64px; border-radius:14px; flex-shrink:0;
+            background:rgba(59,130,246,.08); border:1px solid rgba(59,130,246,.2);
             display:flex; align-items:center; justify-content:center;
-            overflow:hidden; margin-bottom:2px;
+            font-family:'Space Grotesk',sans-serif;
+            font-size:.55rem; font-weight:700; letter-spacing:.08em;
+            text-transform:uppercase; color:#60a5fa; text-align:center;
+            line-height:1.3;
         }
-        .art-lootara  { background:linear-gradient(135deg,#0D1B2A,#2D1B4E 60%,#1A0E2E); }
-        .art-prime    { background:linear-gradient(135deg,#0A1628,#16213E 50%,#0F3460); }
-        .art-kvikdrop { background:linear-gradient(135deg,#0D2818,#0A4029 60%,#082A1A); }
-        .card-art-label {
-            font-family:'Space Grotesk',sans-serif; font-size:.65rem;
-            font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-            color:rgba(255,255,255,.13); text-align:center;
+        /* Coming soon screenshot placeholder */
+        .feat-screenshots-soon {
+            margin-left:80px;
+            height:200px; border-radius:14px;
+            background:rgba(59,130,246,.05); border:1px solid rgba(59,130,246,.15);
+            display:flex; align-items:center; justify-content:center;
+        }
+        .feat-screenshots-soon span {
+            font-family:'Space Grotesk',sans-serif;
+            font-size:1.1rem; font-weight:600; letter-spacing:.12em;
+            text-transform:uppercase; color:#60a5fa; opacity:.6;
+        }
+        @media(max-width:700px) {
+            .feat-screenshots-soon { height:140px; margin-left:0; }
+            .feat-icon-soon { width:48px; height:48px; border-radius:12px; }
         }
         .card h3 {
             font-size:1.2rem; font-weight:700; color:var(--text); margin:0;
@@ -594,11 +637,11 @@
                 <span class="stat-l">Years Experience</span>
             </div>
             <div class="stat">
-                <span class="stat-n">25M+</span>
+                <span class="stat-n">80M+</span>
                 <span class="stat-l">Players Reached</span>
             </div>
             <div class="stat">
-                <span class="stat-n">10+</span>
+                <span class="stat-n">25+</span>
                 <span class="stat-l">Titles Shipped</span>
             </div>
             <div class="stat">
@@ -619,7 +662,7 @@
                 <span class="sec-tag">About Us</span>
                 <h2 class="sec-title" style="margin-bottom:20px;">We build games<br>players keep coming back to.</h2>
                 <p>Vestar Digital is an independent mobile studio with deep expertise across every layer of game and app development: design, engineering, economy, monetization, and live ops.</p>
-                <p>We've built titles that reached the App Store top charts, earned Apple's "App of the Week," raised $6M in funding, and hit 25M+ players across platforms. Every project we touch is driven by one goal: make something players genuinely love.</p>
+                <p>We've built titles that reached the App Store top charts, earned Apple's "App of the Week," raised $6M in funding, and hit 80M+ players across platforms. Every project we touch is driven by one goal: make something players genuinely love.</p>
                 <p>From a jigsaw puzzle game achieving 40% Day-1 retention as a solo build, to a full-scale web3 battle royale with a team of 12. We scale our expertise to fit the challenge.</p>
             </div>
             <div class="about-highlights">
@@ -657,48 +700,60 @@
 
         <!-- Jigsaw Journey - Featured -->
         <div class="feat">
-            <div class="feat-media">
-                <iframe src="https://www.youtube.com/embed?v=-63wTrtvEPg"
-                    title="Jigsaw Journey Gameplay"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+            <div class="feat-header">
+                <img src="images/jigsaw-icon.png" alt="Jigsaw Journey" class="feat-icon">
+                <div class="feat-meta">
+                    <h2 class="feat-title">Jigsaw Journey</h2>
+                    <p class="feat-desc">Jigsaw puzzles reimagined as a modern mobile game, with level progression, treasure hunting, and rewarding gameplay loops that keep players coming back daily. Teacher-approved for all ages.</p>
+                    <div class="feat-chips">
+                        <span class="badge b-live">Live</span>
+                        <span class="badge b-kpi">40% D1 Retention</span>
+                        <span class="badge b-plat">Android</span>
+                    </div>
+                    <div class="store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
+                            <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="feat-info">
-                <div class="badge-row">
-                    <span class="badge b-live">Live</span>
-                    <span class="badge b-kpi">40% D1 Retention</span>
-                    <span class="badge b-plat">Android</span>
-                </div>
-                <h2 class="feat-title">Jigsaw Journey</h2>
-                <p class="feat-desc">Jigsaw puzzles reimagined as a modern mobile game, with level progression, treasure hunting, and rewarding gameplay loops that keep players coming back daily. Teacher-approved for all ages.</p>
-                <div class="store-row">
-                    <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
-                        <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
-                    </a>
-                </div>
+            <div class="feat-screenshots">
+                <img src="images/jigsaw-1.png" alt="Jigsaw Journey screenshot 1">
+                <img src="images/jigsaw-2.png" alt="Jigsaw Journey screenshot 2">
+                <img src="images/jigsaw-3.png" alt="Jigsaw Journey screenshot 3">
+                <img src="images/jigsaw-4.png" alt="Jigsaw Journey screenshot 4">
+                <img src="images/jigsaw-5.png" alt="Jigsaw Journey screenshot 5">
             </div>
         </div>
 
-        <!-- Lootara + Prime Suspect -->
-        <div class="card-row">
-            <div class="card">
-                <div class="card-art art-lootara">
-                    <span class="card-art-label">Coming Soon</span>
+        <!-- Lootara -->
+        <div class="feat">
+            <div class="feat-header">
+                <div class="feat-icon-soon">In<br>Dev</div>
+                <div class="feat-meta">
+                    <h2 class="feat-title">Lootara</h2>
+                    <p class="feat-desc">A midcore RPG built for mobile: deep progression systems, engaging combat, and a world worth getting lost in. Built for the player who wants more than a casual tap.</p>
+                    <div class="feat-chips">
+                        <span class="badge b-dev">In Development</span>
+                    </div>
                 </div>
-                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
-                <h3>Lootara</h3>
-                <p>A midcore RPG built for mobile: deep progression systems, engaging combat, and a world worth getting lost in. Built for the player who wants more than a casual tap.</p>
             </div>
-            <div class="card">
-                <div class="card-art art-prime">
-                    <span class="card-art-label">Coming Soon</span>
+            <div class="feat-screenshots-soon"><span>In Development</span></div>
+        </div>
+
+        <!-- Prime Suspect -->
+        <div class="feat">
+            <div class="feat-header">
+                <div class="feat-icon-soon">In<br>Dev</div>
+                <div class="feat-meta">
+                    <h2 class="feat-title">Prime Suspect</h2>
+                    <p class="feat-desc">A narrative detective game where every clue matters. Immersive storytelling meets mobile-first design. Uncover the truth at your own pace.</p>
+                    <div class="feat-chips">
+                        <span class="badge b-dev">In Development</span>
+                    </div>
                 </div>
-                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
-                <h3>Prime Suspect</h3>
-                <p>A narrative detective game where every clue matters. Immersive storytelling meets mobile-first design. Uncover the truth at your own pace.</p>
             </div>
+            <div class="feat-screenshots-soon"><span>In Development</span></div>
         </div>
     </div>
     </div>
@@ -716,43 +771,48 @@
 
         <!-- Fridge Scanner - Featured -->
         <div class="feat">
-            <div class="feat-media">
-                <iframe src="https://www.youtube.com/embed/8M_W9_cAo78"
-                    title="Fridge Scanner AI Demo"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+            <div class="feat-header">
+                <img src="images/fridge-icon.png" alt="Fridge Scanner" class="feat-icon">
+                <div class="feat-meta">
+                    <h2 class="feat-title">Fridge Scanner</h2>
+                    <p class="feat-desc">Snap a photo of your fridge, get smart AI-powered recipe recommendations based on exactly what you have. No shopping list needed. Just open, scan, and cook.</p>
+                    <div class="feat-chips">
+                        <span class="badge b-live">Live</span>
+                        <span class="badge b-plat">Android</span>
+                        <span class="badge b-plat">iOS</span>
+                    </div>
+                    <div class="store-row">
+                        <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
+                            <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                        </a>
+                        <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
+                            <img src="images/app-store-badge.png" alt="Download on the App Store" class="store-img">
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="feat-info">
-                <div class="badge-row">
-                    <span class="badge b-live">Live</span>
-                    <span class="badge b-plat">Android</span>
-                    <span class="badge b-plat">iOS</span>
-                </div>
-                <h2 class="feat-title">Fridge Scanner</h2>
-                <p class="feat-desc">Snap a photo of your fridge, get smart AI-powered recipe recommendations based on exactly what you have. No shopping list needed. Just open, scan, and cook.</p>
-                <div class="store-row">
-                    <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
-                        <img src="images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
-                    </a>
-                    <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
-                        <img src="images/app-store-badge.png" alt="Download on the App Store" class="store-img">
-                    </a>
-                </div>
+            <div class="feat-screenshots">
+                <img src="images/fridge-1.png" alt="Fridge Scanner screenshot 1">
+                <img src="images/fridge-2.png" alt="Fridge Scanner screenshot 2">
+                <img src="images/fridge-3.png" alt="Fridge Scanner screenshot 3">
+                <img src="images/fridge-4.png" alt="Fridge Scanner screenshot 4">
+                <img src="images/fridge-5.png" alt="Fridge Scanner screenshot 5">
             </div>
         </div>
 
         <!-- KvikDrop -->
-        <div class="card-row card-single">
-            <div class="card">
-                <div class="card-art art-kvikdrop">
-                    <span class="card-art-label">Coming Soon</span>
+        <div class="feat">
+            <div class="feat-header">
+                <div class="feat-icon-soon">In<br>Dev</div>
+                <div class="feat-meta">
+                    <h2 class="feat-title">KvikDrop</h2>
+                    <p class="feat-desc">Fast, zero-friction file and photo sharing between devices. No accounts, no cables, no cloud sign-ups. Just drop and go.</p>
+                    <div class="feat-chips">
+                        <span class="badge b-dev">In Development</span>
+                    </div>
                 </div>
-                <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
-                <h3>KvikDrop</h3>
-                <p>Fast, zero-friction file and photo sharing between devices. No accounts, no cables, no cloud sign-ups. Just drop and go.</p>
             </div>
+            <div class="feat-screenshots-soon"><span>In Development</span></div>
         </div>
     </div>
     </div>
