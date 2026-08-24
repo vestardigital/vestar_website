@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Data Deletion | Vestar Digital</title>
+    <meta name="description" content="Request deletion of the data one of Vestar Digital's games holds about you. Send the game name and your Player ID and we will delete it and confirm by email.">
+    <meta name="theme-color" content="#FAF3E8">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vestar.digital/data-deletion.html">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container">
+        <div class="nav-inner">
+            <a href="/" class="nav-name">Vestar Digital</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#studio">Studio</a></li>
+                <li><a href="/#games">Games</a></li>
+                <li><a href="/#apps">Apps</a></li>
+                <li><a href="/#websites">Websites</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#contact" class="cta">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="legal-head">
+    <div class="container">
+        <a href="/" class="back-link">&larr; Back to home</a>
+        <h1 class="page-title">Game data deletion</h1>
+        <p class="sec-lede">Under GDPR and the equivalent laws elsewhere you can ask us to delete the data one of our games holds about you.</p>
+    </div>
+</header>
+
+<main class="sec" style="padding-top:44px">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-side">
+                <h3>How it works</h3>
+                <p>Send the game name together with the Player ID shown on that game's settings screen. We verify the account is yours, delete the data, and email a confirmation to the address you give us. There is no retention offer and no second form.</p>
+                <p>If you cannot find your Player ID, or the request is about one of our apps rather than a game, email <a href="mailto:support@vestar.digital" style="color:var(--orange-d)">support@vestar.digital</a> and we will handle it from there.</p>
+            </div>
+            <div class="form-box">
+                <form action="https://formspree.io/f/meolbpzv" method="POST">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="fg">
+                        <label for="game-name">Game name</label>
+                        <input type="text" id="game-name" name="game_name" required>
+                    </div>
+                    <div class="fg">
+                        <label for="player-id">Player ID</label>
+                        <input type="text" id="player-id" name="player_id" required>
+                    </div>
+                    <div class="fg">
+                        <label for="del-email">Email address</label>
+                        <input type="email" id="del-email" name="email" autocomplete="email" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Request deletion</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="foot-inner">
+            <img src="images/vestar-ink.png" alt="Vestar Digital" class="foot-logo">
+            <span class="foot-copy">&copy; 2026 Vestar Digital. All rights reserved.</span>
+            <div class="foot-links">
+                <a href="/">Home</a>
+                <a href="portfolio/">Portfolio</a>
+                <a href="privacy-policy.html">Privacy policy</a>
+                <a href="terms-of-service.html">Terms of service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }));
+</script>
+</body>
+</html>

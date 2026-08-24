@@ -4,300 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Vestar Digital</title>
-    <meta name="description" content="Vestar Digital portfolio: mobile games and apps we've built, plus a track record of 25M+ players, App Store features, and $6M raised across titles.">
+    <meta name="description" content="Games and apps built by Vestar Digital, plus the titles our team shipped before it: 80M+ players, an Apple App of the Week, and $6M raised.">
+    <meta name="theme-color" content="#FAF3E8">
+    <link rel="canonical" href="https://vestar.digital/portfolio/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vestar.digital/portfolio/">
+    <meta property="og:title" content="Portfolio | Vestar Digital">
+    <meta property="og:description" content="Games and apps built by Vestar Digital, plus the titles our team shipped before it.">
+
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* ─── Variables ─── */
-        :root {
-            --bg:          #06060C;
-            --bg-surface:  #0F0F1C;
-            --bg-elevated: #1A1A2E;
-            --bg-card:     #1F1F35;
-            --border:      #32324E;
-            --border-sub:  #26263C;
-            --accent:      #F5A623;
-            --accent-h:    #FFB740;
-            --accent-dim:  rgba(245,166,35,0.10);
-            --accent-glow: rgba(245,166,35,0.22);
-            --text:        #EEEEF5;
-            --text-2:      #9E9EBF;
-            --text-m:      #4A4A65;
-            --r:           12px;
-            --r-sm:        8px;
-            --ease:        0.22s ease;
-            --w:           1100px;
-        }
-
-        /* ─── Reset ─── */
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body {
-            font-family:'Inter',system-ui,sans-serif;
-            background:var(--bg); color:var(--text);
-            line-height:1.6; overflow-x:hidden;
-            cursor:default;
-        }
-        p, h1, h2, h3, h4, span, div, li { cursor:default; }
-        a, button { cursor:pointer; }
-        h1,h2,h3,h4 {
-            font-family:'Space Grotesk',system-ui,sans-serif;
-            line-height:1.12; letter-spacing:-0.02em;
-        }
-        a { color:inherit; }
-        img { display:block; }
-
-        .container { max-width:var(--w); margin:0 auto; padding:0 24px; }
-
-        /* ─── Nav ─── */
-        .nav {
-            position:sticky; top:0; z-index:200;
-            background:rgba(7,7,9,.82);
-            backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
-            border-bottom:1px solid var(--border-sub);
-        }
-        .nav-inner { display:flex; align-items:center; justify-content:space-between; height:62px; }
-        .nav-logo { height:26px; width:auto; opacity:.92; }
-        .nav-links { display:flex; align-items:center; gap:2px; list-style:none; }
-        .nav-links a {
-            color:var(--text-2); text-decoration:none; font-size:.875rem;
-            font-weight:500; padding:6px 14px; border-radius:var(--r-sm);
-            transition:color var(--ease), background var(--ease);
-        }
-        .nav-links a:hover, .nav-links a.active { color:var(--text); background:var(--bg-elevated); }
-        .nav-links a.cta { color:var(--accent); border:1px solid rgba(245,166,35,.28); }
-        .nav-links a.cta:hover { background:var(--accent-dim); color:var(--accent-h); }
-        .nav-toggle {
-            display:none; background:none; border:none; cursor:pointer;
-            padding:8px; flex-direction:column; gap:5px;
-        }
-        .nav-toggle span { display:block; width:22px; height:2px; background:var(--text-2); border-radius:2px; }
-
-        /* ─── Page header ─── */
-        .page-hero {
-            padding:80px 0 60px; position:relative; overflow:hidden;
-        }
-        .page-hero::before {
-            content:''; position:absolute; inset:0; pointer-events:none;
-            background:radial-gradient(ellipse 60% 50% at 50% -5%, rgba(245,166,35,.07) 0%, transparent 65%);
-        }
-        .page-hero::after {
-            content:''; position:absolute; inset:0; pointer-events:none;
-            background-image:
-                linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
-                linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
-            background-size:60px 60px;
-            mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 30%,transparent 80%);
-        }
-        .page-hero-content { position:relative; z-index:1; }
-        .back-link {
-            display:inline-flex; align-items:center; gap:7px;
-            font-size:.82rem; color:var(--text-2); text-decoration:none;
-            margin-bottom:24px; transition:color var(--ease);
-        }
-        .back-link:hover { color:var(--accent); }
-        .page-tag {
-            font-size:.72rem; font-weight:700; letter-spacing:.13em;
-            text-transform:uppercase; color:var(--accent); margin-bottom:10px;
-            display:block;
-        }
-        .page-title {
-            font-size:clamp(2rem,4vw,3.2rem); font-weight:700;
-            color:var(--text); margin-bottom:16px;
-        }
-        .page-desc {
-            font-size:1rem; color:var(--text-2); max-width:560px; line-height:1.75;
-        }
-
-        /* ─── Section ─── */
-        .sec { padding:64px 0; }
-        .sec-head { margin-bottom:40px; }
-        .sec-tag {
-            display:inline-block; font-size:.72rem; font-weight:700;
-            letter-spacing:.13em; text-transform:uppercase;
-            color:var(--accent); margin-bottom:10px;
-        }
-        .sec-title { font-size:clamp(1.5rem,3vw,2.2rem); font-weight:700; color:var(--text); margin-bottom:10px; }
-        .sec-desc { font-size:.93rem; color:var(--text-2); max-width:520px; line-height:1.75; }
-
-        /* ─── Badges ─── */
-        .badge {
-            display:inline-flex; align-items:center; gap:5px;
-            font-size:.68rem; font-weight:700; letter-spacing:.08em;
-            text-transform:uppercase; padding:4px 10px; border-radius:100px;
-        }
-        .b-live { background:rgba(34,197,94,.10); color:#22C55E; border:1px solid rgba(34,197,94,.24); }
-        .b-live::before { content:''; width:5px; height:5px; background:#22C55E; border-radius:50%; box-shadow:0 0 5px #22C55E; }
-        .b-soon { background:rgba(139,92,246,.10); color:#A78BFA; border:1px solid rgba(139,92,246,.24); }
-        .b-kpi  { background:var(--accent-dim); color:var(--accent); border:1px solid rgba(245,166,35,.24); }
-        .b-plat { background:rgba(255,255,255,.05); color:var(--text-2); border:1px solid var(--border); }
-        .b-prev { background:rgba(99,102,241,.10); color:#818CF8; border:1px solid rgba(99,102,241,.24); }
-        .badge-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:12px; }
-
-        /* ─── Project card (vertical) ─── */
-        .proj-grid {
-            display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-            gap:24px;
-        }
-        .proj-card {
-            background:var(--bg-card); border:1px solid var(--border);
-            border-radius:var(--r); overflow:hidden;
-            transition:border-color var(--ease), box-shadow var(--ease);
-            display:flex; flex-direction:column;
-        }
-        .proj-card:hover {
-            border-color:rgba(245,166,35,.25);
-            box-shadow:0 0 40px rgba(245,166,35,.055);
-        }
-        .proj-video {
-            position:relative; background:#000;
-            aspect-ratio:16/9; flex-shrink:0;
-        }
-        .proj-video iframe { position:absolute; inset:0; width:100%; height:100%; }
-        /* placeholder art for coming soon */
-        .proj-art {
-            aspect-ratio:16/9; flex-shrink:0;
-            display:flex; align-items:center; justify-content:center;
-        }
-        .art-lootara  { background:linear-gradient(135deg,#0D1B2A,#2D1B4E 60%,#1A0E2E); }
-        .art-prime    { background:linear-gradient(135deg,#0A1628,#16213E 50%,#0F3460); }
-        .art-kvikdrop { background:linear-gradient(135deg,#0D2818,#0A4029 60%,#082A1A); }
-        .art-label {
-            font-family:'Space Grotesk',sans-serif; font-size:.65rem;
-            font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-            color:rgba(255,255,255,.13);
-        }
-        .proj-body { padding:22px 22px 26px; display:flex; flex-direction:column; gap:8px; flex:1; }
-        .proj-title { font-size:1.18rem; font-weight:700; color:var(--text); }
-        .proj-desc { font-size:.88rem; color:var(--text-2); line-height:1.7; }
-        .proj-kpis {
-            display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;
-        }
-        .kpi {
-            background:var(--bg-elevated); border:1px solid var(--border-sub);
-            border-radius:var(--r-sm); padding:8px 12px;
-            display:flex; flex-direction:column; gap:2px; min-width:90px;
-        }
-        .kpi-v {
-            font-family:'Space Grotesk',sans-serif; font-size:1.05rem;
-            font-weight:700; color:var(--accent); line-height:1;
-        }
-        .kpi-l { font-size:.7rem; color:var(--text-2); letter-spacing:.04em; }
-        .proj-role {
-            margin-top:8px; padding-top:12px;
-            border-top:1px solid var(--border-sub);
-        }
-        .proj-role-label {
-            font-size:.68rem; font-weight:700; letter-spacing:.1em;
-            text-transform:uppercase; color:var(--text-m); margin-bottom:6px;
-        }
-        .proj-role ul {
-            list-style:none; display:flex; flex-direction:column; gap:4px;
-        }
-        .proj-role li {
-            font-size:.83rem; color:var(--text-2); padding-left:12px;
-            position:relative;
-        }
-        .proj-role li::before {
-            content:'→'; position:absolute; left:0; color:var(--accent);
-            font-size:.72rem; top:.05em;
-        }
-        .proj-stores { display:flex; gap:9px; flex-wrap:wrap; margin-top:auto; padding-top:14px; }
-        .store-img { height:34px; object-fit:contain; opacity:.88; transition:transform var(--ease),opacity var(--ease); }
-        .store-img:hover { transform:scale(1.05); opacity:1; }
-
-        /* ─── Honorable mentions ─── */
-        .mentions-grid {
-            display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-            gap:16px;
-        }
-        .mention-card {
-            background:var(--bg-card); border:1px solid var(--border);
-            border-radius:var(--r); overflow:hidden;
-            transition:border-color var(--ease);
-        }
-        .mention-card:hover { border-color:rgba(245,166,35,.2); }
-        .mention-thumb {
-            position:relative; background:#000; aspect-ratio:16/9;
-        }
-        .mention-thumb iframe { position:absolute; inset:0; width:100%; height:100%; }
-        .mention-body { padding:14px 16px; }
-        .mention-title { font-size:.95rem; font-weight:700; color:var(--text); margin-bottom:4px; }
-        .mention-stat { font-size:.8rem; color:var(--accent); font-weight:600; }
-
-        /* ─── Divider ─── */
-        .divider { height:1px; background:var(--border-sub); border:none; }
-
-        /* ─── Footer ─── */
-        footer { background:var(--bg-surface); border-top:1px solid var(--border-sub); padding:28px 0; }
-        .foot-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-        .foot-logo { height:22px; opacity:.6; }
-        .foot-copy { font-size:.8rem; color:var(--text-m); }
-        .foot-links { display:flex; gap:22px; }
-        .foot-links a { font-size:.82rem; color:var(--text-m); text-decoration:none; transition:color var(--ease); }
-        .foot-links a:hover { color:var(--accent); }
-
-        /* ─── Animations ─── */
-        @keyframes fadeUp {
-            from { opacity:0; transform:translateY(28px); }
-            to   { opacity:1; transform:translateY(0); }
-        }
-
-        /* Page hero entrance */
-        .back-link, .page-tag, .page-title, .page-desc {
-            opacity:0;
-            animation: fadeUp .7s cubic-bezier(.22,1,.36,1) forwards;
-        }
-        .back-link  { animation-delay:.05s; }
-        .page-tag   { animation-delay:.15s; }
-        .page-title { animation-delay:.28s; }
-        .page-desc  { animation-delay:.40s; }
-
-        /* Scroll-reveal */
-        .reveal {
-            opacity:0; transform:translateY(32px);
-            transition: opacity 1s cubic-bezier(.22,1,.36,1),
-                        transform 1s cubic-bezier(.22,1,.36,1);
-        }
-        .reveal.visible { opacity:1; transform:none; }
-
-        /* Hover lift + glow */
-        .proj-card, .mention-card { transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease); }
-        .proj-card:hover {
-            transform:translateY(-3px);
-            border-color:rgba(245,166,35,.45);
-            box-shadow: 0 0 0 1px rgba(245,166,35,.15),
-                        0 8px 40px rgba(245,166,35,.18),
-                        0 0 80px rgba(245,166,35,.08);
-        }
-        .mention-card:hover {
-            transform:translateY(-3px);
-            border-color:rgba(245,166,35,.4);
-            box-shadow: 0 4px 28px rgba(245,166,35,.15),
-                        0 0 60px rgba(245,166,35,.07);
-        }
-
-        /* ─── Responsive ─── */
-        @media(max-width:620px) {
-            .nav-links {
-                display:none; position:fixed; top:62px; left:0; right:0; bottom:0;
-                background:rgba(7,7,9,.97); flex-direction:column;
-                align-items:flex-start; padding:20px 24px; gap:4px;
-                border-top:1px solid var(--border);
-            }
-            .nav-links.open { display:flex; }
-            .nav-toggle { display:flex; }
-            .nav-links a { font-size:1rem; padding:10px 12px; width:100%; }
-            .proj-grid { grid-template-columns:1fr; }
-            .mentions-grid { grid-template-columns:1fr 1fr; }
-        }
-        @media(max-width:440px) {
-            .mentions-grid { grid-template-columns:1fr; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
 
@@ -305,447 +25,458 @@
 <nav class="nav">
     <div class="container">
         <div class="nav-inner">
-            <a href="/"><img src="../images/vestar.png" alt="Vestar Digital" class="nav-logo"></a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <a href="/" class="nav-name">Vestar Digital</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
+                <li><a href="/#studio">Studio</a></li>
                 <li><a href="/#games">Games</a></li>
                 <li><a href="/#apps">Apps</a></li>
+                <li><a href="/#websites">Websites</a></li>
                 <li><a href="/#services">Services</a></li>
-                <li><a href="/portfolio/" class="active">Portfolio</a></li>
                 <li><a href="/#contact" class="cta">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- ── Page header ── -->
-<div class="page-hero">
+<!-- ── Page head ── -->
+<header class="page-head">
     <div class="container">
-        <div class="page-hero-content">
-            <a href="/" class="back-link">← Back to Home</a>
-            <span class="page-tag">Portfolio</span>
-            <h1 class="page-title">Our Work</h1>
-            <p class="page-desc">Games and apps built by Vestar Digital, plus a track record of titles our team has shipped across 18+ years in the mobile industry.</p>
-        </div>
+        <a href="/" class="back-link">&larr; Back to home</a>
+        <h1 class="page-title">Our work</h1>
     </div>
-</div>
+</header>
 
-<!-- ── Vestar Projects ── -->
+<!-- ── Vestar projects ── -->
 <section class="sec" id="vestar-projects">
     <div class="container">
         <div class="sec-head">
-            <span class="sec-tag">Vestar Digital</span>
-            <h2 class="sec-title">Our Projects</h2>
-            <p class="sec-desc">Games and apps developed and published by Vestar Digital.</p>
+            <div class="marker"><b>01</b><i></i></div>
+            <h2 class="sec-title">Vestar titles</h2>
         </div>
 
         <div class="proj-grid">
 
             <!-- Jigsaw Journey -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed?v=-63wTrtvEPg"
-                        title="Jigsaw Journey Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/-63wTrtvEPg"
+                        title="Jigsaw Journey gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-live">Live</span>
-                        <span class="badge b-plat">Android</span>
+                    <h3 class="proj-title">Jigsaw Journey</h3>
+                    <p class="meta">
+                        <span class="dot live" aria-hidden="true"></span><em>Live</em>
+                        <s>&middot;</s> Android
+                    </p>
+                    <p class="proj-desc">Jigsaw puzzles rebuilt as a real mobile game: level map, treasure hunting, a daily loop worth coming back to. Teacher approved.</p>
+                    <div class="kpis">
+                        <div><b>40%</b><span>day one retention</span></div>
+                        <div><b>Solo</b><span>one developer</span></div>
                     </div>
-                    <div class="proj-title">Jigsaw Journey</div>
-                    <div class="proj-desc">Jigsaw puzzles reimagined as a modern mobile game, with level progression, treasure hunting, and rewarding loops that keep players engaged daily. Teacher-approved.</div>
-                    <div class="proj-kpis">
-                        <div class="kpi"><span class="kpi-v">40%</span><span class="kpi-l">D1 Retention</span></div>
-                        <div class="kpi"><span class="kpi-v">Solo</span><span class="kpi-l">Developer</span></div>
-                    </div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Vestar's Role</div>
+                    <div class="role">
+                        <h4>What we did</h4>
                         <ul>
-                            <li>Sole developer: concept, design, and engineering</li>
-                            <li>Game economy & monetization design</li>
-                            <li>Live ops & player retention systems</li>
+                            <li>Sole developer, from concept and design through to shipping</li>
+                            <li>Game economy and monetisation design</li>
+                            <li>Live ops and the retention systems behind the daily loop</li>
                         </ul>
                     </div>
                     <div class="proj-stores">
                         <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
-                            <img src="../images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                            <img src="../images/google-play-badge.png" alt="Get Jigsaw Journey on Google Play">
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
+
+            <!-- Amber -->
+            <article class="proj">
+                <div class="proj-video">
+                    <img src="../images/amber-cover.jpg" alt="Amber, projects, tasks and notes"
+                         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" loading="lazy">
+                </div>
+                <div class="proj-body">
+                    <h3 class="proj-title">Amber</h3>
+                    <p class="meta">
+                        <span class="dot live" aria-hidden="true"></span><em>Live</em>
+                        <s>&middot;</s> Android
+                        <s>&middot;</s> iOS
+                        <s>&middot;</s> web
+                    </p>
+                    <p class="proj-desc">Projects, tasks and notes in one black and white app. Deadline reminders that ring like alarms, and sharing by a six letter code.</p>
+                    <div class="kpis">
+                        <div><b>Free</b><span>no subscription</span></div>
+                        <div><b>3</b><span>platforms, plus widgets</span></div>
+                    </div>
+                    <div class="role">
+                        <h4>What we did</h4>
+                        <ul>
+                            <li>Designed and built the whole app in Flutter for iOS, Android and web</li>
+                            <li>Firebase backend, invite by six letter code, shared projects and push</li>
+                            <li>Native home screen widgets on both platforms</li>
+                            <li>Alarm grade local reminders with configurable overdue nagging</li>
+                        </ul>
+                    </div>
+                    <div class="proj-stores">
+                        <a href="https://play.google.com/store/apps/details?id=com.vestar.amber" target="_blank" rel="noopener">
+                            <img src="../images/google-play-badge.png" alt="Get Amber on Google Play">
+                        </a>
+                        <a href="https://apps.apple.com/us/app/id6787380886" target="_blank" rel="noopener">
+                            <img src="../images/app-store-badge.png" alt="Download Amber on the App Store">
+                        </a>
+                        <a href="https://ambertasks.com" target="_blank" rel="noopener" class="store-web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+                            ambertasks.com
+                        </a>
+                    </div>
+                </div>
+            </article>
 
             <!-- Fridge Scanner -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/8M_W9_cAo78"
-                        title="Fridge Scanner AI Demo" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/8M_W9_cAo78"
+                        title="Fridge Scanner demo" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-live">Live</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
-                    </div>
-                    <div class="proj-title">Fridge Scanner</div>
-                    <div class="proj-desc">AI-powered app that scans your fridge and generates personalized recipe recommendations from what you already have. No shopping list needed.</div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Vestar's Role</div>
+                    <h3 class="proj-title">Fridge Scanner</h3>
+                    <p class="meta">
+                        <span class="dot live" aria-hidden="true"></span><em>Live</em>
+                        <s>&middot;</s> Android
+                        <s>&middot;</s> iOS
+                        <s>&middot;</s> web
+                    </p>
+                    <p class="proj-desc">Point the camera at your fridge and get a recipe you can cook tonight, from over a thousand across twenty five countries.</p>
+                    <div class="role">
+                        <h4>What we did</h4>
                         <ul>
-                            <li>Full-stack development for iOS &amp; Android</li>
-                            <li>AI integration and prompt engineering</li>
-                            <li>UX design and onboarding flow</li>
+                            <li>Full development for iOS, Android and web</li>
+                            <li>AI vision and recipe matching, including the prompt work behind it</li>
+                            <li>UX design and the onboarding flow</li>
                         </ul>
                     </div>
                     <div class="proj-stores">
                         <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
-                            <img src="../images/google-play-badge.png" alt="Get it on Google Play" class="store-img">
+                            <img src="../images/google-play-badge.png" alt="Get Fridge Scanner on Google Play">
                         </a>
                         <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
-                            <img src="../images/app-store-badge.png" alt="Download on the App Store" class="store-img">
+                            <img src="../images/app-store-badge.png" alt="Download Fridge Scanner on the App Store">
+                        </a>
+                        <a href="https://fridgescanner.app" target="_blank" rel="noopener" class="store-web">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
+                            fridgescanner.app
                         </a>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Lootara -->
-            <div class="proj-card">
-                <div class="proj-art art-lootara">
-                    <span class="art-label">Coming Soon</span>
-                </div>
+            <article class="proj">
+                <div class="proj-art"><span>In development</span></div>
                 <div class="proj-body">
-                    <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
-                    <div class="proj-title">Lootara</div>
-                    <div class="proj-desc">A midcore RPG built for mobile: deep progression, engaging combat, and a world worth getting lost in. Designed for the player who wants more than a casual tap.</div>
+                    <h3 class="proj-title">Lootara</h3>
+                    <p class="meta">
+                        <span class="dot pending" aria-hidden="true"></span><em>In development</em>
+                    </p>
+                    <p class="proj-desc">A midcore RPG with deep progression and combat that asks for decisions.</p>
                 </div>
-            </div>
+            </article>
 
             <!-- Prime Suspect -->
-            <div class="proj-card">
-                <div class="proj-art art-prime">
-                    <span class="art-label">Coming Soon</span>
-                </div>
+            <article class="proj">
+                <div class="proj-art"><span>In development</span></div>
                 <div class="proj-body">
-                    <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
-                    <div class="proj-title">Prime Suspect</div>
-                    <div class="proj-desc">A narrative detective game where every clue matters. Immersive storytelling meets mobile-first design. Uncover the truth at your own pace.</div>
+                    <h3 class="proj-title">Prime Suspect</h3>
+                    <p class="meta">
+                        <span class="dot pending" aria-hidden="true"></span><em>In development</em>
+                    </p>
+                    <p class="proj-desc">A detective game where the clues actually matter.</p>
                 </div>
-            </div>
+            </article>
 
             <!-- KvikDrop -->
-            <div class="proj-card">
-                <div class="proj-art art-kvikdrop">
-                    <span class="art-label">Coming Soon</span>
-                </div>
+            <article class="proj">
+                <div class="proj-art"><span>In development</span></div>
                 <div class="proj-body">
-                    <div class="badge-row"><span class="badge b-soon">Coming Soon</span></div>
-                    <div class="proj-title">KvikDrop</div>
-                    <div class="proj-desc">Fast, zero-friction file and photo sharing between devices. No accounts, no cables. Just drop and go.</div>
+                    <h3 class="proj-title">KvikDrop</h3>
+                    <p class="meta">
+                        <span class="dot pending" aria-hidden="true"></span><em>In development</em>
+                    </p>
+                    <p class="proj-desc">File and photo sharing between devices. No account, no cable, no cloud.</p>
                 </div>
-            </div>
+            </article>
 
         </div>
     </div>
 </section>
 
-<hr class="divider">
-
-<!-- ── Team's Previous Work ── -->
-<section class="sec" id="previous-work">
+<!-- ── Team's previous work ── -->
+<section class="sec sec-band" id="previous-work">
     <div class="container">
         <div class="sec-head">
-            <span class="sec-tag">Track Record</span>
-            <h2 class="sec-title">Our Team's Previous Work</h2>
-            <p class="sec-desc">Games designed, directed, and shipped by our team before Vestar Digital, spanning 18+ years in the mobile game industry.</p>
+            <div class="marker"><b>02</b><i></i></div>
+            <h2 class="sec-title">Before Vestar</h2>
         </div>
 
         <div class="proj-grid">
 
             <!-- Cantina Royale -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/1Mhc0Mg1_kk"
-                        title="Cantina Royale Trailer" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/1Mhc0Mg1_kk"
+                        title="Cantina Royale trailer" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Contract</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
+                    <h3 class="proj-title">Cantina Royale</h3>
+                    <p class="meta"><em>Contract work</em> <s>&middot;</s> Android <s>&middot;</s> iOS</p>
+                    <p class="proj-desc">A top down battle royale in the spirit of Brawl Stars and Zooba, with a web3 economy and matchmaking that kept free players competitive.</p>
+                    <div class="kpis">
+                        <div><b>$6M</b><span>raised</span></div>
+                        <div><b>12</b><span>team size</span></div>
+                        <div><b>3 yrs</b><span>live ops</span></div>
                     </div>
-                    <div class="proj-title">Cantina Royale</div>
-                    <div class="proj-desc">Top-down battle royale for mobile, inspired by Brawl Stars and Zooba. Web3 game economy with NFTs and a game token, with fair matchmaking between free-to-play and NFT-holding players. 3 years of live ops.</div>
-                    <div class="proj-kpis">
-                        <div class="kpi"><span class="kpi-v">$6M</span><span class="kpi-l">Raised</span></div>
-                        <div class="kpi"><span class="kpi-v">12</span><span class="kpi-l">Team Size</span></div>
-                        <div class="kpi"><span class="kpi-v">3 yrs</span><span class="kpi-l">Live Ops</span></div>
-                    </div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>Full creative direction: product vision to GDDs</li>
-                            <li>20 heroes, 5 game modes, 10 live events, battle pass, crafting</li>
-                            <li>Web3 economy design: NFTs and sustainable game token</li>
-                            <li>Matchmaking system balancing NFT and F2P players fairly</li>
-                            <li>All game design, economy, and monetization</li>
+                            <li>Full creative direction, from product vision to the design documents</li>
+                            <li>20 heroes, 5 game modes, 10 live events, battle pass and crafting</li>
+                            <li>Web3 economy design covering both the NFTs and a sustainable token</li>
+                            <li>Matchmaking that kept NFT holders and free players in fair fights</li>
+                            <li>All game design, economy and monetisation</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Space Quest -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/gsx0gOr46SM"
-                        title="Space Quest Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/gsx0gOr46SM"
+                        title="Space Quest gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Previous Work</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
+                    <h3 class="proj-title">Space Quest</h3>
+                    <p class="meta"><em>Previous work</em> <s>&middot;</s> Android <s>&middot;</s> iOS</p>
+                    <p class="proj-desc">A top down roguelite shooter in the Archero mould, with hero progression, city building and clans. Live since 2019.</p>
+                    <div class="kpis">
+                        <div><b>$2.5</b><span>revenue per daily user</span></div>
+                        <div><b>47 min</b><span>daily playtime</span></div>
+                        <div><b>48</b><span>heroes</span></div>
                     </div>
-                    <div class="proj-title">Space Quest</div>
-                    <div class="proj-desc">Top-down roguelite shooter inspired by Archero, with deep hero progression, city building, clans, and extensive live events. Running live since 2019 with steady monthly active users.</div>
-                    <div class="proj-kpis">
-                        <div class="kpi"><span class="kpi-v">$2.5</span><span class="kpi-l">RPD</span></div>
-                        <div class="kpi"><span class="kpi-v">47 min</span><span class="kpi-l">Daily Playtime</span></div>
-                        <div class="kpi"><span class="kpi-v">48</span><span class="kpi-l">Heroes</span></div>
-                    </div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>All creative work: progression, heroes, metagame, live-ops</li>
-                            <li>Monetization design and clan systems</li>
+                            <li>All creative work: progression, heroes, metagame and live ops</li>
+                            <li>Monetisation design and the clan systems</li>
                             <li>Full UI design and implementation</li>
-                            <li>ASO strategy</li>
+                            <li>App store optimisation</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Racing Clash -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/xao1_6x1g_k"
-                        title="Racing Clash Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/xao1_6x1g_k"
+                        title="Racing Clash gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Previous Work</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
+                    <h3 class="proj-title">Racing Clash</h3>
+                    <p class="meta"><em>Previous work</em> <s>&middot;</s> Android <s>&middot;</s> iOS</p>
+                    <p class="proj-desc">Four player multiplayer racing with a betting arena on top. Built by four people in three months.</p>
+                    <div class="kpis">
+                        <div><b>1M+</b><span>organic installs</span></div>
+                        <div><b>3 mo</b><span>development time</span></div>
                     </div>
-                    <div class="proj-title">Racing Clash</div>
-                    <div class="proj-desc">4-player multiplayer racing game with a betting arena meta. Built by a team of 4 in just 3 months. Shipped fast, scaled impressively.</div>
-                    <div class="proj-kpis">
-                        <div class="kpi"><span class="kpi-v">1M+</span><span class="kpi-l">Organic Installs</span></div>
-                        <div class="kpi"><span class="kpi-v">3 mo</span><span class="kpi-l">Dev Time</span></div>
-                    </div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>Progression, metagame, and economy design</li>
-                            <li>Monetization and clan systems</li>
+                            <li>Progression, metagame and economy design</li>
+                            <li>Monetisation and clan systems</li>
                             <li>Full UI design and implementation</li>
-                            <li>ASO strategy</li>
+                            <li>App store optimisation</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Guns Cars Zombies -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/D0G6rbnKK_c"
-                        title="Guns Cars Zombies Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/D0G6rbnKK_c"
+                        title="Guns, Cars, Zombies gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Previous Work</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
+                    <h3 class="proj-title">Guns, Cars, Zombies!</h3>
+                    <p class="meta"><em>Previous work</em> <s>&middot;</s> Android <s>&middot;</s> iOS</p>
+                    <p class="proj-desc">A gory post apocalyptic racer with more production value than the team size suggested.</p>
+                    <div class="kpis">
+                        <div><b>$1</b><span>revenue per daily user</span></div>
+                        <div><b>2M+</b><span>downloads</span></div>
                     </div>
-                    <div class="proj-title">Guns, Cars, Zombies!</div>
-                    <div class="proj-desc">A one-of-a-kind gory post-apocalyptic racing game. High production quality for a small team.</div>
-                    <div class="proj-kpis">
-                        <div class="kpi"><span class="kpi-v">$1</span><span class="kpi-l">RPD</span></div>
-                        <div class="kpi"><span class="kpi-v">2M+</span><span class="kpi-l">Downloads</span></div>
-                    </div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>All creative work: game modes, progression, cars</li>
-                            <li>Metagame, live-ops, monetization, clan wars</li>
+                            <li>All creative work: game modes, progression and the cars</li>
+                            <li>Metagame, live ops, monetisation and clan wars</li>
                             <li>Full UI design and implementation</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Spies In Disguise -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/jQxxAYU5qg8"
-                        title="Spies In Disguise Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/jQxxAYU5qg8"
+                        title="Spies In Disguise gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Previous Work</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
-                    </div>
-                    <div class="proj-title">Spies In Disguise</div>
-                    <div class="proj-desc">Mobile endless runner promoting the 20th Century Fox / Disney / Blue Sky Studios animated feature film. Coordinated between US publisher, Hungarian dev studio, and Hollywood IP owners.</div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <h3 class="proj-title">Spies In Disguise</h3>
+                    <p class="meta"><em>Previous work</em> <s>&middot;</s> Android <s>&middot;</s> iOS</p>
+                    <p class="proj-desc">An endless runner promoting the 20th Century Fox, Disney and Blue Sky Studios animated film.</p>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>Studio leadership: scaled team from 5 to 35</li>
-                            <li>Liaison between dev studio, US publisher, and IP holders</li>
-                            <li>20th Century Fox · Disney · Blue Sky Studios</li>
+                            <li>Studio leadership, scaling the team from 5 people to 35</li>
+                            <li>Liaison between the dev studio, the US publisher and the IP holders</li>
+                            <li>20th Century Fox, Disney and Blue Sky Studios</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- PAC-MAN Friends -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/gKa2mhfrT8s"
-                        title="PAC-MAN Friends Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/gKa2mhfrT8s"
+                        title="PAC-MAN Friends gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Previous Work</span>
-                        <span class="badge b-plat">Android</span>
-                        <span class="badge b-plat">iOS</span>
+                    <h3 class="proj-title">PAC-MAN&trade; Friends</h3>
+                    <p class="meta"><em>Previous work</em> <s>&middot;</s> Android <s>&middot;</s> iOS</p>
+                    <p class="proj-desc">A level based puzzle game in the PAC-MAN universe, published by Namco Bandai.</p>
+                    <div class="kpis">
+                        <div><b>10M+</b><span>installs</span></div>
+                        <div><b>Apple</b><span>App of the Week</span></div>
                     </div>
-                    <div class="proj-title">PAC-MAN™ Friends</div>
-                    <div class="proj-desc">A level-based puzzle game set in the iconic PAC-MAN universe, published by Namco Bandai. Featured by Apple as "App of the Week."</div>
-                    <div class="proj-kpis">
-                        <div class="kpi"><span class="kpi-v">10M+</span><span class="kpi-l">Installs</span></div>
-                        <div class="kpi"><span class="kpi-v">⭐ AOTW</span><span class="kpi-l">Apple App of Week</span></div>
-                    </div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>Created the prototype that onboarded Namco Bandai</li>
+                            <li>Built the prototype that won Namco Bandai over</li>
                             <li>Led the full development team</li>
-                            <li>Designed characters, levels, and UI</li>
+                            <li>Designed the characters, the levels and the UI</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- HEAT Online -->
-            <div class="proj-card">
+            <article class="proj">
                 <div class="proj-video">
-                    <iframe src="https://www.youtube.com/embed/5qkRrGwNcCY"
-                        title="HEAT Online Gameplay" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/5qkRrGwNcCY"
+                        title="HEAT Online gameplay" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="proj-body">
-                    <div class="badge-row">
-                        <span class="badge b-prev">Previous Work</span>
-                        <span class="badge b-plat">PC</span>
-                    </div>
-                    <div class="proj-title">HEAT Online / Project Torque</div>
-                    <div class="proj-desc">A multiplayer racing MMO for PC. An early career foundation, engineering competitive game modes and deepening expertise in client-server gameplay architecture.</div>
-                    <div class="proj-role">
-                        <div class="proj-role-label">Our Team's Role</div>
+                    <h3 class="proj-title">HEAT Online / Project Torque</h3>
+                    <p class="meta"><em>Previous work</em> <s>&middot;</s> PC</p>
+                    <p class="proj-desc">A multiplayer racing MMO for PC, and where the client and server habits were learned.</p>
+                    <div class="role">
+                        <h4>What our team did</h4>
                         <ul>
-                            <li>Designed and coded Catch The Flag, King of the Hill, Sumo, NASCAR game modes</li>
-                            <li>Client (Java) and server (C++) engineering</li>
+                            <li>Designed and coded the Catch the Flag, King of the Hill, Sumo and NASCAR modes</li>
+                            <li>Client engineering in Java and server engineering in C++</li>
                         </ul>
                     </div>
                 </div>
-            </div>
+            </article>
 
         </div>
     </div>
 </section>
 
-<hr class="divider">
-
-<!-- ── Honorable Mentions ── -->
+<!-- ── Honorable mentions ── -->
 <section class="sec" id="honorable-mentions">
     <div class="container">
         <div class="sec-head">
-            <span class="sec-tag">Honorable Mentions</span>
-            <h2 class="sec-title">More titles from the team</h2>
-            <p class="sec-desc">Additional games our team contributed to, each with significant scale and reach.</p>
+            <div class="marker"><b>03</b><i></i></div>
+            <h2 class="sec-title">Also shipped</h2>
         </div>
 
-        <div class="mentions-grid">
-            <div class="mention-card">
+        <div class="mentions">
+            <article class="mention">
                 <div class="mention-thumb">
-                    <iframe src="https://www.youtube.com/embed/4xit5nGZWRs"
-                        title="Dustoff Heli Rescue" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/4xit5nGZWRs"
+                        title="Dustoff Heli Rescue" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="mention-body">
-                    <div class="mention-title">Dustoff: Heli Rescue</div>
-                    <div class="mention-stat">20M Downloads</div>
+                    <h3>Dustoff: Heli Rescue</h3>
+                    <span>20M downloads</span>
                 </div>
-            </div>
+            </article>
 
-            <div class="mention-card">
+            <article class="mention">
                 <div class="mention-thumb">
-                    <iframe src="https://www.youtube.com/embed/1BqAM4NHouA"
-                        title="Highway Traffic Rider" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/1BqAM4NHouA"
+                        title="Highway Traffic Rider" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="mention-body">
-                    <div class="mention-title">Highway Traffic Rider 1 &amp; 2</div>
-                    <div class="mention-stat">25M Downloads</div>
+                    <h3>Highway Traffic Rider 1 &amp; 2</h3>
+                    <span>25M downloads</span>
                 </div>
-            </div>
+            </article>
 
-            <div class="mention-card">
+            <article class="mention">
                 <div class="mention-thumb">
-                    <iframe src="https://www.youtube.com/embed/UDzsbz8SVP0"
-                        title="Give It Up!" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/UDzsbz8SVP0"
+                        title="Give It Up!" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="mention-body">
-                    <div class="mention-title">Give It Up!</div>
-                    <div class="mention-stat">10M Downloads</div>
+                    <h3>Give It Up!</h3>
+                    <span>10M downloads</span>
                 </div>
-            </div>
+            </article>
 
-            <div class="mention-card">
+            <article class="mention">
                 <div class="mention-thumb">
-                    <iframe src="https://www.youtube.com/embed/xDxQMwCtHBM"
-                        title="Jewel Fight" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe src="https://www.youtube-nocookie.com/embed/xDxQMwCtHBM"
+                        title="Jewel Fight" loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
                 <div class="mention-body">
-                    <div class="mention-title">Jewel Fight</div>
-                    <div class="mention-stat">10M Downloads</div>
+                    <h3>Jewel Fight</h3>
+                    <span>10M downloads</span>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>
@@ -754,51 +485,73 @@
 <footer>
     <div class="container">
         <div class="foot-inner">
-            <img src="../images/vestar.png" alt="Vestar Digital" class="foot-logo">
-            <span class="foot-copy">© 2026 Vestar Digital. All rights reserved.</span>
+            <img src="../images/vestar-ink.png" alt="Vestar Digital" class="foot-logo">
+            <span class="foot-copy">&copy; 2026 Vestar Digital. All rights reserved.</span>
             <div class="foot-links">
                 <a href="/">Home</a>
-                <a href="../privacy-policy.html">Privacy Policy</a>
-                <a href="../terms-of-service.html">Terms of Service</a>
+                <a href="../data-deletion.html">Data deletion</a>
+                <a href="../privacy-policy.html">Privacy policy</a>
+                <a href="../terms-of-service.html">Terms of service</a>
             </div>
         </div>
     </div>
 </footer>
 
 <script>
-    /* ── Nav toggle ── */
+    /* Mobile nav */
     const toggle = document.getElementById('navToggle');
     const links  = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a =>
-        a.addEventListener('click', () => links.classList.remove('open'))
-    );
-
-    /* ── Scroll reveal + stagger ── */
-    const revealTargets = [
-        '.proj-card', '.mention-card', '.sec-head', '.proj-grid', '.mentions-grid'
-    ];
-    revealTargets.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'));
+    toggle.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
     });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }));
 
-    /* Stagger cards within grids */
-    document.querySelectorAll('.proj-grid, .mentions-grid').forEach(parent => {
-        parent.querySelectorAll('.reveal').forEach((child, i) => {
-            child.style.transitionDelay = (i * 0.07) + 's';
+    /* Scroll reveal */
+    const targets = document.querySelectorAll('.proj, .mention, .sec-head');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        targets.forEach(el => el.classList.add('visible'));
+    } else {
+        targets.forEach(el => el.classList.add('reveal'));
+        document.querySelectorAll('.proj-grid, .mentions').forEach(parent => {
+            parent.querySelectorAll(':scope > .reveal').forEach((child, i) => {
+                child.style.transitionDelay = Math.min(i, 4) * 0.06 + 's';
+            });
         });
-    });
+        let fired = false;
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                fired = true;
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+            });
+        }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach(el => io.observe(el));
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+        /* Anything already at or above the fold is shown outright. This makes
+           deep links such as /#services deterministic: the observer may not
+           report for a viewport the page jumped straight to. */
+        const revealInView = () => targets.forEach(el => {
+            if (el.getBoundingClientRect().top < innerHeight) {
+                el.classList.add('visible');
+                io.unobserve(el);
             }
         });
-    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+        addEventListener('load', revealInView);
+        addEventListener('hashchange', () => setTimeout(revealInView, 60));
+        revealInView();
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        /* Safety net: if the observer never reports (page loaded in a
+           background tab that is never composited), show everything rather
+           than leaving the content stuck at opacity 0. */
+        setTimeout(() => {
+            if (!fired) targets.forEach(el => el.classList.add('visible'));
+        }, 1500);
+    }
 </script>
 </body>
 </html>
