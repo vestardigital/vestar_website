@@ -3,194 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vestar Digital | Mobile Game &amp; App Studio</title>
-    <meta name="description" content="Vestar Digital is a mobile game and app studio. Eighteen years, 80M+ players, 25+ titles shipped.">
-    <meta name="keywords" content="mobile game development, mobile app development, indie game studio, Vestar Digital, Jigsaw Journey, Fridge Scanner, Amber">
-    <meta name="theme-color" content="#FAF3E8">
+    <title>Vestar Digital | AI-assisted game and app studio</title>
+    <meta name="description" content="Vestar Digital is an AI-assisted game and app studio in Budapest. A small senior team behind 30+ mobile titles and 80 million players, and the makers of KINO Pilot.">
+    <meta name="theme-color" content="#101218">
     <link rel="canonical" href="https://vestar.digital/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vestar.digital/">
-    <meta property="og:title" content="Vestar Digital | Mobile Game &amp; App Studio">
-    <meta property="og:description" content="Mobile game and app studio. Eighteen years, 80M+ players, 25+ titles shipped.">
+    <meta property="og:title" content="Vestar Digital | AI-assisted game and app studio">
+    <meta property="og:description" content="A small senior team behind 30+ mobile titles and 80 million players. Games, apps and KINO Pilot.">
+    <meta property="og:image" content="https://vestar.digital/images/home/og-vestar.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..700&family=Inter:wght@400..700&family=Inter+Tight:wght@500..700&family=Afacad+Flux:wght@900&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="css/home.css">
 </head>
-<body class="hero-sun">
+<body>
+
+<script>
+    /* The data deletion form used to live on this page. Old links (store listings,
+       the privacy policy) still land in the right place. */
+    (function () {
+        var h = location.hash;
+        if (h === '#gdpr-deletion' || h === '#data-deletion') location.replace('/data-deletion.html');
+    })();
+</script>
+
+<a class="skip" href="#games">Skip to content</a>
 
 <!-- ── Nav ── -->
-<nav class="nav nav-float">
-    <div class="container">
-        <div class="nav-inner">
-            <a href="/" class="nav-name">Vestar Digital</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#studio">Studio</a></li>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#apps">Apps</a></li>
-                <li><a href="#websites">Websites</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact" class="cta">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- ── Hero ── -->
-<header class="hero">
-    <div class="container">
-        <div class="hero-grid">
-            <div>
-                <img src="images/vestar-ink.png" alt="" class="hero-logo">
-                <h1>Vestar Digital</h1>
-                <p class="hero-sub">Mobile game and app studio.</p>
-                <div class="hero-btns">
-                    <a href="portfolio/" class="btn btn-primary">See our work</a>
-                    <a href="#contact" class="btn btn-ghost">Talk to us</a>
-                </div>
-            </div>
-            <div class="shelf">
-                <a class="shelf-item" href="#games">
-                    <img src="images/jigsaw-icon.png" alt="">
-                    <span class="shelf-text">
-                        <span class="shelf-name">Jigsaw Journey</span>
-                        <span class="shelf-kind">Puzzle game</span>
-                    </span>
-                </a>
-                <a class="shelf-item" href="#apps">
-                    <img src="images/fridge-icon.png" alt="">
-                    <span class="shelf-text">
-                        <span class="shelf-name">Fridge Scanner</span>
-                        <span class="shelf-kind">Cooking app</span>
-                    </span>
-                </a>
-                <a class="shelf-item" href="#apps">
-                    <img src="images/amber-icon.png" alt="">
-                    <span class="shelf-text">
-                        <span class="shelf-name">Amber</span>
-                        <span class="shelf-kind">Task manager</span>
-                    </span>
-                </a>
-            </div>
-        </div>
+<header class="nav">
+    <div class="wrap nav-inner">
+        <a href="#top" class="nav-logo" aria-label="Vestar Digital home"><img src="images/home/vestar-logo-white.png" alt="Vestar Digital" width="63" height="26"></a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#games">Games</a></li>
+            <li><a href="#apps">Apps</a></li>
+            <li><a href="#kino">KINO Pilot</a></li>
+            <li><a href="#studio">Studio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </div>
 </header>
 
-<!-- ── The numbers ── -->
-<div class="container">
-    <div class="ledger">
-        <div><b>18</b><span>years in mobile development</span></div>
-        <div><b>30+</b><span>mobile apps &amp; games</span></div>
-        <div><b>80M+</b><span>total users</span></div>
-    </div>
-</div>
+<main>
 
-<!-- ── Studio ── -->
-<section class="sec" id="studio">
-    <div class="container">
-        <div class="about-grid">
-            <div>
-                <div class="marker"><b>01</b><i></i></div>
-                <h2 class="sec-title">Studio</h2>
-                <div class="prose">
-                    <p>We are an independent mobile studio. The people who write the design document also build the economy, ship the build and read the retention numbers on Monday.</p>
-                    <p>Titles from this team have reached the App Store top charts, won Apple's App of the Week, raised six million dollars and passed eighty million players.</p>
+<!-- ── Hero ── -->
+<section class="hero" id="top">
+    <div class="wrap hero-grid">
+        <div class="hero-copy">
+            <h1 class="intro" style="--d:0"><img class="hero-logo" src="images/home/vestar-logo-white.png" alt="Vestar Digital" width="774" height="319"></h1>
+            <p class="hero-tag intro" style="--d:1">The <em>AI-assisted</em> game and app studio.</p>
+            <p class="hero-sub intro" style="--d:2">Vestar Digital is a small senior team behind 30+ mobile titles and 80 million players.</p>
+            <ul class="speed">
+                <li class="intro" style="--d:3"><span class="day" style="--i:0">MON</span>We create the prototype on Monday.</li>
+                <li class="intro" style="--d:4"><span class="day" style="--i:1">WED</span>Design the economy by Wednesday.</li>
+                <li class="intro" style="--d:5"><span class="day" style="--i:2">FRI</span>Ship the build by Friday.</li>
+                <li class="intro" style="--d:6"><span class="day" style="--i:3">SUN</span>Read the retention numbers on Sundays.</li>
+            </ul>
+            <div class="hero-ctas intro" style="--d:7">
+                <a class="btn btn-primary" href="#games">Play our games
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+                </a>
+                <a class="btn btn-ghost" href="#contact">Start a project</a>
+            </div>
+        </div>
+
+        <div class="wall intro" style="--d:2" aria-hidden="true">
+            <div class="wall-inner">
+                <div class="col">
+                    <div class="tile t-tall"><img src="images/home/bonk-knight.webp" alt="" width="1024" height="500"></div>
+                    <div class="tile t-mid"><img src="images/home/kino-hero.webp" alt="" width="1400" height="933"></div>
+                    <div class="tile t-tall t-phone"><img src="images/home/amber-1.webp" alt="" width="296" height="592"></div>
+                    <div class="tile t-tall"><img src="images/home/bonk-knight.webp" alt="" width="1024" height="500"></div>
+                    <div class="tile t-mid"><img src="images/home/kino-hero.webp" alt="" width="1400" height="933"></div>
+                    <div class="tile t-tall t-phone"><img src="images/home/amber-1.webp" alt="" width="296" height="592"></div>
+                </div>
+                <div class="col c2">
+                    <div class="tile t-tall"><img src="images/home/hack-and-snack.webp" alt="" width="900" height="900"></div>
+                    <div class="tile t-mid"><img src="images/home/numo.webp" alt="" width="1100" height="733"></div>
+                    <div class="tile t-mid"><img src="images/home/kino-characters.webp" alt="" width="700" height="525"></div>
+                    <div class="tile t-tall"><img src="images/home/hack-and-snack.webp" alt="" width="900" height="900"></div>
+                    <div class="tile t-mid"><img src="images/home/numo.webp" alt="" width="1100" height="733"></div>
+                    <div class="tile t-mid"><img src="images/home/kino-characters.webp" alt="" width="700" height="525"></div>
+                </div>
+                <div class="col c3">
+                    <div class="tile t-tall"><img src="images/home/jigsaw-journey.webp" alt="" width="470" height="500"></div>
+                    <div class="tile t-tall t-phone"><img src="images/home/fridge-1.webp" alt="" width="272" height="592"></div>
+                    <div class="tile t-mid"><img src="images/home/kino-boards.webp" alt="" width="620" height="465"></div>
+                    <div class="tile t-tall"><img src="images/home/jigsaw-journey.webp" alt="" width="470" height="500"></div>
+                    <div class="tile t-tall t-phone"><img src="images/home/fridge-1.webp" alt="" width="272" height="592"></div>
+                    <div class="tile t-mid"><img src="images/home/kino-boards.webp" alt="" width="620" height="465"></div>
                 </div>
             </div>
-            <dl class="caps">
-                <div>
-                    <dt>Prototyping</dt>
-                    <dd>Idea to playable in a week.</dd>
-                </div>
-                <div>
-                    <dt>Economy</dt>
-                    <dd>Progression, sinks, pricing, balance.</dd>
-                </div>
-                <div>
-                    <dt>Live ops</dt>
-                    <dd>Events, battle passes, the calendar.</dd>
-                </div>
-                <div>
-                    <dt>Full cycle</dt>
-                    <dd>Concept to launch and everything after.</dd>
-                </div>
-            </dl>
         </div>
     </div>
 </section>
 
+<!-- ── Proof strip ── -->
+<div class="strip" role="region" aria-label="Track record">
+    <div class="marquee">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>Apple App of the Week</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>App Store top charts</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>80M+ players</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>30+ titles shipped</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>18 years in mobile</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>AI-assisted workflows</span>
+        <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>Apple App of the Week</span>
+        <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>App Store top charts</span>
+        <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>80M+ players</span>
+        <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>30+ titles shipped</span>
+        <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>18 years in mobile</span>
+        <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C12.8 8 16 11.2 22 12C16 12.8 12.8 16 12 22C11.2 16 8 12.8 2 12C8 11.2 11.2 8 12 2Z" fill="#c8ff3d"/></svg>AI-assisted workflows</span>
+    </div>
+</div>
+
 <!-- ── Games ── -->
-<section class="sec sec-band" id="games">
-    <div class="container">
-        <div class="sec-head">
-            <div class="marker"><b>02</b><i></i></div>
-            <h2 class="sec-title">Games</h2>
+<section class="sec" id="games" style="padding-bottom:0">
+    <div class="wrap">
+        <div class="sec-head" data-reveal>
+            <span class="label">01 / Games</span>
+            <h2 class="sec-title">Our games</h2>
         </div>
 
-        <div class="products">
+        <div class="bento">
+
+            <!-- Bonk Knight -->
+            <article class="card s3" data-reveal style="--i:0">
+                <div class="card-art art-lg" style="background:#1c1012">
+                    <img class="art" src="images/home/bonk-knight.webp" alt="Bonk Knight key art: a little knight dashes into a skeleton while a red dragon breathes fire" width="1024" height="500" loading="lazy" style="object-position:22% 50%">
+                </div>
+                <div class="card-body">
+                    <div class="card-head">
+                        <img class="card-icon" src="images/home/bonk-knight-icon.webp" alt="" width="56" height="56" loading="lazy">
+                        <div class="card-main">
+                            <h3 class="card-title">Bonk Knight</h3>
+                            <p class="card-sub">Swipe, dash and bonk through mazes, lava and bosses.</p>
+                        </div>
+                        <span class="chip live"><i></i>Out now</span>
+                    </div>
+                    <div class="card-actions">
+                        <a class="pill" href="https://play.google.com/store/apps/details?id=com.vestar.herodash" target="_blank" rel="noopener">Google Play
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                        </a>
+                        <a class="pill" href="https://www.youtube.com/watch?v=Rn3SoFxOzhs" target="_blank" rel="noopener">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Trailer
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Hack & Snack -->
+            <article class="card s3" data-reveal style="--i:1">
+                <div class="card-art art-lg" style="background:#0e1430">
+                    <img class="art" src="images/home/hack-and-snack.webp" alt="Hack and Snack art: a young chef with a lantern peers into a cellar full of cute food monsters" width="900" height="900" loading="lazy" style="object-position:50% 46%">
+                    <img class="hs-logo" src="images/home/hack-and-snack-wordmark.webp" alt="Hack and Snack logo" width="520" height="326" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-head">
+                        <img class="card-icon" src="images/home/hack-and-snack-icon.webp" alt="" width="56" height="56" loading="lazy">
+                        <div class="card-main">
+                            <h3 class="card-title">Hack &amp; Snack</h3>
+                            <p class="card-sub">Cook in your tavern by day, hunt food monsters by night.</p>
+                        </div>
+                        <span class="chip dev"><i></i>In development</span>
+                    </div>
+                </div>
+            </article>
 
             <!-- Jigsaw Journey -->
-            <article class="product">
-                <div class="product-head">
-                    <img src="images/jigsaw-icon.png" alt="Jigsaw Journey app icon" class="product-icon">
-                    <div class="product-main">
-                        <h3 class="product-title">Jigsaw Journey</h3>
-                        <p class="meta">
-                            <span class="dot live" aria-hidden="true"></span><em>Live</em>
-                            <s>&middot;</s> Android
-                            <s>&middot;</s> 40% day one retention
-                        </p>
-                        <p class="product-copy">Jigsaw puzzles rebuilt as a real mobile game: level map, treasure hunting, a daily loop worth coming back to. Teacher approved.</p>
-                        <div class="stores">
-                            <a href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">
-                                <img src="images/google-play-badge.png" alt="Get it on Google Play">
-                            </a>
+            <article class="card s2" data-reveal style="--i:0">
+                <div class="card-art art-sm" style="background:#1b3f8f">
+                    <img class="art" src="images/home/jigsaw-journey.webp" alt="Jigsaw Journey art: an explorer in a museum hall" width="470" height="500" loading="lazy" style="object-position:50% 18%">
+                </div>
+                <div class="card-body">
+                    <div class="card-head">
+                        <img class="card-icon sm" src="images/home/jigsaw-journey-icon.webp" alt="" width="48" height="48" loading="lazy">
+                        <div class="card-main">
+                            <h3 class="card-title sm">Jigsaw Journey</h3>
+                            <p class="card-sub">Puzzles with a map and treasure hunts.</p>
                         </div>
                     </div>
-                </div>
-                <div class="shots">
-                    <img src="images/jigsaw-1.png" alt="Jigsaw Journey screenshot" loading="lazy">
-                    <img src="images/jigsaw-2.png" alt="Jigsaw Journey screenshot" loading="lazy">
-                    <img src="images/jigsaw-3.png" alt="Jigsaw Journey screenshot" loading="lazy">
-                    <img src="images/jigsaw-4.png" alt="Jigsaw Journey screenshot" loading="lazy">
-                    <img src="images/jigsaw-5.png" alt="Jigsaw Journey screenshot" loading="lazy">
+                    <div class="card-actions">
+                        <span class="chip live"><i></i>Out now</span>
+                        <a class="pill" href="https://play.google.com/store/apps/details?id=com.Vestar.PuzzleMatch" target="_blank" rel="noopener">Google Play
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                        </a>
+                    </div>
                 </div>
             </article>
 
-            <!-- Lootara -->
-            <article class="product">
-                <div class="product-head">
-                    <div class="product-icon pending" aria-hidden="true">In<br>dev</div>
-                    <div class="product-main">
-                        <h3 class="product-title">Lootara</h3>
-                        <p class="meta">
-                            <span class="dot pending" aria-hidden="true"></span><em>In development</em>
-                        </p>
-                        <p class="product-copy">A midcore RPG with deep progression and combat that asks for decisions.</p>
+            <!-- NUMO -->
+            <article class="card s2" data-reveal style="--i:1">
+                <div class="card-art art-sm" style="background:#f4eedf">
+                    <img class="art" src="images/home/numo.webp" alt="NUMO key art: the owl mascot points at a board of coloured number tiles joined by a glowing chain" width="1100" height="733" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-head">
+                        <img class="card-icon sm" src="images/home/numo-icon.webp" alt="" width="48" height="48" loading="lazy">
+                        <div class="card-main">
+                            <h3 class="card-title sm">NUMO</h3>
+                            <p class="card-sub">Chain numbers that differ by one.</p>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <span class="chip dev"><i></i>In development</span>
                     </div>
                 </div>
-                <div class="tape"><span>On the workbench</span></div>
             </article>
 
-            <!-- Prime Suspect -->
-            <article class="product">
-                <div class="product-head">
-                    <div class="product-icon pending" aria-hidden="true">In<br>dev</div>
-                    <div class="product-main">
-                        <h3 class="product-title">Prime Suspect</h3>
-                        <p class="meta">
-                            <span class="dot pending" aria-hidden="true"></span><em>In development</em>
-                        </p>
-                        <p class="product-copy">A detective game where the clues actually matter.</p>
-                    </div>
+            <!-- Lootara (coming soon) -->
+            <article class="card s2 soon-tile soon-lootara" data-reveal style="--i:2">
+                <svg class="soon-art chest" width="150" height="132" viewBox="0 0 150 132" aria-hidden="true">
+                    <ellipse cx="75" cy="120" rx="58" ry="8" fill="#000" opacity=".35"/>
+                    <path d="M22 64 Q22 24 75 24 Q128 24 128 64 Z" fill="#7e4a24" stroke="#ffd36b" stroke-width="4" stroke-linejoin="round"/>
+                    <rect x="22" y="62" width="106" height="56" rx="8" fill="#6b3e1f" stroke="#ffd36b" stroke-width="4"/>
+                    <rect x="24" y="62" width="102" height="8" fill="#ffd36b"/>
+                    <rect x="65" y="56" width="20" height="26" rx="5" fill="#ffd36b"/>
+                    <circle cx="75" cy="68" r="3.5" fill="#6b3e1f"/>
+                    <path class="twinkle" d="M75 2C75.6 7 78 9.4 83 10C78 10.6 75.6 13 75 18C74.4 13 72 10.6 67 10C72 9.4 74.4 7 75 2Z" fill="#ffe9a8"/>
+                    <path class="twinkle t2" d="M134 30C134.4 33 136 34.6 139 35C136 35.4 134.4 37 134 40C133.6 37 132 35.4 129 35C132 34.6 133.6 33 134 30Z" fill="#ffe9a8"/>
+                    <path class="twinkle t3" d="M14 36C14.4 39 16 40.6 19 41C16 41.4 14.4 43 14 46C13.6 43 12 41.4 9 41C12 40.6 13.6 39 14 36Z" fill="#ffe9a8"/>
+                </svg>
+                <div class="soon-text">
+                    <h3 class="soon-name">LOOTARA</h3>
+                    <p class="soon-line">Five heroes. Endless dungeons.</p>
+                    <span class="chip later"><i></i>Coming soon</span>
                 </div>
-                <div class="tape"><span>On the workbench</span></div>
+            </article>
+
+            <!-- Prime Suspect (coming soon) -->
+            <article class="card ps soon-tile soon-ps" data-reveal style="--i:0">
+                <svg class="soon-art" width="176" height="138" viewBox="0 0 176 138" aria-hidden="true">
+                    <g class="sway"><g transform="rotate(-8 52 60)">
+                        <rect x="20" y="20" width="64" height="78" rx="3" fill="#e9e1d3"/>
+                        <rect x="26" y="26" width="52" height="52" fill="#2a221d"/>
+                        <circle cx="52" cy="45" r="10" fill="#5a4a3f"/>
+                        <path d="M34 78 Q52 56 70 78 Z" fill="#5a4a3f"/>
+                    </g></g>
+                    <g class="sway s2"><g transform="rotate(7 124 72)">
+                        <rect x="94" y="34" width="64" height="78" rx="3" fill="#e9e1d3"/>
+                        <rect x="100" y="40" width="52" height="52" fill="#2a221d"/>
+                        <circle cx="126" cy="59" r="10" fill="#1a1411"/>
+                        <path d="M108 92 Q126 70 144 92 Z" fill="#1a1411"/>
+                        <text x="126" y="64" text-anchor="middle" font-family="Courier Prime, monospace" font-weight="700" font-size="16" fill="#d63a2f">?</text>
+                    </g></g>
+                    <path d="M50 22 L126 37" stroke="#d63a2f" stroke-width="2.5"/>
+                    <circle cx="50" cy="22" r="5" fill="#d63a2f"/>
+                    <circle cx="126" cy="37" r="5" fill="#d63a2f"/>
+                </svg>
+                <div class="soon-text">
+                    <h3 class="soon-name">PRIME SUSPECT</h3>
+                    <p class="soon-line">The clues actually matter.</p>
+                    <span class="chip later"><i></i>Coming soon</span>
+                </div>
             </article>
 
         </div>
@@ -199,400 +271,312 @@
 
 <!-- ── Apps ── -->
 <section class="sec" id="apps">
-    <div class="container">
-        <div class="sec-head">
-            <div class="marker"><b>03</b><i></i></div>
+    <div class="wrap">
+        <div class="sec-head" data-reveal>
+            <span class="label">02 / Apps</span>
             <h2 class="sec-title">Apps</h2>
         </div>
-
-        <div class="products">
+        <div class="apps">
 
             <!-- Amber -->
-            <article class="product">
-                <div class="product-head">
-                    <img src="images/amber-icon.png" alt="Amber app icon" class="product-icon">
-                    <div class="product-main">
-                        <h3 class="product-title">Amber</h3>
-                        <p class="meta">
-                            <span class="dot live" aria-hidden="true"></span><em>Live</em>
-                            <s>&middot;</s> Android
-                            <s>&middot;</s> iOS
-                            <s>&middot;</s> web
-                            <s>&middot;</s> free
-                        </p>
-                        <p class="product-copy">Projects, tasks and notes in one black and white app. Deadline reminders that ring like alarms, and sharing by a six letter code.</p>
-                        <div class="stores">
-                            <a href="https://play.google.com/store/apps/details?id=com.vestar.amber" target="_blank" rel="noopener">
-                                <img src="images/google-play-badge.png" alt="Get Amber on Google Play">
-                            </a>
-                            <a href="https://apps.apple.com/us/app/id6787380886" target="_blank" rel="noopener">
-                                <img src="images/app-store-badge.png" alt="Download Amber on the App Store">
-                            </a>
-                            <a href="https://ambertasks.com" target="_blank" rel="noopener" class="store-web">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
-                                ambertasks.com
-                            </a>
-                        </div>
-                    </div>
+            <article class="card" data-reveal style="--i:0">
+                <div class="phones amber" aria-hidden="true">
+                    <img class="p-l" src="images/home/amber-2.webp" alt="" width="296" height="592" loading="lazy">
+                    <img class="p-c" src="images/home/amber-1.webp" alt="" width="296" height="592" loading="lazy">
+                    <img class="p-r" src="images/home/amber-3.webp" alt="" width="296" height="592" loading="lazy">
                 </div>
-                <div class="shots">
-                    <img src="images/amber-1.png" alt="Amber screenshot" loading="lazy">
-                    <img src="images/amber-2.png" alt="Amber screenshot" loading="lazy">
-                    <img src="images/amber-3.png" alt="Amber screenshot" loading="lazy">
-                    <img src="images/amber-4.png" alt="Amber screenshot" loading="lazy">
-                    <img src="images/amber-5.png" alt="Amber screenshot" loading="lazy">
+                <div class="card-body">
+                    <div class="card-head">
+                        <img class="card-icon" src="images/home/amber-icon.webp" alt="" width="56" height="56" loading="lazy" style="border:1px solid #2a2f3b">
+                        <div class="card-main">
+                            <h3 class="card-title">Amber</h3>
+                            <p class="card-sub">Tasks, projects and notes with reminders that ring like alarms.</p>
+                        </div>
+                        <span class="chip live"><i></i>Live</span>
+                    </div>
+                    <div class="card-actions">
+                        <a class="pill" href="https://play.google.com/store/apps/details?id=com.vestar.amber" target="_blank" rel="noopener">Google Play</a>
+                        <a class="pill" href="https://apps.apple.com/us/app/id6787380886" target="_blank" rel="noopener">App Store</a>
+                        <a class="pill" href="https://ambertasks.com" target="_blank" rel="noopener">ambertasks.com
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                        </a>
+                    </div>
                 </div>
             </article>
 
             <!-- Fridge Scanner -->
-            <article class="product">
-                <div class="product-head">
-                    <img src="images/fridge-icon.png" alt="Fridge Scanner app icon" class="product-icon">
-                    <div class="product-main">
-                        <h3 class="product-title">Fridge Scanner</h3>
-                        <p class="meta">
-                            <span class="dot live" aria-hidden="true"></span><em>Live</em>
-                            <s>&middot;</s> Android
-                            <s>&middot;</s> iOS
-                            <s>&middot;</s> web
-                        </p>
-                        <p class="product-copy">Point the camera at your fridge and get a recipe you can cook tonight, from over a thousand across twenty five countries.</p>
-                        <div class="stores">
-                            <a href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">
-                                <img src="images/google-play-badge.png" alt="Get Fridge Scanner on Google Play">
-                            </a>
-                            <a href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">
-                                <img src="images/app-store-badge.png" alt="Download Fridge Scanner on the App Store">
-                            </a>
-                            <a href="https://fridgescanner.app" target="_blank" rel="noopener" class="store-web">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg>
-                                fridgescanner.app
-                            </a>
+            <article class="card" data-reveal style="--i:1">
+                <div class="phones fridge" aria-hidden="true">
+                    <img class="p-l" src="images/home/fridge-2.webp" alt="" width="272" height="592" loading="lazy">
+                    <img class="p-c" src="images/home/fridge-1.webp" alt="" width="272" height="592" loading="lazy">
+                    <img class="p-r" src="images/home/fridge-3.webp" alt="" width="272" height="592" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-head">
+                        <img class="card-icon" src="images/home/fridge-icon.webp" alt="" width="56" height="56" loading="lazy">
+                        <div class="card-main">
+                            <h3 class="card-title">Fridge Scanner</h3>
+                            <p class="card-sub">Snap your fridge, get a recipe you can cook tonight.</p>
+                        </div>
+                        <span class="chip live"><i></i>Live</span>
+                    </div>
+                    <div class="card-actions">
+                        <a class="pill" href="https://play.google.com/store/apps/details?id=com.vestar.chefai" target="_blank" rel="noopener">Google Play</a>
+                        <a class="pill" href="https://apps.apple.com/us/app/fridgescanner-ai-snap-cook/id6752329417" target="_blank" rel="noopener">App Store</a>
+                        <a class="pill" href="https://fridgescanner.app" target="_blank" rel="noopener">fridgescanner.app
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── KINO Pilot ── -->
+<section class="sec kino" id="kino">
+    <div class="wrap">
+        <div class="kino-top" data-reveal>
+            <span class="label">03 / SaaS for filmmaking</span>
+            <span class="kino-aud">For filmmakers, creators and brands</span>
+        </div>
+        <div class="kino-grid">
+            <div class="kino-copy" data-reveal>
+                <h2><img class="kino-logo" src="images/home/kino-logo.svg" alt="KINO Pilot" width="1000" height="190"></h2>
+                <p class="kino-tag">From idea to motion picture.</p>
+                <p class="kino-body">Tell Pilot your film, series or ad. It writes, designs and storyboards it with you.</p>
+                <a class="btn btn-kino" href="https://kinopilot.ai" target="_blank" rel="noopener">Open KINO Pilot
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                </a>
+            </div>
+            <div class="browser" data-reveal style="--i:1">
+                <div class="browser-frame">
+                    <div class="browser-bar"><i></i><i></i><i></i><span>kinopilot.ai</span></div>
+                    <img src="images/home/kino-hero.webp" alt="A KINO Pilot project: storyboard sketches beside the finished frame of two florists on a sunset street" width="1400" height="933" loading="lazy">
+                </div>
+                <div class="float-card fc-boards hide-sm" data-parallax="0.07">
+                    <img src="images/home/kino-boards.webp" alt="" width="620" height="465" loading="lazy">
+                    <p>Storyboard</p>
+                </div>
+                <div class="float-card fc-cast hide-sm" data-parallax="0.12">
+                    <img src="images/home/kino-characters.webp" alt="" width="700" height="525" loading="lazy">
+                    <p>Characters</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="how">
+            <div class="how-copy" data-reveal>
+                <h3>Say one sentence. Pilot builds the film.</h3>
+                <div class="stages">
+                    <div class="stage"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg></span>Story</div>
+                    <div class="stage"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.4 5 2.8 5 5.8"/></svg></span>Characters</div>
+                    <div class="stage"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="1.5"/><rect x="13" y="4" width="8" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/></svg></span>Storyboards</div>
+                    <div class="stage"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></span>Video</div>
+                </div>
+            </div>
+
+            <figure class="demo listening" id="pilotDemo" aria-label="Example: a film built from one sentence" data-reveal style="--i:1">
+                <div class="demo-panel">
+                    <div class="demo-top">
+                        <span class="demo-badge">Example</span>
+                        <div class="demo-ctrl">
+                            <button class="demo-pause" type="button" aria-label="Pause the example">
+                                <svg class="i-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                                <svg class="i-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+                            </button>
+                            <button class="demo-dotbtn" type="button" aria-label="Show example 1: Second Take" aria-current="true"><span class="demo-dot"></span></button>
+                            <button class="demo-dotbtn" type="button" aria-label="Show example 2: Finn and Pip" aria-current="false"><span class="demo-dot"></span></button>
+                            <button class="demo-dotbtn" type="button" aria-label="Show example 3: Northline" aria-current="false"><span class="demo-dot"></span></button>
+                        </div>
+                    </div>
+
+                    <div class="demo-body" aria-hidden="true">
+                        <div class="say">
+                            <p class="say-bubble">
+                                <span class="wave"><span style="height:10px;animation-delay:0ms"></span><span style="height:18px;animation-delay:90ms"></span><span style="height:12px;animation-delay:180ms"></span><span style="height:20px;animation-delay:270ms"></span><span style="height:14px;animation-delay:360ms"></span><span style="height:8px;animation-delay:450ms"></span><span style="height:16px;animation-delay:540ms"></span></span>
+                                <span class="say-text"><span class="say-chars"></span><span class="caret"></span></span>
+                            </p>
+                            <span class="mic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></span>
+                        </div>
+
+                        <div class="reply">
+                            <span class="orb"></span>
+                            <p class="reply-bubble"><span class="reply-text"></span><span class="dots"><span></span><span></span><span></span></span></p>
+                        </div>
+
+                        <div class="tiles">
+                            <div class="dtile">
+                                <div class="dtile-head"><span class="dtile-title">Story</span>
+                                    <span class="dtile-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+                                    <span class="dtile-work"><span class="pulse"></span>Writing</span>
+                                </div>
+                                <div class="dtile-body">
+                                    <div class="dtile-done"><p class="story"></p></div>
+                                    <div class="dtile-shimmer"><div class="sh a"></div><div class="sh b"></div><div class="sh c"></div></div>
+                                </div>
+                            </div>
+                            <div class="dtile">
+                                <div class="dtile-head"><span class="dtile-title">Characters</span>
+                                    <span class="dtile-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+                                    <span class="dtile-work"><span class="pulse"></span>Designing</span>
+                                </div>
+                                <div class="dtile-body">
+                                    <div class="dtile-done"><div class="cast"></div></div>
+                                    <div class="dtile-shimmer"><div class="sh a"></div><div class="sh b"></div><div class="sh c"></div></div>
+                                </div>
+                            </div>
+                            <div class="dtile">
+                                <div class="dtile-head"><span class="dtile-title">Storyboards</span>
+                                    <span class="dtile-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+                                    <span class="dtile-work"><span class="pulse"></span>Drawing</span>
+                                </div>
+                                <div class="dtile-body">
+                                    <div class="dtile-done"><div class="dtile-img"><img class="boards-img" src="images/home/kino-boards.webp" alt="" loading="lazy"></div></div>
+                                    <div class="dtile-shimmer"><div class="sh a"></div><div class="sh b"></div><div class="sh c"></div></div>
+                                </div>
+                            </div>
+                            <div class="dtile">
+                                <div class="dtile-head"><span class="dtile-title">Video</span>
+                                    <span class="dtile-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span>
+                                    <span class="dtile-work"><span class="pulse"></span>Generating</span>
+                                </div>
+                                <div class="dtile-body">
+                                    <div class="dtile-done"><div class="dtile-img"><img class="still-img" src="images/home/kd-second-take.webp" alt="" loading="lazy"><span class="play"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span></span></div></div>
+                                    <div class="dtile-shimmer"><div class="sh a"></div><div class="sh b"></div><div class="sh c"></div></div>
+                                </div>
+                            </div>
+
+                            <div class="film">
+                                <div class="film-kb"><img class="film-img" src="images/home/kd-second-take.webp" alt="" loading="lazy"></div>
+                                <div class="film-shade"></div>
+                                <div class="film-info">
+                                    <p class="film-kind"></p>
+                                    <p class="film-title"></p>
+                                    <div class="film-progress"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg><div class="film-track"><div class="film-bar"></div></div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="shots">
-                    <img src="images/fridge-1.png" alt="Fridge Scanner screenshot" loading="lazy">
-                    <img src="images/fridge-2.png" alt="Fridge Scanner screenshot" loading="lazy">
-                    <img src="images/fridge-3.png" alt="Fridge Scanner screenshot" loading="lazy">
-                    <img src="images/fridge-4.png" alt="Fridge Scanner screenshot" loading="lazy">
-                    <img src="images/fridge-5.png" alt="Fridge Scanner screenshot" loading="lazy">
-                </div>
-            </article>
-
-            <!-- KvikDrop -->
-            <article class="product">
-                <div class="product-head">
-                    <div class="product-icon pending" aria-hidden="true">In<br>dev</div>
-                    <div class="product-main">
-                        <h3 class="product-title">KvikDrop</h3>
-                        <p class="meta">
-                            <span class="dot pending" aria-hidden="true"></span><em>In development</em>
-                        </p>
-                        <p class="product-copy">File and photo sharing between devices. No account, no cable, no cloud.</p>
-                    </div>
-                </div>
-                <div class="tape"><span>On the workbench</span></div>
-            </article>
-
+                <figcaption class="sr-only demo-caption"></figcaption>
+            </figure>
         </div>
     </div>
 </section>
 
-<!-- ── Websites ── -->
-<section class="sec sec-band" id="websites">
-    <div class="container">
-        <div class="sec-head">
-            <div class="marker"><b>04</b><i></i></div>
-            <h2 class="sec-title">Websites</h2>
+<!-- ── Studio ── -->
+<section class="sec" id="studio">
+    <div class="wrap studio">
+        <div class="studio-photo" data-reveal>
+            <img src="images/home/studio-budapest.webp" alt="Developers at work in a bright Budapest apartment office with tall windows and game art on the monitors" width="1536" height="1024" loading="lazy" data-parallax="0.06">
+            <span class="studio-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Budapest
+            </span>
         </div>
-
-        <div class="sites">
-            <a class="site" href="https://dorskypromotions.com/" target="_blank" rel="noopener">
-                <div class="site-shot">
-                    <img src="images/site-dorsky.jpg" alt="Dorsky Promotions website" loading="lazy">
+        <div class="studio-copy">
+            <span class="label" data-reveal>04 / Studio</span>
+            <h2 class="sec-title" data-reveal style="--i:1">An AI-assisted studio.</h2>
+            <p class="studio-line" data-reveal style="--i:2">We build with the newest AI workflows, and we help other studios bring them into their games and apps.</p>
+            <div class="icons4">
+                <div class="icon-tile" data-reveal style="--i:2">
+                    <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h4"/><path d="M8 9v4"/><circle cx="15.5" cy="12" r=".8" fill="currentColor"/><circle cx="17.5" cy="10" r=".8" fill="currentColor"/><path d="M17.3 5H6.7a4 4 0 0 0-3.9 3.2l-1.1 5.6A3 3 0 0 0 4.6 17.3c.9 0 1.7-.4 2.3-1.1L8.5 14h7l1.6 2.2c.6.7 1.4 1.1 2.3 1.1a3 3 0 0 0 2.9-3.5l-1.1-5.6A4 4 0 0 0 17.3 5z"/></svg></span>
+                    <h3>Games</h3>
+                    <p>Prototype to live ops.</p>
                 </div>
-                <div class="site-body">
-                    <span>
-                        <span class="site-name">Dorsky Promotions</span>
-                        <span class="site-kind">Everything wombat</span>
-                    </span>
-                    <span class="site-domain">dorskypromotions.com</span>
+                <div class="icon-tile" data-reveal style="--i:3">
+                    <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+                    <h3>Apps and SaaS</h3>
+                    <p>Mobile, web and AI products.</p>
                 </div>
-            </a>
-            <a class="site" href="https://ambertasks.com/" target="_blank" rel="noopener">
-                <div class="site-shot">
-                    <img src="images/site-ambertasks.jpg" alt="Amber website" loading="lazy">
+                <div class="icon-tile" data-reveal style="--i:4">
+                    <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.6 4 2.9 6.3 7 7-4.1.7-6.4 3-7 7-.6-4-2.9-6.3-7-7 4.1-.7 6.4-3 7-7z"/><path d="M19 15c.3 1.7 1.2 2.6 3 3-1.8.4-2.7 1.3-3 3-.3-1.7-1.2-2.6-3-3 1.8-.4 2.7-1.3 3-3z"/></svg></span>
+                    <h3>AI production</h3>
+                    <p>Art, code and content pipelines.</p>
                 </div>
-                <div class="site-body">
-                    <span>
-                        <span class="site-name">Amber</span>
-                        <span class="site-kind">Task manager</span>
-                    </span>
-                    <span class="site-domain">ambertasks.com</span>
-                </div>
-            </a>
-            <a class="site" href="https://fridgescanner.app/" target="_blank" rel="noopener">
-                <div class="site-shot">
-                    <img src="images/site-fridgescanner.jpg" alt="Fridge Scanner website" loading="lazy">
-                </div>
-                <div class="site-body">
-                    <span>
-                        <span class="site-name">Fridge Scanner</span>
-                        <span class="site-kind">Recipe finder</span>
-                    </span>
-                    <span class="site-domain">fridgescanner.app</span>
-                </div>
-            </a>
-            <a class="site" href="https://kvikdrop.com/" target="_blank" rel="noopener">
-                <div class="site-shot">
-                    <img src="images/site-kvikdrop.jpg" alt="KvikDrop website" loading="lazy">
-                </div>
-                <div class="site-body">
-                    <span>
-                        <span class="site-name">KvikDrop</span>
-                        <span class="site-kind">File sharing</span>
-                    </span>
-                    <span class="site-domain">kvikdrop.com</span>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ── Services ── -->
-<section class="sec" id="services">
-    <div class="container">
-        <div class="sec-head">
-            <div class="marker"><b>05</b><i></i></div>
-            <h2 class="sec-title">Services</h2>
-        </div>
-
-        <div class="svc">
-            <div class="svc-row" style="--svc:var(--orange)">
-                <div class="svc-n">01</div>
-                <div>
-                    <h3>Game development</h3>
-                    <p>Concept to launch, then the live ops after it. The economy is modelled before the gameplay code and the live calendar is ready on day one.</p>
-                    <p class="svc-what">Unity, game design, economy and balancing, live ops, monetisation</p>
+                <div class="icon-tile" data-reveal style="--i:5">
+                    <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7V3"/><path d="M15 7V3"/><path d="M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></svg></span>
+                    <h3>AI for your studio</h3>
+                    <p>We plug AI into your team.</p>
                 </div>
             </div>
-
-            <div class="svc-row" style="--svc:var(--terra)">
-                <div class="svc-n">02</div>
-                <div>
-                    <h3>App development</h3>
-                    <p>Flutter for both platforms, small releases often, onboarding treated as the feature it actually is.</p>
-                    <p class="svc-what">Flutter, UX design, AI integration, App Store and Google Play releases</p>
-                </div>
-            </div>
-
-            <div class="svc-row" style="--svc:var(--sage)">
-                <div class="svc-n">03</div>
-                <div>
-                    <h3>Consulting</h3>
-                    <p>Design reviews, economy audits, live ops planning, and the awkward conversations about scope.</p>
-                    <p class="svc-what">Game design review, product strategy, economy audits, team scaling, web3</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── Portfolio ── -->
-<section class="sec sec-compact sec-band" id="portfolio">
-    <div class="container">
-        <div class="pf-cta">
-            <div class="pf-cta-text">
-                <div class="marker"><b>06</b><i></i></div>
-                <h2>Full portfolio</h2>
-                <p>Every game and app we have shipped, together with the titles our team shipped before Vestar.</p>
-            </div>
-            <a href="portfolio/" class="btn btn-primary">See the full portfolio</a>
         </div>
     </div>
 </section>
 
 <!-- ── Contact ── -->
-<section class="sec" id="contact">
-    <div class="container">
-        <div class="sec-head">
-            <div class="marker"><b>07</b><i></i></div>
-            <h2 class="sec-title">Contact</h2>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-side">
-                <h3>No sales call required</h3>
-                <p>Tell us what you are building. If we are the wrong studio for it, we will say so.</p>
-                <a href="https://www.linkedin.com/in/karolymolnar0" target="_blank" rel="noopener" class="li-btn">
-                    <img src="images/linkedin.webp" alt="">
-                    Connect on LinkedIn
+<section class="contact" id="contact">
+    <div class="wrap">
+        <div class="contact-panel" data-reveal>
+            <div class="contact-copy">
+                <span class="label">05 / Contact</span>
+                <h2>Say hello.</h2>
+                <p class="contact-line">Partnerships, publishing, or AI workflows for your studio.</p>
+                <a class="pill" href="https://www.linkedin.com/in/karolymolnar0" target="_blank" rel="noopener">Connect on LinkedIn
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
                 </a>
             </div>
-            <div class="form-box">
-                <form action="https://formspree.io/f/myzdqbpn" method="POST">
-                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    <div class="fg">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" autocomplete="name" required>
-                    </div>
-                    <div class="fg">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" autocomplete="email" required>
-                    </div>
-                    <div class="fg">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="fg">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Send it</button>
-                </form>
-            </div>
+            <form class="form" id="contactForm" action="https://formspree.io/f/myzdqbpn" method="POST">
+                <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input type="hidden" name="_subject" value="vestar.digital contact form">
+                <div class="form-row">
+                    <div class="fg"><label for="cname">Name</label><input class="field" id="cname" name="name" type="text" autocomplete="name" required></div>
+                    <div class="fg"><label for="cemail">Email</label><input class="field" id="cemail" name="email" type="email" autocomplete="email" required></div>
+                </div>
+                <div class="fg"><label for="cmsg">Message</label><textarea class="field" id="cmsg" name="message" rows="5" required></textarea></div>
+                <button class="btn btn-dark" type="submit">Send message
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+                </button>
+                <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+            </form>
         </div>
     </div>
 </section>
 
+</main>
 
 <!-- ── Footer ── -->
-<footer>
-    <div class="container">
-        <div class="foot-inner">
-            <img src="images/vestar-ink.png" alt="Vestar Digital" class="foot-logo">
-            <span class="foot-copy">&copy; 2026 Vestar Digital. All rights reserved.</span>
-            <div class="foot-links">
+<footer class="footer">
+    <div class="wrap">
+        <div class="foot">
+            <div class="foot-brand">
+                <img src="images/home/vestar-logo-white.png" alt="Vestar Digital" width="73" height="30" loading="lazy">
+                <p>AI-assisted game and app studio. Makers of KINO Pilot.</p>
+            </div>
+            <div class="foot-col">
+                <h3>Games</h3>
+                <a href="#games">Bonk Knight</a>
+                <a href="#games">Hack &amp; Snack</a>
+                <a href="#games">Jigsaw Journey</a>
+                <a href="#games">NUMO</a>
+            </div>
+            <div class="foot-col">
+                <h3>Products</h3>
+                <a href="#apps">Amber</a>
+                <a href="#apps">Fridge Scanner</a>
+                <a href="https://kinopilot.ai" target="_blank" rel="noopener">KINO Pilot</a>
+            </div>
+            <div class="foot-col">
+                <h3>Studio</h3>
+                <a href="#studio">About</a>
                 <a href="portfolio/">Portfolio</a>
-                <a href="data-deletion.html">Data deletion</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="foot-col">
+                <h3>Legal</h3>
                 <a href="privacy-policy.html">Privacy policy</a>
                 <a href="terms-of-service.html">Terms of service</a>
+                <a href="data-deletion.html">Data deletion</a>
             </div>
+        </div>
+        <div class="foot-bottom">
+            <span>&copy; 2026 Vestar Digital. All rights reserved.</span>
+            <span>vestar.digital</span>
         </div>
     </div>
 </footer>
 
-
-<script>
-    /* The data deletion form used to live on this page. Anything already
-       published pointing at the old anchor (store listings, the privacy
-       policy) still lands in the right place. */
-    (function () {
-        var h = location.hash;
-        if (h === '#gdpr-deletion' || h === '#data-deletion') {
-            location.replace('/data-deletion.html');
-        }
-    })();
-</script>
-
-<script>
-    /* Mobile nav */
-    const toggle = document.getElementById('navToggle');
-    const links  = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-        const open = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-    }));
-
-    /* Scroll reveal. Short and quiet: 14px, half a second, once. */
-    const targets = document.querySelectorAll('.ledger, .about-grid > *, .product, .site, .svc-row, .pf-cta, .form-box, .contact-side, .sec-head');
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        targets.forEach(el => el.classList.add('visible'));
-    } else {
-        targets.forEach(el => el.classList.add('reveal'));
-        document.querySelectorAll('.svc, .products, .sites').forEach(parent => {
-            parent.querySelectorAll(':scope > .reveal').forEach((child, i) => {
-                child.style.transitionDelay = Math.min(i, 4) * 0.06 + 's';
-            });
-        });
-        let fired = false;
-        const io = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (!e.isIntersecting) return;
-                fired = true;
-                e.target.classList.add('visible');
-                io.unobserve(e.target);
-            });
-        }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-        targets.forEach(el => io.observe(el));
-
-        /* Anything already at or above the fold is shown outright. This makes
-           deep links such as /#services deterministic: the observer may not
-           report for a viewport the page jumped straight to. */
-        const revealInView = () => targets.forEach(el => {
-            if (el.getBoundingClientRect().top < innerHeight) {
-                el.classList.add('visible');
-                io.unobserve(el);
-            }
-        });
-        addEventListener('load', revealInView);
-        addEventListener('hashchange', () => setTimeout(revealInView, 60));
-        revealInView();
-
-        /* Safety net: if the observer never reports (page loaded in a
-           background tab that is never composited), show everything rather
-           than leaving the content stuck at opacity 0. */
-        setTimeout(() => {
-            if (!fired) targets.forEach(el => el.classList.add('visible'));
-        }, 1500);
-    }
-
-    /* ── Nav floats over the hero gradient, solidifies once you scroll ── */
-    const floatNav = document.querySelector('.nav-float');
-    if (floatNav) {
-        const onScroll = () => floatNav.classList.toggle('scrolled', scrollY > 24);
-        onScroll();
-        addEventListener('scroll', onScroll, { passive: true });
-    }
-
-    /* ── Drag the screenshot rails with the mouse ── */
-    document.querySelectorAll('.shots').forEach(rail => {
-        let down = false, moved = 0, startX = 0, startScroll = 0;
-        rail.addEventListener('pointerdown', e => {
-            if (e.pointerType === 'touch') return;   // native touch scroll is fine
-            down = true; moved = 0;
-            startX = e.clientX; startScroll = rail.scrollLeft;
-            rail.setPointerCapture(e.pointerId);
-        });
-        rail.addEventListener('pointermove', e => {
-            if (!down) return;
-            const dx = e.clientX - startX;
-            if (Math.abs(dx) > 3) rail.classList.add('dragging');
-            moved = Math.max(moved, Math.abs(dx));
-            rail.scrollLeft = startScroll - dx;
-        });
-        const stop = e => {
-            if (!down) return;
-            down = false;
-            rail.classList.remove('dragging');
-            if (rail.hasPointerCapture?.(e.pointerId)) rail.releasePointerCapture(e.pointerId);
-        };
-        rail.addEventListener('pointerup', stop);
-        rail.addEventListener('pointercancel', stop);
-        /* Swallow the click that follows a real drag. */
-        rail.addEventListener('click', e => { if (moved > 4) { e.preventDefault(); e.stopPropagation(); } }, true);
-    });
-
-    /* ── Mark the nav link for the section you are looking at ── */
-    const navMap = new Map();
-    document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
-        const el = document.querySelector(a.getAttribute('href'));
-        if (el) navMap.set(el, a);
-    });
-    if (navMap.size) {
-        const spy = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                const link = navMap.get(e.target);
-                if (!link) return;
-                link.classList.toggle('active', e.isIntersecting);
-            });
-        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-        navMap.forEach((_, el) => spy.observe(el));
-    }
-</script>
+<script src="js/home.js"></script>
 </body>
 </html>
